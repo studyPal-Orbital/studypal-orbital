@@ -206,23 +206,23 @@ form {
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
-  }
+}
 
-  .landing-page-button a {
-      color: white;
-      text-decoration: none;
-  }
+.landing-page-button a {
+    color: white;
+    text-decoration: none;
+}
   
-  .landing-page-button:hover {
+.landing-page-button:hover {
     background-color: #105a87;
     transition: background-color 0.5s;
-  }
+}
   
-  .landing-page-button:active {
+.landing-page-button:active {
     background-color: #105a87;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
-  }
+}
 
 /* Login */
 .signup,
@@ -283,6 +283,24 @@ form.login > div > button {
     border: none;
     color: white;
     font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 0 5px #999;
+}
+
+
+form.signup > div > button:hover,
+form.login > div > button:hover {
+    background-color: #403e3e;
+    transition: background-color 0.5s;
+}
+
+form.signup > div > button:active,
+form.login > div > button:active {
+    background-color: #403e3e;
+    box-shadow: 0 3px #666;
+    transform: translateY(4px);
 }
 
 /* Header */
