@@ -3,41 +3,41 @@ import { Link, NavLink } from 'react-router-dom'
 function Header () {
     return (
         <nav className="nav-bar">
-            <p>
+            <h3>
                 <NavLink 
                 className="nav-link"
                 to='/home'>Home</NavLink>
-            </p>
-            <p>
+            </h3>
+            <h3>
                 <NavLink 
                 className="nav-link"
                 to='/todolist'>To-do List</NavLink>
-            </p>
-            <p>
+            </h3>
+            <h3>
                 <NavLink 
                 className="nav-link"
                 to='/calendar'>Calender</NavLink>
-            </p>
-            <p>
+            </h3>
+            <h3>
                 <NavLink 
                 className="nav-link"
                 to='/timer'>Timer</NavLink>
-            </p>
-            <p>
+            </h3>
+            <h3>
                 <NavLink 
                 className="nav-link"
                 to='/analytics'>Analytics</NavLink>
-            </p>
-            <p>
+            </h3>
+            <h3>
                 <NavLink 
                 className="nav-link"
                 to='/achievements'>Achievements</NavLink>
-            </p>
-            <p>
+            </h3>
+            <h3>
                 <NavLink 
                 className="nav-link"
                 to='/about'>About</NavLink>
-            </p>
+            </h3>
         </nav>
     )
 }

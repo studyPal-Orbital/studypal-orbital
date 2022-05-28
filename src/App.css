@@ -2,22 +2,6 @@
     width:auto;
     height:auto;
 }
-  
-.nav-bar {
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: 0%;
-    margin-bottom: 0%;
-    width: 100%;
-    height: 10%;
-    background-color: salmon;
-    color: white;
-    font-weight: bold;
-}
     
 .home-page-container {
     display: flex;
@@ -200,12 +184,45 @@ form {
 .landing-page-button-container {
     display:flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
+/*
 .landing-page-button {
     font-size: 18px;
     margin-left:5%;
 }
+*/
+
+.landing-page-button {
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 20px 50px;
+    padding: 10px 15px;
+    background-color: #2ba4c2;
+    cursor: pointer;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
+
+  .landing-page-button a {
+      color: white;
+      text-decoration: none;
+  }
+  
+  .landing-page-button:hover {
+    background-color: #105a87;
+    transition: background-color 0.5s;
+  }
+  
+  .landing-page-button:active {
+    background-color: #105a87;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
 
 /* Login */
 .signup,
@@ -269,8 +286,26 @@ form.login > div > button {
 }
 
 /* Header */
-.nav-link {
+.nav-bar {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    width: 100%;
+    height: 10%;
+    background-color: salmon;
     color: white;
+    font-weight: bold;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
 }
 
 .nav-link.active {
