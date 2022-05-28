@@ -1,7 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { UserAuth } from '../context/AuthContext'
-import Header from './Header';
-import Footer from './Footer';
 import homepageBackground from "./img/homepage-bg.jpg";
 
 const Home = () => {
@@ -21,13 +19,11 @@ const Home = () => {
 
     return (
          <div className="home-page-container">
-             <Header/>
             <h1>studyPal</h1>
-            <p>A productivity application to help you plan out your busy days!</p>
+            <p><i>A productivity application to help you plan out your busy days!</i></p>
             <p class='home-emailacc'>Account : { user.email }</p>
             <button class = 'home-signout' onClick={handleLogout}>Sign out</button>
             <img src={homepageBackground} className="home-page-background"/>
-            <Footer/>
         </div>
     )
 }

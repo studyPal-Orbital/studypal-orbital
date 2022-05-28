@@ -1,7 +1,7 @@
 function Footer () {
     return (
         <div class="footer">
-            <p>Orbital 2022</p>
+            <p>&copy; 2022 studyPal</p>
         </div>
     );
 };

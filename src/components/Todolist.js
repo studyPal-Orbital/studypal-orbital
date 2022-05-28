@@ -18,7 +18,6 @@ function Todolist () {
     return (
         <>
         <div class="container">
-            <Header />
 
             <h1 class="title">To-do List</h1>
             <form>
@@ -30,8 +29,6 @@ function Todolist () {
         <div className="cards">
             {userTasks}
         </div>
-
-        <Footer />
         
         </>
     );

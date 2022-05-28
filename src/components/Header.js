@@ -1,28 +1,42 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 function Header () {
     return (
         <nav className="nav-bar">
             <p>
-                <Link to='/home'>Home</Link>
+                <NavLink 
+                className="nav-link"
+                to='/home'>Home</NavLink>
             </p>
             <p>
-                <Link to='/todolist'>To-do List</Link>
+                <NavLink 
+                className="nav-link"
+                to='/todolist'>To-do List</NavLink>
             </p>
             <p>
-                <Link to='/calendar'>Calender</Link>
+                <NavLink 
+                className="nav-link"
+                to='/calendar'>Calender</NavLink>
             </p>
             <p>
-                <Link to='/timer'>Timer</Link>
+                <NavLink 
+                className="nav-link"
+                to='/timer'>Timer</NavLink>
             </p>
             <p>
-                <Link to='/analytics'>Analytics</Link>
+                <NavLink 
+                className="nav-link"
+                to='/analytics'>Analytics</NavLink>
             </p>
             <p>
-                <Link to='/achievements'>Achievements</Link>
+                <NavLink 
+                className="nav-link"
+                to='/achievements'>Achievements</NavLink>
             </p>
             <p>
-                <Link to='/about'>About</Link>
+                <NavLink 
+                className="nav-link"
+                to='/about'>About</NavLink>
             </p>
         </nav>
     )

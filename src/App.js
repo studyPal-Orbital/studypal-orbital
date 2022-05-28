@@ -3,6 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 import { AuthContextProvider } from './context/AuthContext';
 
 import './index.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import Login from './components/Login.jsx'
 import Signup from './components/Signup.jsx'
 import Home from './components/Home.jsx'
@@ -18,6 +20,9 @@ function App() {
 
   return (
     <div className="App">
+      {/* Header appears in every page */}
+      <Header/>
+
       <header className="App-header">
         <AuthContextProvider>
           <Routes>
@@ -35,6 +40,9 @@ function App() {
         </AuthContextProvider>
 
       </header>
+
+      {/* Footer appears in every page */}
+      <Footer />
     </div>
   );
 }

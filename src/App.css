@@ -5,17 +5,17 @@
   
 .nav-bar {
     list-style-type: none;
-    display:flex;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
     margin-top: 0%;
     margin-bottom: 0%;
-    width:100%;
+    width: 100%;
     height: 10%;
     background-color: salmon;
-    color:white;
+    color: white;
     font-weight: bold;
 }
     
@@ -266,6 +266,19 @@ form.login > div > button {
     border: none;
     color: white;
     font-weight: bold;
+}
+
+/* Header */
+.nav-link {
+    color: white;
+}
+
+.nav-link.active {
+    color: black;
+}
+
+.nav-link:hover {
+    color: black;
 }
 
 /* Home */
