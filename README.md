@@ -1,3 +1,35 @@
+# studyPal
+
+### studyPal web application for Orbital 2022
+
+### Level of Achievement: Apollo
+
+# Project Scope
+
+_A solution to procrastination and burnouts to boost productivity and time management._
+
+This project is inspired by our struggles with time management and managing stress during the school term in the National University of Singapore. Through this application, we aim to help students like us manage their workload by promoting productivity while maintaining mental well-being with its gamified user experience.
+
+### __Find out more about our project [here](https://docs.google.com/document/d/17vCUoQpMyG5PncKqHtkr-u3qi_4XMx3SRoJ6RG7yrkE/edit?usp=sharing).__
+
+<hr>
+
+# Instructions for Use
+
+- We will deploy our web application at a later stage as we progress on our project.
+- Alternatively, run `npm start` in the terminal to run the project locally.
+    - More information can be found under the section "Getting Started with Create React App" below.
+
+# Packages
+
+### Packages installed
+- React Router
+    - `npm install react-router-dom@6`
+- Firebase
+    - `npm install firebase`
+
+<hr>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
