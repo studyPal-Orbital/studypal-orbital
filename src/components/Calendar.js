@@ -6,7 +6,7 @@ function Calendar () {
         <div class='calendar'>
             <h1 class="title">Calendar</h1>
             <div className='calendar-img-container'>
-                <img src={calendar} className="calendar-image"/>
+                <img src={calendar} className="calendar-image" alt="Calendar placeholder"/>
             </div>
         </div> 
     )

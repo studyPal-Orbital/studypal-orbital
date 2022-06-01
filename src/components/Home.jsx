@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { UserAuth } from '../context/AuthContext'
 import homepageBackground from "./img/homepage-bg.jpg";
 
@@ -23,7 +23,7 @@ const Home = () => {
             <p><i>A productivity application to help you plan out your busy days!</i></p>
             <p class='home-emailacc'>Account : { user.email }</p>
             <button class = 'home-signout' onClick={handleLogout}>Sign out</button>
-            <img src={homepageBackground} className="home-page-background"/>
+            <img src={homepageBackground} className="home-page-background" alt="Stationary"/>
         </div>
     )
 }
