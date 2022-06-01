@@ -24,10 +24,17 @@ This project is inspired by our struggles with time management and managing stre
 # Packages
 
 ### Packages installed
+
 - React Router
-    - `npm install react-router-dom@6`
+    - `npm install react-router-dom@6`  
+
 - Firebase
-    - `npm install firebase`
+    - `npm install firebase`  
+
+- FontAwesome
+    - `npm i --save @fortawesome/fontawesome-svg-core`
+    - `npm install --save @fortawesome/free-solid-svg-icons`
+    - `npm install --save @fortawesome/react-fontawesome`
 
 <hr>
 
