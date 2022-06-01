@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "../App.css";
+import Popup from "./Popup";
 
 function Countdown() {
 
     const [ timerRunning, setTimerRunning ] = useState(false); // Is the timer running?
     const [ startTime, setStartTime ] = useState(0); // Start time (in milliseconds).
     const [ totalTime, setTotalTime ] = useState(0); // Total time (in ms) the timer will run.
+
+    // Pop-up page after countdown has stopped.
+    const [countdownEnd, setCountdownEnd] = useState(false);
 
     // Whenever timerRunning or totalTime changes, useEffect is called.
     useEffect(() => {
@@ -24,7 +28,8 @@ function Countdown() {
                     setTimerRunning(false);
                     setStartTime(0);
                     setTotalTime(0);
-                    alert("Congratulations! You have successfully completed your study session!");
+                    setCountdownEnd(true);
+                    // alert("Congratulations! You have successfully completed your study session!");
                 }
             }, 1000);
         }
@@ -91,6 +96,8 @@ function Countdown() {
     let hours = ("0" + Math.floor((totalTime / 3600000) % 60)).slice(-2);
 
     return (
+        <>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" crossorigin="anonymous"></link>
         <div className="countdown">
             <div className="countdown-title">Countdown</div>
             <div className="countdown-labels">Hours : Minutes : Seconds</div>
@@ -143,6 +150,13 @@ function Countdown() {
                 )}
             </div>
         </div>
+
+        <Popup trigger={countdownEnd} setTrigger={setCountdownEnd}>
+            <h1>Congratulations!<i class="fa-solid fa-trophy fa-bounce fa-2x"></i></h1>
+            <h2>You have successfully completed your study session!</h2>
+        </Popup>
+
+        </>
     );
     
 }
