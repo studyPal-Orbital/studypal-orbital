@@ -398,19 +398,142 @@ p.home-emailacc {
     margin-bottom: 5%;
 }
 
-/* Timer */ 
-.timer-img-container {
-    height: 100%;
-    width: 100%;  
+/* Timer */
+.timer-countdown {
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+    padding-bottom: 10%;
+}
+  
+.countdown {
+    border: 3px solid #2ba4c2;
+    border-radius: 10px;
+    padding: 2%;
+    width: 30%;
+    background-color: #faf5e3;
+    box-shadow: 0 3px 6px #105a87;
+}
+  
+.countdown-title {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 2%;
 }
 
-.timer > div > img {
-    margin-left: 5%;
-    margin-bottom: 1%;
-    height:500px;
-    width:400px;
+.countdown-labels {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+  
+.countdown-buttons {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+  
+.countdown-setTime {
+    margin: 0 15px;
+    border: solid 1px transparent;
+    border-radius: 4px;
+    padding: 4px 16px;
+    color: white;
+    font-size: 20px;
+    background-color: #243642;
+    cursor: pointer;
+}
+  
+.countdown-setTime:hover {
+    background-color: #105a87;
 }
 
+.countdown-timeDisplay {
+    font-size: 50px;
+    margin: 2%;
+}
+
+.button-wrapper {
+    text-align: center;
+}
+
+.countdown-start,
+.countdown-stop,
+.countdown-reset {
+    background-color: #243642;
+    border: solid 1px transparent;
+    border-radius: 4px;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.countdown-start:hover,
+.countdown-stop:hover,
+.countdown-reset:hover {
+    background-color: #105a87;
+}
+
+/* Pop-up page for Timer */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(102, 102, 102, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.popup-inner {
+    position: relative;
+    padding: 50px;
+    width: 100%;
+    max-width: 640px;
+    background-color: white;
+}
+  
+.popup-inner .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    font-size: 1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 10px 0;
+    padding: 10px 15px;
+    color: white;
+    background-color: #2ba4c2;
+    cursor: pointer;
+    border: none;
+    border-radius: 15px;
+    border-radius: 15px;
+    box-shadow: 0 5px #999;
+}
+
+.popup-inner .close-btn:hover {
+    background-color: #105a87;
+    transition: background-color 0.5s;
+}
+
+.popup-inner .close-btn:active {
+    background-color: #105a87;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+/* Countdown end icon for Timer */
+.fa-trophy {
+    color: #f7a202;
+}
 
 /* Achievements */
 .achievements-img-container {

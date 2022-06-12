@@ -4,7 +4,7 @@ function Card (props) {
     return (
         <form className="card">
             <div class="card-topbar">
-                <img src={todolist} className="img-todo"/>
+                <img src={todolist} className="img-todo" alt="Notebook with to-do list"/>
                 <button class="edit-todo">Edit</button>
                 <button class="delete-todo">Delete</button>
             </div>

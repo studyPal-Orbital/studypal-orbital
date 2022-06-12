@@ -5,7 +5,7 @@ function Analytics () {
         <div class='analytics'>
             <h1 class="title">Analytics</h1>
             <div className='analytics-img-container'>
-                <img src={analytics} className="analytics-image"/>
+                <img src={analytics} className="analytics-image" alt="Analytics placeholder"/>
             </div>
         </div> 
     )

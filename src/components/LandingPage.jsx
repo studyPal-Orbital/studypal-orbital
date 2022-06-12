@@ -11,7 +11,7 @@ function LandingPage() {
                     <p class="landing-page-button"><Link to='/login'>Log in</Link></p>
                     <p class="landing-page-button"><Link to='/signup'>Sign up</Link></p>
                 </div>
-                <img src={homepageBackground} className="home-page-background"/>
+                <img src={homepageBackground} className="home-page-background"alt="Stationary"/>
             </div>
         </div>
     )
