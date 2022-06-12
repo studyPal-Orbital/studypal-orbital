@@ -3,7 +3,6 @@ import Card from './Card.js';
 import UserTasks from './UserTasks.js';
 
 function Todolist () {
-
     // To-do list Cards
     const userTasks = UserTasks.map(item => {
         return <Card
@@ -20,7 +19,7 @@ function Todolist () {
             <h1 class="title">To-do List</h1>
             <form>
                 <input className="todoinput"></input>
-                <button className="todobutton">Add Task</button>
+                <button className="todobutton">Add New Task</button>
             </form>
         </div>
 
