@@ -16,6 +16,7 @@ import Timer from './components/Timer.js'
 import Achievements from './components/Achievements.js'
 import About from './components/About.js'
 
+
 function App() {
 
   return (
@@ -50,27 +51,3 @@ function App() {
 export default App;
 
 
-/* 
-import Header from './components/Header.js';
-import Home from './components/Home.js';
-import Footer from './components/Footer.js';
-import Todolist from './components/Todolist.js';
-
-import LandingPage from './components/LandingPage.jsx';
-import Account from './components/Account.jsx';
-
-
-import './App.css';
-
-function App() {
-
-    return (
-        <div class="container">
-            <Account />
-        </div>
-    );
-};
-
-export default App;
-
-*/
