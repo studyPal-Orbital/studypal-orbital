@@ -49,7 +49,7 @@ const Todoitem = (props) => {
             Delete
           </button>
           <button className="Edit" onClick={() => handleEdit(props.id, input)}>
-            Edit
+            Save Edit
           </button>
         </div>
     </div>

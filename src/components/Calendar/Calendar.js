@@ -13,8 +13,14 @@ import {
     deleteDoc,
   } from "firebase/firestore"
 // Add a new document in collection "cities"
+const Calendar = () => {
+    return (
+        <p>Hi</p>
+    )
+}
 
-
+export default Calendar
+/*
 const Calendar = () => {
     const [tasks, setTasks] = useState([])
     
@@ -55,5 +61,5 @@ const Calendar = () => {
 
 export default Calendar;
 
-
+*/
 

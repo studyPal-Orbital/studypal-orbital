@@ -4,32 +4,34 @@ import { db } from "../../firebase"
 import { collection, addDoc } from "firebase/firestore"
 
 const AddTodo = () => {
-    const [title, setTitle] = useState("");
+    const [task, setTask] = useState("")
 
-    const handleSubmit = async(e) => {
-        e.preventDefault()
-        if(title !== "") {
+    const handleUserInput = (e) => {
+        setTask(() => e.target.value)
+    }
+
+    const addNewTask = async (e) => {
+        if (task != "") {
             await addDoc(collection(db, "todos"), {
-                title,
-                completed:false,
+                task,
+                completed:false
             })
-            setTitle("")
+            setTask(() => "")
         }
     }
+
     return (
-        <form onSubmit={handleSubmit}>
-            <div className="input_container">
-                <input
-                    type="text"
-                    placeholder="Enter todo"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                />
-            </div>
-            <div className="btn_container">
-                <button>Add</button>
-            </div>
-        </form>
+        <div className="add-todo-container">
+            <input
+                className="add-todo-input"
+                placeholder={"Add Task"}
+                value={task}
+                onChange={handleUserInput}
+            />
+            <button className="add-todo-button" onClick={addNewTask}>
+                Add
+            </button>
+        </div>
     )
 }
 
