@@ -28,6 +28,10 @@ const Todoitem = (props)  => {
     await updateDoc(doc(db, "todos", id), {task: task})
   }
 
+  const toggleComplete = async(id, completed) => {
+    await updateDoc(doc(db, "todos", id), {completed: !completed})
+  }
+
   const handleCurrentTaskChange = (e) => {
     setCurrentTask(() => e.target.value)
   }
@@ -38,12 +42,16 @@ const Todoitem = (props)  => {
         className={"todo-item-input-field"}
         value={currentTask == "" ? props.item.task : currentTask}
         onChange={handleCurrentTaskChange}
+        style={{ textDecoration: props.item.completed && "line-through" }}
       />
       <button className="todo-item-delete-button" onClick={() => handleDelete(props.item.id)}>
-      <DeleteIcon id={"i"}/>
+        <DeleteIcon id={"i"}/>
       </button>   
       <button className="todo-item-edit-button" onClick={() => handleEdit(props.item.id, currentTask)}>
-      <EditIcon id={"i"}/>
+        <EditIcon id={"i"}/>
+      </button>
+      <button className="todo-item-mark-complete-button" onClick={() => toggleComplete(props.item.id, props.item.completed)}>
+        <CheckCircleIcon id={"i"}/>
       </button>
     </div>
   
