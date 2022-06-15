@@ -2,6 +2,8 @@ import { useState } from 'react'
 
 import { db } from "../../firebase"
 import { collection, addDoc } from "firebase/firestore"
+import { updateDoc, serverTimestamp } from "firebase/firestore";
+
 
 const AddTodo = () => {
     const [task, setTask] = useState("")
@@ -14,7 +16,8 @@ const AddTodo = () => {
         if (task != "") {
             await addDoc(collection(db, "todos"), {
                 task,
-                completed:false
+                completed:false,
+                createdAt: serverTimestamp()
             })
             setTask(() => "")
         }

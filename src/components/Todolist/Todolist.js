@@ -13,29 +13,22 @@ import {
     doc,
     updateDoc,
     deleteDoc,
-    QuerySnapshot
+    QuerySnapshot,
+    orderBy
   } from "firebase/firestore"
 
-  /*
-   const q = query(collection(db, "todos"))
-      const getAllTasks = onSnapshot(q, (querySnapshot) => {
-          let newTasks = []
-          querySnapshot.forEach((doc) => {
-              newTasks.push({...doc.data(), id: doc.id})
-          })*/
-  
 const Todolist =  () => {
   const [currentTasks, setCurrentTasks] = useState([])
-
   useEffect((e) => {
     let ignore = false
-    const q = query(collection(db, "todos"))
+    const q = query(collection(db, "todos"), orderBy('createdAt'))
     const getAllTasks = onSnapshot(q, (querySnapshot) => {
       let tasks = []
       querySnapshot.forEach((doc) => {
         tasks.push({...doc.data(), id:doc.id})
       })
       setCurrentTasks(() => tasks)
+      console.log(tasks)
     })
     return () => {ignore = true}
   },[])
@@ -54,46 +47,3 @@ const Todolist =  () => {
 }
 
 export default Todolist
-
-/*
-const Calendar = () => {
-  const [tasks, setTasks] = useState([])
-  
-  useEffect((e) => {
-      let ignore = false
-      const q = query(collection(db, "todos"))
-      const getAllTasks = onSnapshot(q, (querySnapshot) => {
-          let newTasks = []
-          querySnapshot.forEach((doc) => {
-              newTasks.push({...doc.data(), id: doc.id})
-          })
-          setTasks(() => newTasks)
-      })
-      console.log(tasks)
-      return () => { ignore = true }
-  }, [])
-
-  const handleDelete = async (id) => {
-      await deleteDoc(doc(db, "todos", id));
-  };
-  
-
-  return (
-      <div className='calendar'>
-          <Addtodo />
-          <Todoitem allTasks={tasks}/>
-          {tasks.map((task) => (
-              <Todoitem
-                  name={task.task}
-                  id={task.id}
-                  completed={task.completed}
-                  delete={handleDelete}
-              />
-          ))}
-      </div> 
-  )
-}
-
-export default Calendar;
-
-*/
