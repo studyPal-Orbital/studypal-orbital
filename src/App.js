@@ -9,8 +9,8 @@ import Login from './components/Login.jsx'
 import Signup from './components/Signup.jsx'
 import Home from './components/Home.jsx'
 import LandingPage from './components/LandingPage.jsx'
-import Todolist from './components/Todolist.js'
-import Calendar from './components/Calendar.js'
+import Todolist from './components/Todolist/Todolist.js'
+import Calendar from './components/Calendar/Calendar.js'
 import Analytics from './components/Analytics.js'
 import Timer from './components/Timer.js'
 import Achievements from './components/Achievements.js'
@@ -41,7 +41,6 @@ function App() {
         </AuthContextProvider>
 
       </header>
-
       {/* Footer appears in every page */}
       <Footer />
     </div>
