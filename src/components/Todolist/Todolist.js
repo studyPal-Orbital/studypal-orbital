@@ -5,6 +5,8 @@ import Todoitem from './Todoitem.js'
 import React from "react"
 import { useState, useEffect } from "react"
 
+import ElderlyWomanIcon from '@mui/icons-material/ElderlyWoman';
+
 import {db} from "../../firebase.js"
 import {
     collection,
@@ -17,20 +19,22 @@ import {
     orderBy
   } from "firebase/firestore"
 
+
 const Todolist =  () => {
   const [currentTasks, setCurrentTasks] = useState([])
-  useEffect((e) => {
-    let ignore = false
-    const q = query(collection(db, "todos"), orderBy('createdAt'))
-    const getAllTasks = onSnapshot(q, (querySnapshot) => {
+  
+  useEffect(() => {
+    let active = true
+    if (active == true) {
+      const q = query(collection(db, "todos"), orderBy('createdAt'))
+      const getAllTasks = onSnapshot(q, (querySnapshot) => {
       let tasks = []
       querySnapshot.forEach((doc) => {
         tasks.push({...doc.data(), id:doc.id})
       })
       setCurrentTasks(() => tasks)
-      console.log(tasks)
-    })
-    return () => {ignore = true}
+    })}
+    return () => {active = false}
   },[])
 
   return (
