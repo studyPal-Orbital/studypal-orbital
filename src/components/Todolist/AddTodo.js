@@ -1,8 +1,10 @@
 import { useState } from 'react'
 
 import { db } from "../../firebase"
-import { collection, addDoc } from "firebase/firestore"
-import { updateDoc, serverTimestamp } from "firebase/firestore";
+import { collection, 
+         addDoc, 
+         updateDoc, 
+         serverTimestamp } from "firebase/firestore"
 
 import React from 'react'
 

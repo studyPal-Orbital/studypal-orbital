@@ -33,9 +33,13 @@ const Todolist =  () => {
         tasks.push({...doc.data(), id:doc.id})
       })
       setCurrentTasks(() => tasks)
+      console.log(currentTasks)
+
     })}
     return () => {active = false}
   },[])
+
+  console.log(currentTasks)
 
   return (
     <div className="todo-list-main">

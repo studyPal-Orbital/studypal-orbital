@@ -10,13 +10,13 @@ import Signup from './components/Signup.jsx'
 import Home from './components/Home.jsx'
 import LandingPage from './components/LandingPage.jsx'
 import Todolist from './components/Todolist/Todolist.js'
-import CalendarScheduler from './components/Calendar/CalendarScheduler.js'
 import Analytics from './components/Analytics.js'
 import Timer from './components/Timer.js'
 import Achievements from './components/Achievements.js'
 import About from './components/About.js'
 
 import React from 'react'
+import CalendarScheduler from './components/Calendar/CalendarScheduler';
 
 function App() {
 

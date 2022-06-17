@@ -1,47 +1,64 @@
 import React from 'react'
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState } from 'react'
 
 import { db } from "../../firebase"
-import { async } from "@firebase/util"
 import {  doc, 
-          setDoc, 
           addDoc, 
           collection, 
           query, 
-          where,
-          getDocs, 
           onSnapshot,
-          deleteDoc  } from "firebase/firestore"; 
+          deleteDoc
+        } from "firebase/firestore"; 
+
 
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
-import FullCalendar from "@fullcalendar/react";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import './Cal.css'
-
 import Title from '../Title.js'
+
+import './CalendarScheduler.css'
+
 
 const localizer = momentLocalizer(moment);
 
-const eventss = [
-  { start:  new Date(2022, 5, 14), 
-    end:  new Date(2022, 5, 21), 
-    title: "special event" },
-  { start:  new Date(2022, 5, 4), 
-    end:  new Date(2022, 5, 4), 
-    title: "special event" },
-  { start:  new Date(2022, 5, 6), 
-    end:  new Date(2022, 5, 8), 
-    title: "special event" },
-  { start:  new Date(2022, 5, 6), 
-    end:  new Date(2022, 5, 6), 
-    title: "math testefderfwerfre" }
-];
+const CalendarScheduler = (props) => {
 
-const CalendarScheduler = () => {
-  const [events, setEvent] = useState([])
+  const[events, setEvent] = useState([])
 
-  const createNewEvent = (e) => {
+  const normalizeDateTimeField = (events) => {
+    for (let i = 0; i < events.length; i++) {
+      let title = events[i]['title']
+      let id = events[i]['id']
+      let start = new Date(events[i]['start']['seconds'] * 1000)
+      let end = new Date(events[i]['end']['seconds'] * 1000)
+
+      let newEvent = {
+        title: title,
+        id: id,
+        start: start,
+        end: end
+      }
+      events[i] = newEvent
+    }
+    return events
+  }
+  
+  useEffect((e) => {
+    let active = true
+    if (active == true) {
+      const q = query(collection(db, "calendar"))
+      const getAllTasks = onSnapshot(q, (querySnapshot) => {
+      let currentEvents = []
+      querySnapshot.forEach((doc) => {
+        currentEvents.push({ ...doc.data(), id: doc.id})
+      })
+      setEvent(() => normalizeDateTimeField(currentEvents))
+
+    })}
+    return () => {active = false}
+  },[])
+
+  const createNewEvent = async (e) => {
     let confirmEventTitle = window.prompt("Create a new event")
     if (confirmEventTitle) {
       let newEvent = {
@@ -51,35 +68,34 @@ const CalendarScheduler = () => {
       }
       let newEvents = [...events, newEvent]
       setEvent(() => newEvents)
+      await addDoc(collection(db, "calendar"), newEvent)
     }
   }
 
-  const deleteCurrentEvent = (e) => {
+  const deleteCurrentEvent = async (e) => {
     let confirmDeleteEvent = window.confirm("Delete this event?")
     if (confirmDeleteEvent) {
-      let newEvents = events.filter((event) => event.title != e.title)
+      let newEvents = events.filter((event) => event.id != e.id)
       setEvent(() => newEvents)
+      await deleteDoc(doc(db, "calendar", e.id))
     }
   }
 
-
   return (
-      <div className="App">
-        <Title name={"Calendar"}/>
-        <Calendar
-          defaultDate={moment().toDate()}
-          defaultView="month"
-          views={['month','week']}
-          localizer={localizer}
-          events={events}
-          selectable
-          onSelectEvent={deleteCurrentEvent}
-          onSelectSlot={createNewEvent}
-        />      
+      <div className="App"> 
+      <Title name={'Calendar'} />
+      <Calendar
+        defaultDate={moment().toDate()}
+        defaultView="month"
+        views={['month','week']}
+        localizer={localizer}
+        events={events}
+        selectable
+        onSelectSlot={createNewEvent}
+        onSelectEvent={deleteCurrentEvent}
+      />   
       </div>
     );
 }
-
-
 
 export default CalendarScheduler
