@@ -4,6 +4,7 @@ import { db } from "../../firebase"
 import { collection, addDoc } from "firebase/firestore"
 import { updateDoc, serverTimestamp } from "firebase/firestore";
 
+import React from 'react'
 
 const AddTodo = () => {
     const [task, setTask] = useState("")

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { UserAuth } from '../context/AuthContext'
 import homepageBackground from "./img/homepage-bg.jpg";
+import React from 'react'
 
 const Home = () => {
 

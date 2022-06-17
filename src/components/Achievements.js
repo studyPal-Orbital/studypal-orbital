@@ -1,4 +1,5 @@
 import achievements from "./img/achievements.jpg";
+import React from 'react'
 
 function Achievements () {
     return (

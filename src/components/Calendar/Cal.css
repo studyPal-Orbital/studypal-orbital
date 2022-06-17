@@ -1,0 +1,10 @@
+.rbc-calendar {
+    width:70%;
+    height:70%;
+    margin-top: 2%;
+    margin-left: 5%;
+}
+
+.rbc-event {
+    background-color: salmon;
+}

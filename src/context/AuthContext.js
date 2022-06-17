@@ -7,6 +7,9 @@ import {
 } from 'firebase/auth';
 import { auth } from '../firebase';
 
+import React from 'react'
+
+
 const UserContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
