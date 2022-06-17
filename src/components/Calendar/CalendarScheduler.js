@@ -42,21 +42,26 @@ const CalendarScheduler = () => {
   const [events, setEvent] = useState([])
 
   const createNewEvent = (e) => {
-    let inputText = window.prompt("Create a new event")
-    let newEvent = {
-      start : e.start,
-      end: e.end,
-      title: inputText
+    let confirmEventTitle = window.prompt("Create a new event")
+    if (confirmEventTitle) {
+      let newEvent = {
+        start : e.start,
+        end: e.end,
+        title: confirmEventTitle
+      }
+      let newEvents = [...events, newEvent]
+      setEvent(() => newEvents)
     }
-    let newEvents = [...events, newEvent]
-    setEvent(() => newEvents)
   }
 
   const deleteCurrentEvent = (e) => {
-    let confirmDelete = window.confirm("Delete this event?")
-    let newEvents = events.filter((event) => event.title != e.title)
-    setEvent(() => newEvents)
+    let confirmDeleteEvent = window.confirm("Delete this event?")
+    if (confirmDeleteEvent) {
+      let newEvents = events.filter((event) => event.title != e.title)
+      setEvent(() => newEvents)
+    }
   }
+
 
   return (
       <div className="App">
