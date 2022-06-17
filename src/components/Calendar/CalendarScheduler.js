@@ -23,7 +23,7 @@ import Title from '../Title.js'
 
 const localizer = momentLocalizer(moment);
 
-const events = [
+const eventss = [
   { start:  new Date(2022, 5, 14), 
     end:  new Date(2022, 5, 21), 
     title: "special event" },
@@ -39,7 +39,7 @@ const events = [
 ];
 
 const CalendarScheduler = () => {
-  const [event, setEvent] = useState([])
+  const [events, setEvent] = useState([])
 
   const createNewEvent = (e) => {
     let inputText = window.prompt("Create a new event")
@@ -48,20 +48,15 @@ const CalendarScheduler = () => {
       end: e.end,
       title: inputText
     }
-    setEvent(() => [...event, newEvent])
+    let newEvents = [...events, newEvent]
+    setEvent(() => newEvents)
   }
 
   const deleteCurrentEvent = (e) => {
-    console.log(e)
     let confirmDelete = window.confirm("Delete this event?")
-    setEvent(() => [...event])
+    let newEvents = events.filter((event) => event.title != e.title)
+    setEvent(() => newEvents)
   }
-
-  const handleEventSelection = (e) => {
-    console.log(e, "Event data");
-    window.confirm("Delete this event?")
-  };
-  
 
   return (
       <div className="App">
@@ -71,7 +66,7 @@ const CalendarScheduler = () => {
           defaultView="month"
           views={['month','week']}
           localizer={localizer}
-          events={event}
+          events={events}
           selectable
           onSelectEvent={deleteCurrentEvent}
           onSelectSlot={createNewEvent}
