@@ -1,8 +1,9 @@
 .rbc-calendar {
-    width:70%;
-    height:70%;
+    width:90%;
+    height:70vh;
     margin-top: 2%;
     margin-left: 5%;
+    margin-bottom: 10vh;
 }
 
 .rbc-event {
