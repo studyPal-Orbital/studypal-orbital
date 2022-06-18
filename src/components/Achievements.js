@@ -1,12 +1,12 @@
-import achievements from "./img/achievements.jpg";
+import React from 'react'
+import Title from './Title/Title.js'
+import Header from './Header/Header.js'
 
 function Achievements () {
     return (
         <div class='achievements'>
-            <h1 class="title">Achievements</h1>
-            <div className='achievements-img-container'>
-                <img src={achievements} className="achievements-image" alt="Badges placeholder"/>
-            </div>
+            <Header />
+            <Title name={'Achievements'} />
         </div> 
     )
 }

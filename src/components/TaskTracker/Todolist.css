@@ -1,0 +1,82 @@
+
+/* Button and input */ 
+.add-todo-container{
+    display:flex;
+    padding-bottom: 2%;
+}
+
+.input-container {
+    padding-left: 7%;
+}
+
+.add-todo-button-container {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.add-todo-input {
+    width:268px;
+}
+
+.add-todo-button {
+  background-color: salmon;
+  width:100px;
+  margin-left: 10px;
+  border-width: 0px;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+.add-todo-button:active {
+    opacity: 75%;
+  }
+  
+.todo-item {
+    display: flex;
+    padding-left: 7%;
+    border-left:100px;
+    width:450px;
+}
+
+.todo-item-input-field {
+    font-size: 15px;
+    padding-left: 10px;
+    margin-top: 20px;
+    width:250px;
+    height:50px;
+}
+
+.todo-buttons {
+    padding-top: 10px;
+}
+
+.todo-buttons > button {
+    background-color: rgb(255, 248, 240);
+    border: 0px;
+    margin-left: 15px;
+    margin-top: 20px;
+    width:30px;
+}
+
+.todo-list-calender {
+    display: flex;
+}
+
+.todo-list-container {
+    padding-left: 5%;
+}
+
+.calendar-container {
+    width:100%;
+}
+
+.rbc-event-label {
+    color: rgb(253, 166, 156);
+}
+
+.rbc-events-container {
+   width:90%;
+}
