@@ -49,7 +49,7 @@ const Music = () => {
                 className="music-bg"
                 src={gif[gifState]}
             />
-            <iframe
+            <audio controls 
                 className="audio-bar"
                 src={music[musicState]}
                 frameBorder="0" scrolling="no"
