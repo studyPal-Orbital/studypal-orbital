@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Popup from "./Popup";
 import Title from '../Title/Title.js'
 
+
 function Countdown() {
 
     const [ timerRunning, setTimerRunning ] = useState(false); // Is the timer running?
@@ -97,13 +98,32 @@ function Countdown() {
 
     return (
         <>
-        <div className="countdown"> 
-            <div className="countdown-buttons">            
+        <div className="countdown">
+            <div className="countdown-buttons">
+                {/* Upwards White Arrow &#8679 */}
+                <button class = 'countdown-setTime' onClick={() => setDuration("addHours")}>&#8679;</button>
+                <button class = 'countdown-setTime' onClick={() => setDuration("addMinutes")}>&#8679;</button>
+                <button class = 'countdown-setTime' onClick={() => setDuration("addSeconds")}>&#8679;</button>
+            
                 <div className="countdown-timeDisplay">
                     {hours} : {minutes} : {seconds}
                 </div>
+            
+                {/* Downwards White Arrow &#8681 */}
+                <button class = 'countdown-setTime' onClick={() => setDuration("minusHours")}>&#8681;</button>
+                <button class = 'countdown-setTime' onClick={() => setDuration("minusMinutes")}>&#8681;</button>
+                <button class = 'countdown-setTime' onClick={() => setDuration("minusSeconds")}>&#8681;</button>
             </div>
+        
             <div class="button-wrapper">
+                {/* Start - Show button when timer is not running and 
+                (start time is 0, or equals total time, or total time is 0). */}
+                {timerRunning === false && (startTime === 0 || startTime === totalTime || totalTime === 0) && (
+                    <button className="countdown-start" onClick={startTimer}>
+                        Start
+                    </button>
+                )}
+        
                 {/* Stop - Show button when timer is running and time >= 1 second. */}
                 {timerRunning === true && totalTime >= 1000 && (
                     <button className="countdown-stop" onClick={stopTimer}>
@@ -130,8 +150,8 @@ function Countdown() {
         </div>
 
         <Popup trigger={countdownEnd} setTrigger={setCountdownEnd}>
-            <h1>Congratulations!<i class="fa-solid fa-trophy fa-bounce fa-2x"></i></h1>
-            <h2>You have successfully completed your study session!</h2>
+            <h1 class="timer-done-text">Congratulations!</h1>
+            <h2 class="timer-done-text-h2">You have successfully completed your study session!</h2>
         </Popup>
 
         </>

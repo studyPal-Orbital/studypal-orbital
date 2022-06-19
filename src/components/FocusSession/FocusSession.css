@@ -1,68 +1,24 @@
-
 .timer-music-container {
     display:flex;
-    flex-direction: row;
     margin-left: 7%;
 }
 
-.timer-container {
-    width:70%;
-    margin-right: 5%;
-}
-
 .countdown {
-    width:100%;
+    width:400px;
+    height:290px;
+    background-color: lightblue;
+    border-radius: 70px;
 }
 
-.audio-bar {
-    position: absolute;
-    top: 75%;
-    left: 57%;
-    transform: translate(-25%, -1%);
-    width:690px;
-}
-
-.countdown {
-    margin-top: 20%;
-}
-
-.add-time-input {
-    width:95px;
-}
-
-.start-timer-button {
-    background-color: salmon;
-    width:100px;
-    border-width: 0px;
-    border-radius: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: 3%;
-    margin-left: 3%;
-    font-weight: bold;
-    color: white;
-}
-  
-.start-timer-button:active {
-    opacity: 75%;
-}
-  
-/* Timer */
-.timer-countdown {
-    display: flex;
-    justify-content: flex-start;
-    padding-top: 3%;
-    padding-bottom: 10%;
-}
-  
 .countdown-setTime {
-    margin: 0 15px;
+    margin-left:70px;
+    margin-top: 50px;
     border: solid 1px transparent;
     border-radius: 4px;
-    padding: 4px 16px;
+    padding: 2px 5px;
     color: white;
     font-size: 20px;
-    background-color: #243642;
+    background-color: salmon;
     cursor: pointer;
 }
   
@@ -70,32 +26,46 @@
     background-color: #105a87;
 }
 
-.countdown-timeDisplay {
-    font-size: 50px;
-    margin: 2%;
-}
 
-.button-wrapper {
-    text-align: center;
-}
 
 .countdown-start,
 .countdown-stop,
 .countdown-reset {
-    background-color: #243642;
+    background-color: #2ba4c2;
     border: solid 1px transparent;
-    border-radius: 4px;
-    padding: 10px 20px;
+    border-radius: 70px;
+    padding: 10px;
     color: #ffffff;
     font-size: 16px;
-    margin: 5px;
+    margin-top: 70px;
+    margin-left: 40px;
     cursor: pointer;
+    margin-right: 10px;
+    font-family:'Josefin Sans', sans-serif;
 }
 
 .countdown-start:hover,
 .countdown-stop:hover,
 .countdown-reset:hover {
     background-color: #105a87;
+}
+
+.countdown-timeDisplay {
+    font-size: 45px;
+    margin-left: 20%;
+    margin-top: 10%;
+}
+
+.input-text {
+    width:85%;
+    height:100px;
+    border-radius: 100px;
+    border:0px;
+    background-color: #ffdd9d;
+    padding: 30px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-family:'Josefin Sans', sans-serif;
 }
 
 /* Pop-up page for Timer */
@@ -113,10 +83,15 @@
   
 .popup-inner {
     position: relative;
-    padding: 50px;
     width: 100%;
-    max-width: 640px;
+    height: 100%;
     background-color: white;
+    opacity: 85%;
+    text-align: center;
+}
+
+.timer-done-text {
+    margin-top: 300px;
 }
   
 .popup-inner .close-btn {
@@ -152,3 +127,62 @@
 .fa-trophy {
     color: #f7a202;
 }
+
+.music-container {
+    margin-left: 2%;
+}
+
+.music-button-container {
+    display: flex;
+}
+
+
+.next-button {
+    background-color: rgb(119, 119, 119);
+    font-family:'Josefin Sans', sans-serif;
+    border-radius: 100px;
+    border-style: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    outline: none;
+    height:35px;
+    width:15%;
+    margin-left: 1%;
+}
+
+.next-button:hover,
+.next-button:focus {
+  opacity: .75;
+}
+
+.audio-bar {
+    width:90%;
+    height:30px;
+    padding:0px;
+    margin:0px;
+    border:0px;
+    border-radius: 100px;
+    margin-top: 10px;
+    margin-left: 5%;
+}
+
+.music-title-text {
+    background-color: rgb(255, 195, 255);
+    width:55%;
+    margin-left: 5%;
+    padding:10px;
+    border-radius: 100px;
+    margin-top: 0px;
+}
+
+.music-bg {
+    width: 800px;
+    height: 500px;
+    margin-right: 100px;
+}
+
+.countdown {
+    margin-top: 20%;
+}
+
