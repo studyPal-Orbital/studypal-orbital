@@ -59,6 +59,7 @@ function Analytics () {
             </div>
             <div className="activity-heat-map">
                 <ActivityHeatmap />
+                <p className="activity-heat-map-text">Activity heatmap for the year!</p>
             </div>
             <div className="bar-container">
                 <BarChart className={"bar"} width={800} height={300} data={data}>
