@@ -1,0 +1,60 @@
+.title-container {
+    display: flex;
+}
+
+.title-text {
+    background-color: rgb(255, 195, 195);
+    width:24%;
+    padding: 3%;
+    border-radius: 20px;
+    margin-right: 3%;
+    font-size: 20px;
+    text-align: center;
+}
+
+.bar-container {
+    display: flex;
+    margin-left: 5%;
+    margin-top: 2%;
+
+}
+
+.bar {
+    
+}
+
+.bar-text {
+    display: flex;
+    background-color: rgb(255, 251, 195);
+    margin-left: 5%;
+    margin-bottom: 4%;
+    padding:5%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+}
+
+.line-text {
+    display: flex;
+    background-color: rgb(220, 243, 204);
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 4%;
+    padding:5%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+}
+
+.activity-heat-map-text {
+    display: flex;
+    background-color: rgb(231, 250, 216);
+    margin-left: 5%;
+    margin-top: 4%;
+    width:80%;
+    height:200px;
+    padding:5%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}

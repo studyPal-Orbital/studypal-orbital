@@ -6,10 +6,6 @@ import Header from '../Header/Header.js'
 import Music from './Music.js'
 import './FocusSession.css'
 
-
-import { TextField } from '@mui/material';
-
-
 function Timer () {
     return (
         <div class="timer">

@@ -5,10 +5,9 @@ import {
   signOut,
   onAuthStateChanged,
 } from 'firebase/auth';
-import { auth } from '../firebase';
+import { auth } from '../firebase.js';
 
 import React from 'react'
-
 
 const UserContext = createContext();
 

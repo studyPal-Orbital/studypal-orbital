@@ -10,9 +10,15 @@ import { collection,
 
 import { TextField } from '@mui/material';
 
+import { UserAuth } from '../../context/AuthContext'
+
+
+
 
 const AddTodo = () => {
     const [task, setTask] = useState("")
+
+    const {user}  = UserAuth()
 
     const handleUserInput = (e) => {
         setTask(() => e.target.value)
@@ -23,7 +29,8 @@ const AddTodo = () => {
             await addDoc(collection(db, "todos"), {
                 task,
                 completed:false,
-                createdAt: serverTimestamp()
+                createdAt: serverTimestamp(),
+                uid: user.uid
             })
             setTask(() => "")
         }

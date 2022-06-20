@@ -7,9 +7,11 @@ import {  doc,
           collection, 
           query, 
           onSnapshot,
-          deleteDoc
+          deleteDoc,
+          where
         } from "firebase/firestore"; 
 
+import { UserAuth } from '../../context/AuthContext'
 
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
@@ -21,32 +23,19 @@ import './CalendarScheduler.css'
 
 const localizer = momentLocalizer(moment);
 
+
 const CalendarScheduler = (props) => {
+  
+  const {user}  = UserAuth()
 
   const[events, setEvent] = useState([])
 
-  const normalizeDateTimeField = (events) => {
-    for (let i = 0; i < events.length; i++) {
-      let title = events[i]['title']
-      let id = events[i]['id']
-      let start = new Date(events[i]['start']['seconds'] * 1000)
-      let end = new Date(events[i]['end']['seconds'] * 1000)
-
-      let newEvent = {
-        title: title,
-        id: id,
-        start: start,
-        end: end
-      }
-      events[i] = newEvent
-    }
-    return events
-  }
-  
   useEffect((e) => {
+
     let active = true
-    if (active == true) {
-      const q = query(collection(db, "calendar"))
+    if (active == true && user.uid != null) {
+      const q = query(collection(db, "calendar"), where ("uid", "==", user.uid))
+      console.log("Retrieving events")
       const getAllTasks = onSnapshot(q, (querySnapshot) => {
       let currentEvents = []
       querySnapshot.forEach((doc) => {
@@ -54,17 +43,38 @@ const CalendarScheduler = (props) => {
       })
       setEvent(() => normalizeDateTimeField(currentEvents))
 
-    })}
-    return () => {active = false}
+    })
+    return () => {active = false}}
   },[])
 
+  const normalizeDateTimeField = (events) => {
+    //const { user } = UserAuth()
+    for (let i = 0; i < events.length; i++) {
+      let title = events[i]['title']
+      let id = events[i]['id']
+      let start = new Date(events[i]['start']['seconds'] * 1000)
+      let end = new Date(events[i]['end']['seconds'] * 1000)
+  
+      let newEvent = {
+        title: title,
+        start: start,
+        end: end,
+        uid: user.uid
+      }
+      events[i] = newEvent
+    }
+    return events
+  }
+
   const createNewEvent = async (e) => {
+    //const { user } = UserAuth()
     let confirmEventTitle = window.prompt("Create a new event")
     if (confirmEventTitle) {
       let newEvent = {
         start : e.start,
         end: e.end,
-        title: confirmEventTitle
+        title: confirmEventTitle,
+        uid : user.uid
       }
       let newEvents = [...events, newEvent]
       setEvent(() => newEvents)

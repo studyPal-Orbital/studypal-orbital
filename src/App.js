@@ -13,6 +13,8 @@ import Timer from './components/FocusSession/Timer.js'
 import Achievements from './components/Achievements.js'
 
 import React from 'react'
+import { BrowserRouter } from "react-router-dom";
+
 
 function App() {
 
@@ -21,16 +23,18 @@ function App() {
 
       <header className="App-header">
         <AuthContextProvider>
-          <Routes>
-              <Route path='/' element={<LandingPage/>}/>
-              <Route path='/login' element={<Login/>}/>
-              <Route path='/signup' element={<Signup/>}/>
-              <Route path='/home' element={<Home/>}/>
-              <Route path='/todolist' element={<Todolist/>}/>
-              <Route path='/timer' element={<Timer/>}/>
-              <Route path='/analytics' element={<Analytics/>}/>
-              <Route path='/achievements' element={<Achievements/>}/>
-          </Routes>
+          <BrowserRouter>
+            <Routes>
+                <Route path='/' element={<LandingPage/>}/>
+                <Route path='/login' element={<Login/>}/>
+                <Route path='/signup' element={<Signup/>}/>
+                <Route path='/home' element={<Home/>}/>
+                <Route path='/todolist' element={<Todolist/>}/>
+                <Route path='/timer' element={<Timer/>}/>
+                <Route path='/analytics' element={<Analytics/>}/>
+                <Route path='/achievements' element={<Achievements/>}/>
+            </Routes>
+          </BrowserRouter>
         </AuthContextProvider>
 
       </header>
