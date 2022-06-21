@@ -6,12 +6,19 @@ import './ActivityHeatmap.css'
 import { useState, useEffect } from 'react'
 import { rangeContainsMarker } from '@fullcalendar/react'
 
-const ActivityHeatmap = () => {
 
-    const [colour, setColour] = useState("cell")
+
+const ActivityHeatmap = () => {
+    let keys = [...Array(365).keys()]
+    let values = Array(365).fill("#ddd")
+    let arr = {}
+    keys.forEach((key) => arr[key] = values[key])
+
+    const [colour, setColour] = useState(arr)
 
     const handleClick = (e) => {
-        let elem = document.getElementById(e.target.id)
+        let elemId = e.target.id
+        let elem = document.getElementById(elemId)
         
         if (elem.style.backgroundColor != "orange") {
             elem.style.backgroundColor = "orange"
@@ -19,18 +26,21 @@ const ActivityHeatmap = () => {
             elem.style.backgroundColor = "#ddd"
         }
 
-        setColour(() => elem.style.backgroundColor)
+        colour[elemId] = elem.style.backgroundColor
+        setColour(() => colour)
+        console.log(colour)
     }
 
-
-
-    let arr = [...Array(365).keys()]
-    
     return (
         <div class="squaregrid">
-            {arr.map((item) => <button className={"cell"} onClick={handleClick} id={item} />)}
+            {keys.map((index) => <button className={"cell"} onClick={handleClick} 
+            id={index} style={{backgroundColor: colour[index]}}/>)}
         </div>
     )
 }
 
 export default ActivityHeatmap;
+
+
+
+            

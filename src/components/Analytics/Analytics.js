@@ -73,7 +73,7 @@ function Analytics () {
                 </BarChart>
                 <p className="bar-text">Number of tasks completed this week</p>
             </div>
-            <div className="bar-container">
+            <div className="line-container">
                 <p className="line-text">Number of hours of focus session this week</p>
                 <BarChart className={"line"} width={800} height={300} data={data}>
                     <CartesianGrid strokeDasharray="3 3" />
