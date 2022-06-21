@@ -13,8 +13,6 @@ import { TextField } from '@mui/material';
 import { UserAuth } from '../../context/AuthContext'
 
 
-
-
 const AddTodo = () => {
     const [task, setTask] = useState("")
 
