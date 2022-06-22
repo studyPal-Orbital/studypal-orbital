@@ -3,16 +3,16 @@ import { Route, Routes } from 'react-router-dom';
 import { AuthContextProvider } from './context/AuthContext';
 
 import './index.css';
-import Login from './components/Login.jsx'
-import Signup from './components/Signup.jsx'
-import Home from './components/Home/Home.jsx'
-import LandingPage from './components/LandingPage.jsx'
-import Todolist from './components/TaskTracker/Todolist.js'
-import Analytics from './components/Analytics/Analytics.js'
-import Timer from './components/FocusSession/Timer.js'
-import Achievements from './components/Achievements.js'
+import Login from './components/Login.jsx';
+import Signup from './components/Signup.jsx';
+import Home from './components/Home/Home.jsx';
+import LandingPage from './components/LandingPage.jsx';
+import Todolist from './components/TaskTracker/Todolist.js';
+import Analytics from './components/Analytics/Analytics.js';
+import Timer from './components/FocusSession/Timer.js';
+import Achievements from './components/Achievements.js';
 
-import React from 'react'
+import React from 'react';
 import { BrowserRouter } from "react-router-dom";
 
 
@@ -38,7 +38,6 @@ function App() {
         </AuthContextProvider>
 
       </header>
-      {/* Footer appears in every page */}
     </div>
   );
 }

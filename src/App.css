@@ -7,13 +7,6 @@
     align-items: center;
 }
 
-/*
-.landing-page-button {
-    font-size: 18px;
-    margin-left:5%;
-}
-*/
-
 .landing-page-button {
     font-weight: 700;
     text-transform: uppercase;
@@ -99,6 +92,7 @@ form.login > div > button {
     padding: 10px;
     background-color: #555555;
     border: none;
+    color: white;
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
@@ -120,71 +114,6 @@ form.login > div > button:active {
     transform: translateY(4px);
 }
 
-
-/* Home */
-.home-signout {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    margin-bottom:5%;
-    margin-top:5%;
-    margin-left: 5%;
-    padding: 10px;
-    background-color: #2ba4c2;
-    border: none;
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-}
-
-.home-signout a {
-    color: white;
-    text-decoration: none;
-}
-  
-.home-signout:hover {
-    background-color: #105a87;
-    transition: background-color 0.5s;
-}
-  
-.home-signout:active {
-    background-color: #105a87;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-}
-
-p.home-emailacc {
-    font-weight: normal;
-    font-size: 15px;
-}
-
-/* Calendar */
-.calendar-img-container {
-    height: 100%;
-    width: 100%;  
-}
-
-.calendar > div > img {
-    margin-left: 5%;
-    margin-bottom: 5%;
-}
-
-/* Analytics */ 
-.analytics-img-container {
-    height: 100%;
-    width: 100%;  
-}
-
-.analytics > div > img {
-    margin-left: 5%;
-    margin-bottom: 5%;
-}
-
 /* Achievements */
 .achievements-img-container {
     height: 100%;
@@ -196,9 +125,3 @@ p.home-emailacc {
     height:500px;
     width:500px;
 }
-
-/* About */
-.about-img-container > p {
-    margin-left: 5%; 
-}
-

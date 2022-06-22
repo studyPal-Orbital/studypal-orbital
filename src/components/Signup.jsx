@@ -1,7 +1,6 @@
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { UserAuth } from '../context/AuthContext'
-import React from 'react'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { UserAuth } from '../context/AuthContext';
 
 const Signup = () => {
     const [email, setEmail] = useState('')
@@ -52,6 +51,7 @@ const Signup = () => {
                         />
                     </div>
                     <div>
+                        {/* Reuse login button */}
                         <button class='login-button'>Sign Up</button>
                         <p><Link to='/'>Home</Link></p>
                     </div>

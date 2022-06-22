@@ -27,7 +27,7 @@ const Signin = () => {
         <h1>Log in to your account</h1>
         <p>
           Don't have an account yet?{' '}
-          <Link to='/signup' className='underline'>Sign up.</Link>
+          <Link to='/signup'>Sign up.</Link>
         </p>
       </div>
       <div>
@@ -54,6 +54,7 @@ const Signin = () => {
 };
 
 export default Signin;
+
 /*
 import userEvent from '@testing-library/user-event'
 import { Link, useNavigate } from 'react-router-dom'
