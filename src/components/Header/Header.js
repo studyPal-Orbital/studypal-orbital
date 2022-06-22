@@ -14,12 +14,12 @@ function Header () {
             <h3>
                 <NavLink 
                 className="nav-link"
-                to='/todolist'>Task tracker</NavLink>
+                to='/task-tracker'>Task tracker</NavLink>
             </h3>
             <h3>
                 <NavLink 
                 className="nav-link"
-                to='/timer'>Focus Session</NavLink>
+                to='/focus-session'>Focus Session</NavLink>
             </h3>
             <h3>
                 <NavLink 

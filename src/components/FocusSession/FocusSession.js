@@ -6,7 +6,7 @@ import Header from '../Header/Header.js'
 import Music from './Music.js'
 import './FocusSession.css'
 
-function Timer () {
+function FocusSession () {
     return (
         <div class="timer">
             <Header />
@@ -33,6 +33,6 @@ function Timer () {
     )
 }
 
-export default Timer;
+export default FocusSession;
 
 

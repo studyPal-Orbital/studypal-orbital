@@ -1,0 +1,88 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.card {
+    background: linear-gradient(0deg, rgba(173,216,230,0) 7%, rgba(173,216,230,1) 100%);
+    margin: 15px;
+    width: 10em;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+  
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+  
+.container {
+    padding: 2px 16px;
+}
+
+.half-star {
+    color: #1c91d4;
+}
+.half-stroke-star {
+    color: #a56ae6;
+}
+
+.two-star {
+    color: #f7a202;
+    animation: fa-spin 10s infinite linear;
+}
+
+.three-star {
+    color: #5dba76;
+    animation: fa-spin 10s infinite linear;
+}
+
+.four-badge {
+    color: #f55b53;
+    animation: fa-beat 3s infinite linear;
+}
+
+.five-badge {
+    color: #f7a202;
+    animation: fa-beat 2.5s infinite linear;
+}
+
+.six-badge {
+    color: #5dba76;
+    animation: fa-beat 2.5s infinite linear;
+}
+
+.seven-badge {
+    color: #f55b53;
+    animation: fa-beat 2.5s infinite linear;
+}
+
+.eight-medal {
+    color: #f7a202;
+    animation: fa-flip 4s infinite linear;
+}
+
+.nine-medal {
+    color: #5dba76;
+    animation: fa-flip 4s infinite linear;
+}
+
+.ten-medal {
+    color: #f55b53;
+    animation: fa-flip 4s infinite linear;
+}
+
+.twenty-trophy {
+    color: #f7a202;
+    animation: fa-bounce 1s infinite linear;
+}
+
+.thirty-trophy,
+.forty-trophy,
+.fifty-crown {
+    color: #212121;
+}
