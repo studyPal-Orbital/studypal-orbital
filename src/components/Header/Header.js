@@ -14,7 +14,7 @@ function Header () {
             <h3>
                 <NavLink 
                 className="nav-link"
-                to='/task-tracker'>Task tracker</NavLink>
+                to='/task-tracker'>Task Tracker</NavLink>
             </h3>
             <h3>
                 <NavLink 
