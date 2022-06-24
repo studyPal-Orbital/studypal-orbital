@@ -8,7 +8,8 @@ import {  doc,
           query, 
           onSnapshot,
           deleteDoc,
-          where
+          where,
+          setDoc
         } from "firebase/firestore"; 
 
 import { UserAuth } from '../../context/AuthContext'
@@ -27,31 +28,13 @@ const localizer = momentLocalizer(moment);
 const CalendarScheduler = (props) => {
   
   const {user}  = UserAuth()
-
   const[events, setEvent] = useState([])
 
-  useEffect((e) => {
-
-    let active = true
-    if (active == true && user.uid != null) {
-      const q = query(collection(db, "calendar"), where ("uid", "==", user.uid))
-      console.log("Retrieving events")
-      const getAllTasks = onSnapshot(q, (querySnapshot) => {
-      let currentEvents = []
-      querySnapshot.forEach((doc) => {
-        currentEvents.push({ ...doc.data(), id: doc.id})
-      })
-      setEvent(() => normalizeDateTimeField(currentEvents))
-
-    })
-    return () => {active = false}}
-  },[])
-
   const normalizeDateTimeField = (events) => {
-    //const { user } = UserAuth()
     for (let i = 0; i < events.length; i++) {
       let title = events[i]['title']
       let id = events[i]['id']
+      let docID = events[i]['docID']
       let start = new Date(events[i]['start']['seconds'] * 1000)
       let end = new Date(events[i]['end']['seconds'] * 1000)
   
@@ -59,18 +42,38 @@ const CalendarScheduler = (props) => {
         title: title,
         start: start,
         end: end,
-        uid: user.uid
+        uid: user.uid,
+        docId: docID
       }
       events[i] = newEvent
     }
     return events
   }
 
+  useEffect((e) => {
+    let active = true
+    if (active == true && user.uid != null) {
+      const q = query(collection(db, "calendar"), where ("uid", "==", user.uid))
+      console.log("Retrieving events")
+      const getAllTasks = onSnapshot(q, (querySnapshot) => {
+      let currentEvents = []
+      querySnapshot.forEach((doc) => {
+        currentEvents.push({ ...doc.data()})
+      })
+      setEvent(() => normalizeDateTimeField(currentEvents))
+      console.log(currentEvents)
+
+    })
+    return () => {active = false}}
+  },[user.uid])
+
+ 
   const createNewEvent = async (e) => {
-    //const { user } = UserAuth()
+    const docRef = doc(collection(db, "calendar"));
     let confirmEventTitle = window.prompt("Create a new event")
     if (confirmEventTitle) {
       let newEvent = {
+        docID: docRef.id,
         start : e.start,
         end: e.end,
         title: confirmEventTitle,
@@ -78,16 +81,15 @@ const CalendarScheduler = (props) => {
       }
       let newEvents = [...events, newEvent]
       setEvent(() => newEvents)
-      await addDoc(collection(db, "calendar"), newEvent)
+      await setDoc(doc(db, "calendar", docRef.id), newEvent)
     }
   }
 
   const deleteCurrentEvent = async (e) => {
     let confirmDeleteEvent = window.confirm("Delete this event?")
     if (confirmDeleteEvent) {
-      let newEvents = events.filter((event) => event.id != e.id)
-      setEvent(() => newEvents)
-      await deleteDoc(doc(db, "calendar", e.id))
+      console.log(e)
+      await deleteDoc(doc(db, "calendar", e.docId))
     }
   }
 

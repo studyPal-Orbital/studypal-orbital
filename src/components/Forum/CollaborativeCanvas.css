@@ -1,0 +1,26 @@
+.squaregrid {
+    width: 800px;
+    height: 300px;
+    display: grid;
+    grid-template: repeat(50, 1fr) / repeat(50, 1fr);
+    grid-gap: 5px;
+    margin-left: 7%;
+    margin-top: 3%;
+}
+
+.cell {
+    font-size: 2em;
+    width:20px;
+    height:20px;
+    border-width: 0px;
+    border-radius: 5px;
+}
+
+.cell-clicked {
+    background: rgb(241, 223, 169);
+    font-size: 2em;
+    width:20px;
+    height:20px;
+    border-width: 0px;
+    border-radius: 5px;
+}

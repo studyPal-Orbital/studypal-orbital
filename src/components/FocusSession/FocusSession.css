@@ -1,4 +1,4 @@
-.timer-music-container {
+.timer-canvas-container {
     display:flex;
     margin-left: 7%;
 }
@@ -25,8 +25,6 @@
 .countdown-setTime:hover {
     background-color: #105a87;
 }
-
-
 
 .countdown-start,
 .countdown-stop,
@@ -58,10 +56,10 @@
 
 .input-text {
     width:85%;
-    height:100px;
+    height:150px;
     border-radius: 100px;
     border:0px;
-    background-color: #ffdd9d;
+    background-color: #e4c4f3;
     padding: 30px;
     border-radius: 50px;
     font-size: 15px;
@@ -123,19 +121,19 @@
     transform: translateY(4px);
 }
 
+.countdown-container {
+    padding-top: 0px;
+}
+
+.text-area-container {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
 /* Countdown end icon for Timer */
 .fa-trophy {
     color: #f7a202;
 }
-
-.music-container {
-    margin-left: 2%;
-}
-
-.music-button-container {
-    display: flex;
-}
-
 
 .next-button {
     background-color: rgb(119, 119, 119);
@@ -167,6 +165,15 @@
     margin-left: 5%;
 }
 
+.music-container {
+    margin-left: 2%;
+    margin-bottom: 10%;
+}
+
+.music-button-container {
+    display: flex;
+}
+
 .music-title-text {
     background-color: rgb(255, 195, 255);
     width:55%;
@@ -177,12 +184,28 @@
 }
 
 .music-bg {
-    width: 800px;
+    width: 90%;
     height: 500px;
     margin-right: 100px;
 }
 
+.music-container-text {
+    margin-left: 7%;
+}
+
 .countdown {
-    margin-top: 20%;
+    margin-top: 7%;
+}
+
+.canvas-container {
+    margin-left: 5%;
+    margin-bottom: 3%;
+}
+
+.canvas {
+    background-color: rgb(252, 215, 167);
+    width:95%;
+    border-radius: 50px;
+    max-height:600px;
 }
 

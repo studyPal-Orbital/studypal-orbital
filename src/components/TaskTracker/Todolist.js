@@ -28,9 +28,7 @@ import {
 const Todolist =  () => {
 
   const {user}  = UserAuth()
-
   const [currentTasks, setCurrentTasks] = useState([])
-  
   useEffect(() => {
     let active = true
     if (active == true && user.uid != null) {

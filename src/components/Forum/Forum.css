@@ -1,0 +1,88 @@
+.forum {
+    display: flex;
+    flex-direction: row;
+}
+
+.forum-side-bar {
+    display: flex;
+    flex-direction: column;
+    margin-left: 7%;
+    width: 15%;
+}
+
+.forum-post-feed {
+    display: flex;
+    flex-direction: column;
+    width:75%;
+}
+
+/* Side bar */
+.nav-link-forum {
+    font-size: 15px;
+    width: 200px;
+    border: 0px;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: salmon;
+    text-decoration: none;
+    color: white;
+}
+
+/* Post */ 
+.post-container {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(240, 240, 240);
+    margin-left:5%;
+    margin-right:2%;
+    margin-bottom:2%;
+    border-radius: 10px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.post-header-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-user-pic {
+    width:75px;
+    height:75px;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: rgb(255, 255, 255);
+    opacity: 60%;
+}
+
+.post-user {
+    margin-top: 2%;
+    font-size: 13px;
+}
+
+.post-title {
+    margin-top: 1%;
+    font-size: 30px;
+    margin-bottom: 1%;
+}
+
+.post-content {
+    margin-top: 0%;
+}
+
+
+/* Canvas */
+.canvas-description {
+    margin-left: 7%;
+    margin-bottom: 1%;
+}
+
+.nav-link-canvas {
+    margin-left: 7%;
+    text-decoration: none;
+    background-color: salmon;
+    padding: 1%;
+    border-radius: 5px;
+    color: white;
+}
