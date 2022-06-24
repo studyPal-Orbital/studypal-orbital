@@ -23,6 +23,8 @@ import { useLocation } from 'react-router-dom';
 import CreateComment from './CreateComment'
 import Comment from './Comment'
 
+import './Comments.css'
+
 const Comments = () => {
 
     const {user}  = UserAuth()
@@ -30,13 +32,16 @@ const Comments = () => {
     const location = useLocation()
     const id  = location.state.id
     const comments = location.state.comments
+    const email = location.state.email
+    const postTitle = location.state.title
+    const postBody = location.state.body
 
     const [currentComments, setCurrentComments] = useState([])
 
     useEffect(() => {
       let active = true
       if (active == true && user.uid != null) {
-        const q = query(collection(db, "comments"), where ("postID", "==", id))
+        const q = query(collection(db, "comments"), where ("postID", "==", id), orderBy('createdAt'))
         console.log("Retrieving comments list")
         const getAllComments = onSnapshot(q, (querySnapshot) => {
           let comments = []
@@ -48,23 +53,27 @@ const Comments = () => {
         return () => {active = false}}
       }, [user.uid])
 
-    console.log(currentComments)
-
     return (
-        <div>
-            <p>Hello</p>
-            <NavLink className="back-to-home-page-from-comments" to='/achievements'>
+        <div className="comments-container">
+          <div>
+          < NavLink className="back-to-home-page-from-comments" to='/achievements'>
                     Back        
             </NavLink>
+            <h2 className="post-title-in-comment-page">{postTitle}</h2>
+            <p className="post-body-in-comment-page">{postBody}</p>
+          </div>
             <CreateComment 
               post={id}
             />
-            {currentComments.map((item) => (
-              <Comment 
-                comment={item.comment}
-                email={item.email}
-              />
-            ))}
+            <div ClassName="current-comments-container">
+              {currentComments.map((item) => (
+                <Comment 
+                  comment={item.comment}
+                  email={item.email}
+                  className="current-comments"
+                />
+              ))}
+            </div>
         </div>
     )
 

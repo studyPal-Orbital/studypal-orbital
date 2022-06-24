@@ -68,6 +68,8 @@ const Achievements = () => {
                             body={post['body']}
                             id={post['id']}
                             comments={post['comments']}
+                            uid={post['uid']}
+                            postID={post['postID']}
                         />
                     ))}
                 </div>

@@ -1,14 +1,18 @@
 import React from 'react'
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 import { db } from "../../firebase"
 import { collection, 
          addDoc, 
+         setDoc,
          updateDoc, 
-         serverTimestamp } from "firebase/firestore"
+         serverTimestamp, 
+         doc } from "firebase/firestore"
 
 import { UserAuth } from '../../context/AuthContext'
+
+import './CreatePost.css'
 
 const CreatePost = () => {
 
@@ -26,36 +30,53 @@ const CreatePost = () => {
     }
     
     const createPost = async (e) => {
+        const docRef = doc(collection(db, "posts"))
         if (postTitle != "" && postBody != "") {
-            await addDoc(collection(db, "posts"), {
+            let newDoc = {
                 title: postTitle,
                 body: postBody,
                 createdAt: serverTimestamp(),
                 uid: user.uid,
                 email: user.email,
-                comments: ["comment1", "comment2"]
-            })
+                comments: ["comment1", "comment2"],
+                postID: docRef.id
+            }
             setPostTitle(() => "")
             setPostBody(() => "")
+            await setDoc(doc(db, "posts", docRef.id), newDoc)   
+            alert("Post created! :)") 
+        } else {
+            alert("Please fill in both post title and post body")
         }
     }
 
     return (
-        <div>
-            <textarea
-                value={postTitle}
-                onChange={setNewPostTitle}
-            />
-            <textarea
-                value={postBody}
-                onChange={setNewPostBody}
-            />
-            <button>
-                <NavLink 
-                className="nav-link"
-                to='/achievements'>Back</NavLink>
-            </button>
-            <button onClick={createPost}>Create Post</button>
+        <div className="create-post-container">
+            <h2 className="create-post-heading">Create a post</h2>
+            <div className="create-post-input-container">
+                <textarea
+                    className="create-post-title"
+                    value={postTitle}
+                    onChange={setNewPostTitle}
+                    placeholder={"Title of post"}
+                />
+                <textarea
+                    className="create-post-body"
+                    value={postBody}
+                    onChange={setNewPostBody}
+                    placeholder={"Write down your thoughts here :)"}
+                />
+            </div>
+            <div className="buttons-container">
+                <button className="button-create-post-page">
+                    <NavLink 
+                    className="nav-link-back-to-forum"
+                    to='/achievements'>Back</NavLink>
+                </button>
+                <button className="button-create-post-page" onClick={createPost}>
+                    Create Post   
+                </button>
+            </div>
         </div>
     )
 }
