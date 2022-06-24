@@ -53,8 +53,8 @@ const CollaborativeCanvas = () => {
     return (
         <div>
             <Title name={"Collaborative Canvas"} />
-            <p className="canvas-description">Create a collaborative pixel art by placing a block upon completion of each 1 hour study session!</p>
-            <p className="canvas-description">Come back 1 hour again to place another block</p>
+            <p className="canvas-description">Create a collaborative pixel art by placing a block upon completion of each 1 hour study session!
+            <br></br><br></br>Come back 1 hour again to place another block</p>
             <NavLink 
                 className="nav-link-canvas"
                 to='/achievements'>Back

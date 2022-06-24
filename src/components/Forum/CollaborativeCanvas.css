@@ -1,11 +1,12 @@
 .squaregrid {
-    width: 800px;
-    height: 300px;
+    width: 80%;
+    height: 100%;
     display: grid;
     grid-template: repeat(50, 1fr) / repeat(50, 1fr);
     grid-gap: 5px;
     margin-left: 7%;
     margin-top: 3%;
+    margin-bottom: 5%;
 }
 
 .cell {
@@ -24,3 +25,18 @@
     border-width: 0px;
     border-radius: 5px;
 }
+
+.canvas-description {
+    margin-left: 7%;
+    margin-bottom: 3%;
+}
+
+.nav-link-canvas {
+    margin-left: 7%;
+    text-decoration: none;
+    background-color: salmon;
+    padding: 1%;
+    border-radius: 5px;
+    color: white;
+}
+

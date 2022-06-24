@@ -71,6 +71,8 @@ const Comments = () => {
                   comment={item.comment}
                   email={item.email}
                   className="current-comments"
+                  id={item.id}
+                  userID={item.uid}
                 />
               ))}
             </div>
