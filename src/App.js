@@ -1,10 +1,9 @@
-import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { AuthContextProvider } from './context/AuthContext';
 
 import './index.css';
-import Login from './components/Login.jsx'
-import Signup from './components/Signup.jsx'
+import Login from './components/LoginSignup/Login.jsx'
+import Signup from './components/LoginSignup/Signup.jsx'
 import Home from './components/Home/Home.jsx'
 import LandingPage from './components/LandingPage/LandingPage.jsx'
 import Todolist from './components/TaskTracker/Todolist.js'

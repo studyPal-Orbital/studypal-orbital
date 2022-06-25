@@ -82,6 +82,10 @@
     margin-bottom: 2%;
 }
 
+.comment-img-container {
+    width:70px;
+}
+
 .user-comment-profile {
     width:50px;
     height:50px;
@@ -91,8 +95,9 @@
     border: 0.5px solid grey;
 }
 
+
 .comment-content-container {
-    margin-left: 2%;
+    margin-left: 20px;
 }
 
 .comment-content-user {

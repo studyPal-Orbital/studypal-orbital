@@ -23,12 +23,14 @@ const Home = () => {
     return (
          <div className="home-page-container">
             <Header />
-            <div className="container">
+            <div className="home-page-img-container">
                 <img src={Sunset} className="sunset" alt="Stationary"/>
             </div>
-            <h1>Welcome Back!</h1>
-            <p class='home-emailacc'>{ user.email }</p>
-            <button class = 'home-signout' onClick={handleLogout}>Sign out</button>
+            <div className="home-page-content-container">
+                <h1 className="home-page-title">Welcome Back!</h1>
+                <p className='home-page-emailacc'>{ user.email }</p>
+                <button className = 'home-signout' onClick={handleLogout}>Sign out</button>
+            </div>
         </div>
     )
 }

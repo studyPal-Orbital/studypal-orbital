@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserAuth } from '../context/AuthContext';
+import { UserAuth } from '../../context/AuthContext';
+
+import loginImg from "../img/bg.png";
+
+import './LoginSignup.css'
 
 const Signin = () => {
   const [email, setEmail] = useState('');
@@ -23,7 +27,8 @@ const Signin = () => {
 
   return (
     <div className='login'>
-      <div>
+      <div className='login-container'>
+        <img className='login-img' src={loginImg} />
         <h1>Log in to your account</h1>
         <p>
           Don't have an account yet?{' '}
@@ -32,14 +37,14 @@ const Signin = () => {
       </div>
       <div>
         <form class='login' onSubmit={handleSubmit}>
-          <div>
-            <label class='login-label'>Email Address</label>
+          <div className='login-label-container'>
+            <label class='login-label'>Email </label>
             <input class='login-input' 
                    onChange={(e) => setEmail(e.target.value)} 
                    type='email' 
             />
           </div>
-          <div>
+          <div className='login-label-container'>
             <label class='login-label'>Password</label>
             <input class='login-input' onChange={(e) => setPassword(e.target.value)} type='password' />
           </div>

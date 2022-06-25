@@ -1,7 +1,10 @@
+import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { UserAuth } from '../context/AuthContext'
-import React from 'react'
+import { UserAuth } from '../../context/AuthContext'
+
+import signupImg from "../img/bg.png";
+import './LoginSignup.css'
 
 const Signup = () => {
     const [email, setEmail] = useState('')
@@ -25,24 +28,25 @@ const Signup = () => {
 
     return (
         <div className='signup'>
-            <div>
+            <div className='signup-container'>
+                <img className='signup-img' src={signupImg} />
                 <h1>Sign up</h1>
                 <p>Already have an account? {' '}
                    <Link to='/login'>Log in</Link>
                 </p>
             </div>
             <div>
-                <form class='signup' onSubmit={handleSubmit}>
-                    <div>
-                        <label class='signup-label'>Email Address</label>
-                        <input class='signup-input' 
+                <form className='signup' onSubmit={handleSubmit}>
+                    <div className='signup-label-container'>
+                        <label className='signup-label'>Email</label>
+                        <input className='signup-input' 
                             onChange={(event) => {
                                 setEmail(event.target.value)
                             }}
                             type='email'
                         />
                     </div>
-                    <div>
+                    <div className='signup-label-container'>
                         <label class='signup-label'>Password</label>
                         <input class='signup-input'
                             onChange={(event) => {
