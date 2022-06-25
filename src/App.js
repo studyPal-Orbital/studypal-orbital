@@ -9,12 +9,14 @@ import Login from './components/Login.jsx'
 import Signup from './components/Signup.jsx'
 import Home from './components/Home.jsx'
 import LandingPage from './components/LandingPage.jsx'
-import Todolist from './components/Todolist.js'
-import Calendar from './components/Calendar.js'
+import Todolist from './components/Todolist/Todolist.js'
 import Analytics from './components/Analytics.js'
 import Timer from './components/Timer.js'
 import Achievements from './components/Achievements.js'
 import About from './components/About.js'
+
+import React from 'react'
+import CalendarScheduler from './components/Calendar/CalendarScheduler';
 
 function App() {
 
@@ -31,7 +33,7 @@ function App() {
               <Route path='/signup' element={<Signup/>}/>
               <Route path='/home' element={<Home/>}/>
               <Route path='/todolist' element={<Todolist/>}/>
-              <Route path='/calendar' element={<Calendar/>}/>
+              <Route path='/calendar' element={<CalendarScheduler/>}/>
               <Route path='/timer' element={<Timer/>}/>
               <Route path='/analytics' element={<Analytics/>}/>
               <Route path='/achievements' element={<Achievements/>}/>
@@ -40,7 +42,6 @@ function App() {
         </AuthContextProvider>
 
       </header>
-
       {/* Footer appears in every page */}
       <Footer />
     </div>
@@ -50,27 +51,3 @@ function App() {
 export default App;
 
 
-/* 
-import Header from './components/Header.js';
-import Home from './components/Home.js';
-import Footer from './components/Footer.js';
-import Todolist from './components/Todolist.js';
-
-import LandingPage from './components/LandingPage.jsx';
-import Account from './components/Account.jsx';
-
-
-import './App.css';
-
-function App() {
-
-    return (
-        <div class="container">
-            <Account />
-        </div>
-    );
-};
-
-export default App;
-
-*/

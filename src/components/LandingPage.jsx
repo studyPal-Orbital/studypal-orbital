@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import homepageBackground from "./img/homepage-bg.jpg";
+import React from 'react'
 
 function LandingPage() {
     return (

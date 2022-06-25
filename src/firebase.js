@@ -1,4 +1,7 @@
 import firebaseConfig from './firebaseConfig.js' // hidden firebase authentication credentials 
+import firebase from "./firebase"
+import { getFirestore } from 'firebase/firestore'
+
 
 
 // Import the functions you need from the SDKs you need
@@ -11,5 +14,4 @@ import { getAuth } from "firebase/auth";
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app); // set up authentication
-
-
+export const db = getFirestore(app)
