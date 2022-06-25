@@ -71,7 +71,7 @@ const CreatePost = () => {
                 <button className="button-create-post-page">
                     <NavLink 
                     className="nav-link-back-to-forum"
-                    to='/achievements'>Back</NavLink>
+                    to='/forum'>Back</NavLink>
                 </button>
                 <button className="button-create-post-page" onClick={createPost}>
                     Create Post   

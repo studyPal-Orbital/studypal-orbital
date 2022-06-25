@@ -75,7 +75,7 @@ const CollaborativeCanvas = () => {
             <div className="colour-picker-container">
                 <NavLink 
                     className="nav-link-canvas"
-                    to='/achievements'>Back
+                    to='/forum'>Back
                 </NavLink>
                 <p className="colour-picker-caption">Colour Picker: </p>
                 <input

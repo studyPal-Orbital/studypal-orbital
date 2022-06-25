@@ -29,7 +29,7 @@ const Post = (props) => {
                 <p className="post-content">{props.body}</p>
                 <NavLink 
                     className="forum-post-comments" 
-                    to='/achievements/comments'
+                    to='/forum/comments'
                     state={{ id: props.id,
                              comments: props.comments,
                              email: props.email,

@@ -17,7 +17,7 @@ img  {
     top: 20%;
     left: 25%;
     font-size: 90px;
-  }
+}
 
 .home-page-content-container {
     margin-left: 100px;
@@ -59,7 +59,7 @@ img  {
 }
   
 .home-page-container > p {
-    padding-left:5%;
+    padding-left: 5%;
     font-size: 20px;
     font-weight: bold;  
 }

@@ -56,7 +56,7 @@ const Comments = () => {
     return (
         <div className="comments-container">
           <div>
-          < NavLink className="back-to-home-page-from-comments" to='/achievements'>
+          < NavLink className="back-to-home-page-from-comments" to='/forum'>
                     Back        
             </NavLink>
             <h2 className="post-title-in-comment-page">{postTitle}</h2>

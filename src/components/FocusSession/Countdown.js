@@ -98,6 +98,7 @@ function Countdown() {
 
     return (
         <>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" crossorigin="anonymous"></link>
         <div className="countdown">
             <div className="countdown-buttons">
                 {/* Upwards White Arrow &#8679 */}
@@ -150,7 +151,7 @@ function Countdown() {
         </div>
 
         <Popup trigger={countdownEnd} setTrigger={setCountdownEnd}>
-            <h1 class="timer-done-text">Congratulations!</h1>
+            <h1 class="timer-done-text">Congratulations!<i class="fa-solid fa-trophy fa-bounce fa-2x"></i></h1>
             <h2 class="timer-done-text-h2">You have successfully completed your study session!</h2>
         </Popup>
 
