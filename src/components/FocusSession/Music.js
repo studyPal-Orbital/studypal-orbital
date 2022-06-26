@@ -7,7 +7,7 @@ import sunset from "../gif/sunset.gif";
 import train from "../gif/train.gif";
 import cat from "../gif/cat.gif";
 
-const lowfimusic = "https://audio.jukehost.co.uk/3t3bRPwoAMTn007BfpFcW4wjwh3pfhQk"
+const lowfimusic = "https://audio.jukehost.co.uk/WtwVEwikT3CkVjbxrmgmJQozQGIGxwNh"
 
 const Music = () => {
 
