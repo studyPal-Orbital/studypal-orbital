@@ -7,9 +7,7 @@ import sunset from "../gif/sunset.gif";
 import train from "../gif/train.gif";
 import cat from "../gif/cat.gif";
 
-const lowfimusic = "https://audio.jukehost.co.uk/WtwVEwikT3CkVjbxrmgmJQozQGIGxwNh"
-const piano = "https://audio.jukehost.co.uk/n5uO2ci9N1vE0QrBEUzPVBDIZpAPhKeg"
-const ghibli = "https://audio.jukehost.co.uk/NRBNwbGvK958VO0BW0H2fbayStV9O7ro"
+const lowfimusic = "https://audio.jukehost.co.uk/3t3bRPwoAMTn007BfpFcW4wjwh3pfhQk"
 
 const Music = () => {
 
@@ -23,8 +21,8 @@ const Music = () => {
         }
     }
 
-    const music = [lowfimusic, piano, ghibli]
-    const musicTitle = ["Low fi music","Studo Ghibli piano cover music", "Sounds of nature (rain and forest)"]
+    const music = [lowfimusic]
+    const musicTitle = ["Low fi music"]
     let [musicState, setMusicState] = useState(0)
     let playNextMusic = () => {
         if (musicState < music.length - 1) {
@@ -41,9 +39,6 @@ const Music = () => {
                 <button className="next-button" onClick={showNextGif}>
                         Next Gif
                 </button>
-                <button className="next-button" onClick={playNextMusic}>
-                        Next Song
-                </button>
             </div>
             <img
                 className="music-bg"
@@ -53,7 +48,6 @@ const Music = () => {
                 className="audio-bar"
                 src={music[musicState]}
                 frameBorder="0" scrolling="no"
-                preload="metadata"
             />
 
        </div>
