@@ -13,7 +13,6 @@ function Achievements() {
     <div className="achievements">
         <Header />
         <Title name={'Achievements'}/>
-
         <div className="cards">
           <div className="card">
             <div className="container">

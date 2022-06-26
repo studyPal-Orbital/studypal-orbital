@@ -39,6 +39,34 @@ const CollaborativeCanvas = () => {
     const [canvasColour, setCanvasColour] = useState(arr)
     const [endTime, setEndTime] = useState("")
 
+    useEffect(() => {
+        let active = true
+        if (active == true && user.uid != null) {
+            const q = query(collection(db, "canvas"))
+            console.log("Retrieving canvas colours")
+            const getCanvas = onSnapshot(q, (querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    setCanvasColour(() => doc.data()['canvas'])
+                })
+            })
+            return () => {active = false}
+        }
+    }, [user.uid])
+
+    useEffect(() => {
+        let active = true
+        if (active == true && user.uid != null) {
+            const q = query(collection(db, "canvas-users"), where("uid", "==", user.uid))
+            console.log("Retrieving user canvas activity")
+            const getUserEndTime = onSnapshot(q, (querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    setEndTime(() => doc.data()['endTime'])
+                })
+            })
+            return () => {active = false}
+        }
+    }, [user.uid])
+
     const toggleColour = (e) => {
         setCurrentColour(() => e.target.value)
     }
@@ -66,35 +94,6 @@ const CollaborativeCanvas = () => {
 
     }
 
-    useEffect(() => {
-        let active = true
-        if (active == true && user.uid != null) {
-            const q = query(collection(db, "canvas"))
-            console.log("Retrieving canvas colours")
-            const getAllComments = onSnapshot(q, (querySnapshot) => {
-                querySnapshot.forEach((doc) => {
-                    setCanvasColour(() => doc.data()['canvas'])
-                })
-            })
-            return () => {active = false}
-        }
-    }, [user.uid])
-
-    useEffect(() => {
-        let active = true
-        if (active == true && user.uid != null) {
-            const q = query(collection(db, "canvas-users"), where("uid", "==", user.uid))
-            console.log("Retrieving user canvas activity")
-            const getAllComments = onSnapshot(q, (querySnapshot) => {
-                querySnapshot.forEach((doc) => {
-                    setEndTime(() => doc.data()['endTime'])
-                })
-            })
-            return () => {active = false}
-        }
-    }, [user.uid])
-
-
     const placeBlockandStartTimer = (e) => {
         let current = moment(new Date()).format('hh:mm A')
         if (endTime == "" || current > endTime) {
@@ -107,7 +106,7 @@ const CollaborativeCanvas = () => {
     return (
         <div>
             <Title name={"Collaborative Canvas"} />
-            <p className="canvas-description">Create a collaborative pixel art by placing a block upon completion of your study sessions!
+            <p className="canvas-description">Place a block upon completion of your study sessions and create a pixel art together with other users!
             <br></br><br></br>Come back 40 mins later to place another block</p>
             <div className="colour-picker-container">
                 <NavLink 

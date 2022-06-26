@@ -3,6 +3,7 @@
 .add-todo-container{
     display:flex;
     padding-bottom: 2%;
+    width: 700px;
 }
 
 .input-container {
@@ -39,7 +40,6 @@
     display: flex;
     padding-left: 7%;
     border-left:100px;
-    width:450px;
 }
 
 .todo-item-input-field {
@@ -69,11 +69,10 @@
 
 .todo-list-container {
     padding-left: 5%;
+    padding-right: 0px;
+    width:500px;
 }
 
-.calendar-container {
-    width:100%;
-}
 
 .rbc-event-label {
     color: rgb(253, 166, 156);
@@ -81,4 +80,8 @@
 
 .rbc-events-container {
    width:90%;
+}
+
+.rbc-calendar {
+    width: 950px;
 }

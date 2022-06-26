@@ -8,8 +8,8 @@ import train from "../gif/train.gif";
 import cat from "../gif/cat.gif";
 
 const lowfimusic = "https://audio.jukehost.co.uk/WtwVEwikT3CkVjbxrmgmJQozQGIGxwNh"
-const rain = "https://audio.jukehost.co.uk/9KZyFn9LZe3dEUZGcbeeYFGaTnngIRdk"
-const piano = "https://audio.jukehost.co.uk/NRBNwbGvK958VO0BW0H2fbayStV9O7ro"
+const piano = "https://audio.jukehost.co.uk/n5uO2ci9N1vE0QrBEUzPVBDIZpAPhKeg"
+const ghibli = "https://audio.jukehost.co.uk/NRBNwbGvK958VO0BW0H2fbayStV9O7ro"
 
 const Music = () => {
 
@@ -23,7 +23,7 @@ const Music = () => {
         }
     }
 
-    const music = [lowfimusic, piano, rain]
+    const music = [lowfimusic, piano, ghibli]
     const musicTitle = ["Low fi music","Studo Ghibli piano cover music", "Sounds of nature (rain and forest)"]
     let [musicState, setMusicState] = useState(0)
     let playNextMusic = () => {
@@ -53,7 +53,9 @@ const Music = () => {
                 className="audio-bar"
                 src={music[musicState]}
                 frameBorder="0" scrolling="no"
+                preload="metadata"
             />
+
        </div>
     )
 }

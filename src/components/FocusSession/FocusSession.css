@@ -167,8 +167,10 @@
 
 .music-container {
     margin-left: 2%;
-    margin-bottom: 10%;
+    margin-bottom: 1%;
+    width:1000px;
 }
+
 
 .music-button-container {
     display: flex;
@@ -198,14 +200,13 @@
 }
 
 .canvas-container {
-    margin-left: 5%;
-    margin-bottom: 3%;
+    margin-left: 7%;
+    margin-bottom: 5%;
+    width:90%;
 }
 
 .canvas {
     background-color: rgb(252, 215, 167);
-    width:95%;
-    border-radius: 50px;
-    max-height:600px;
+    border-radius: 20px;
 }
 

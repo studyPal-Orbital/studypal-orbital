@@ -9,16 +9,17 @@ const Canvas = () => {
 
     useEffect(() => {
         const canvas = canvasRef.current
-        canvas.width = window.innerWidth ;
-        canvas.height = window.innerHeight * 1.5;
-        canvas.style.width =`${window.innerwidth}px`
-        canvas.style.height = `${window.innerHeight}px`
+        canvas.width = 1400
+        canvas.height = 700
+        canvas.style.width = 1400
+        canvas.style.height = 700
 
         const context = canvas.getContext("2d")
-        context.scale(1.75,1.8)
+        context.scale(1,1)
         context.lineCap = "round"
         context.strokeStyle = "black"
-        context.lineWidth = 4
+        context.lineWidth = 3
+        context.lineJoin = "round"
         contextRef.current = context
         }, [])
 

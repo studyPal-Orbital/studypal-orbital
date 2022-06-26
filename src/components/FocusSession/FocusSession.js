@@ -34,15 +34,15 @@ function FocusSession () {
                         />
                     </div>
                 </div>
-                <div className="canvas-container">
-                    <p>Doodling Canvas :) </p>
-                    <Canvas />
-                </div>
-            </div>
-            <div className="music-container">
+                <div className="music-container">
                 <p className="music-container-text">Study Music Tracks</p>
                     <Music />
                 </div>
+            </div>
+            <div className="canvas-container">
+                <p>Doodling Canvas :) </p>
+                <Canvas />
+            </div>
         </div>
     )
 }
