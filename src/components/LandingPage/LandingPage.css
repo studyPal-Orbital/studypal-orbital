@@ -2,15 +2,15 @@
     display: flex;
     flex-direction: row;
     width: 70%;
-    margin-left: 15%;
+    margin-left: 10%;
+    margin-top: 3%;
 }
 
 .landing-page-img-container {
-    margin-left: 15%;
+    margin-left: 10%;
     background-color: rgb(199, 233, 233);
     border-radius: 1000px;
-    height: 800px;
-    margin-top: 5%;
+    height: 700px;
 }
 
 .landing-page-content-container {
@@ -22,8 +22,8 @@
 
 .landing-page-img {
     margin-top: 0px;
-    width: 800px;
-    height: 800px;
+    width: 700px;
+    height: 700px;
 }
 
 .landing-page-title {

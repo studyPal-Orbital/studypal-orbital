@@ -8,6 +8,7 @@ import train from "../gif/train.gif";
 import cat from "../gif/cat.gif";
 
 const lowfimusic = "https://audio.jukehost.co.uk/WtwVEwikT3CkVjbxrmgmJQozQGIGxwNh"
+const piano = "https://audio.jukehost.co.uk/n5uO2ci9N1vE0QrBEUzPVBDIZpAPhKeg"
 
 const Music = () => {
 
@@ -21,8 +22,8 @@ const Music = () => {
         }
     }
 
-    const music = [lowfimusic]
-    const musicTitle = ["Low fi music"]
+    const music = [lowfimusic, piano]
+    const musicTitle = ["Low fi music", "Piano"]
     let [musicState, setMusicState] = useState(0)
     let playNextMusic = () => {
         if (musicState < music.length - 1) {

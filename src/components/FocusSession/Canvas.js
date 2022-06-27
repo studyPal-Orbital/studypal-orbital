@@ -9,9 +9,9 @@ const Canvas = () => {
 
     useEffect(() => {
         const canvas = canvasRef.current
-        canvas.width = 1400
+        canvas.width = 1300
         canvas.height = 700
-        canvas.style.width = 1400
+        canvas.style.width = 1300
         canvas.style.height = 700
 
         const context = canvas.getContext("2d")

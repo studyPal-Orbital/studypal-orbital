@@ -98,6 +98,7 @@ const CollaborativeCanvas = () => {
         let current = moment(new Date()).format('hh:mm A')
         if (endTime == "" || current > endTime) {
             saveCanvas(e)
+            console.log(current > endTime)
         } else {
             alert("Come back again at " + endTime + " to place another block")
         }
