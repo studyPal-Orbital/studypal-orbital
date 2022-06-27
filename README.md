@@ -18,7 +18,7 @@ This project is inspired by our struggles with time management and managing stre
 
 - We have temporarily deployed our web application using Netlify [here](https://neon-pika-aa4890.netlify.app/).
     - It will be deployed using Amazon Web Services (AWS Lambda) at a later stage as we progress on our project.
-- Alternatively, run `npm start` in the terminal to run the project locally.
+- Alternatively, run `npm start` in the terminal to run the project locally and `npm install` to install the required packages.
     - More information can be found under the section "Getting Started with Create React App" below.
 
 # Packages
