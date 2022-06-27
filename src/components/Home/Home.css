@@ -1,0 +1,109 @@
+.container {
+    width:auto;
+    height:auto;
+}
+
+img  {
+    height: 60vh;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 1%;
+    border-radius: 50px;
+}
+
+.centered {
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    font-size: 90px;
+}
+
+.home-page-content-container {
+    margin-left: 100px;
+}
+
+.home-page-img-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width:100%;
+    background-color: rgb(255, 248, 240);
+}
+
+.home-page-title {
+    margin-left: 0px;
+    font-size: 50px;
+}
+
+
+.home-page-emailacc {
+    font-size: 25px;
+}
+  
+.home-signout {
+    margin-top: 20px;
+    margin-left: 0px;
+}
+
+.home-page-background {
+    width: 100%;
+    height: 100%;
+}
+  
+.home-page-container > h1 {
+    padding-left:5%;
+    font-size: 60px;
+    font-weight: bold;  
+}
+  
+.home-page-container > p {
+    padding-left: 5%;
+    font-size: 20px;
+    font-weight: bold;  
+}
+
+
+/* Button */
+
+.home-signout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    margin-bottom:5%;
+    padding: 10px;
+    background-color: #2ba4c2;
+    border: none;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.home-signout a {
+    color: white;
+    text-decoration: none;
+}
+  
+.home-signout:hover {
+    background-color: #105a87;
+    transition: background-color 0.5s;
+}
+  
+.home-signout:active {
+    background-color: #105a87;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+p.home-emailacc {
+    font-weight: normal;
+    font-size: 15px;
+}
+
+
+

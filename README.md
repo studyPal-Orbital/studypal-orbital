@@ -16,7 +16,7 @@ This project is inspired by our struggles with time management and managing stre
 
 # Instructions for Use
 
-- We have temporarily deployed our web application using Netlify [here](https://neon-pika-aa4890.netlify.app/).
+- We have temporarily deployed our web application using Netlify [here](https://ephemeral-sprite-af4305.netlify.app).
     - It will be deployed using Amazon Web Services (AWS Lambda) at a later stage as we progress on our project.
 - Alternatively, run `npm start` in the terminal to run the project locally.
     - More information can be found under the section "Getting Started with Create React App" below.
@@ -35,6 +35,18 @@ This project is inspired by our struggles with time management and managing stre
     - `npm i --save @fortawesome/fontawesome-svg-core`
     - `npm install --save @fortawesome/free-solid-svg-icons`
     - `npm install --save @fortawesome/react-fontawesome`
+
+- React Canvas Draw
+    - `npm i react-canvas-draw`  
+
+- React Big Calendar
+    - `npm install --save react-big-calendar`  
+
+- React Moment
+    - `npm install --save moment react-moment`  
+
+- Material UI
+    - `npm install @mui/material @emotion/react @emotion/styled`  
 
 <hr>
 
