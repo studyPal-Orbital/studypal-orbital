@@ -36,6 +36,18 @@ This project is inspired by our struggles with time management and managing stre
     - `npm install --save @fortawesome/free-solid-svg-icons`
     - `npm install --save @fortawesome/react-fontawesome`
 
+- react-canvas-draw
+  - npm i react-canvas-draw
+
+- react-big-calendar
+  - npm install --save react-big-calendar
+
+- react-moment
+  - npm install --save moment react-moment
+
+- material UI
+ - npm install @mui/material @emotion/react @emotion/styled
+
 <hr>
 
 # Getting Started with Create React App
