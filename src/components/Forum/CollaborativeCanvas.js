@@ -1,8 +1,6 @@
 import React from 'react'
 
 import { useState, useEffect } from 'react'
-import { rangeContainsMarker } from '@fullcalendar/react'
-
 
 import { db } from "../../firebase"
 import { collection, 
@@ -10,8 +8,6 @@ import { collection,
          doc,
          where,
          setDoc, 
-         addDoc,
-         updateDoc, 
          serverTimestamp,
          onSnapshot } from "firebase/firestore"
 
@@ -21,9 +17,6 @@ import { NavLink } from 'react-router-dom'
 
 import Title from '../Title/Title.js'
 import './CollaborativeCanvas.css'
-
-import CanvasTimer from './CanvasTimer'
-
 
 import moment from 'moment'
 
