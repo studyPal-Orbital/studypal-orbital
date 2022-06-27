@@ -10,7 +10,7 @@ _A solution to procrastination and burnouts to boost productivity and time manag
 
 This project is inspired by our struggles with time management and managing stress during the school term in the National University of Singapore. Through this application, we aim to help students like us manage their workload by promoting productivity while maintaining mental well-being with its gamified user experience.
 
-### __Find out more about our project [here](https://docs.google.com/document/d/17vCUoQpMyG5PncKqHtkr-u3qi_4XMx3SRoJ6RG7yrkE/edit?usp=sharing).__
+### __Find out more about our project [here](https://docs.google.com/document/d/1npbHxikCJia8irHHHUqbvsTYPtyt_LPkwTjC2dYi_54/edit?usp=sharing).__
 
 <hr>
 
