@@ -1,0 +1,237 @@
+/* Journal Submission */
+.active-journal-submission {
+    background-image: url('../img/planet.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    padding:10px;
+    margin:0px;
+}
+
+.archive-journal-submission-text,
+.active-journal-submission-text {
+    text-align: center;
+    padding-top: 3%;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.archive-journal-redirect-text {
+    margin-left: 1%;
+}
+
+.archive-journal-submission {
+    background-image: url('../img/kirby.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    padding-top:10px;
+    margin:0;
+}
+
+/* Create Journal Entry */
+.journal-entry-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 7%;
+    margin-top: 5%;
+}
+
+.journal-entry-prompts {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+}
+
+.journal-entry-input {
+    height:300px;
+    width:80%;
+    border-radius: 20px;
+    resize: none;
+    border-width: 0px;
+    padding-left: 3%;
+    padding-top: 3%;
+    font-size: 17px;
+    font-family:'Josefin Sans', sans-serif;
+}
+
+.journal-entry-button-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+.journal-entry-button {
+    border-width: 0px;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 15px;
+    font-family:'Josefin Sans', sans-serif;
+    padding:1%;
+    background-color: salmon;
+    color: white;
+}
+
+/* Journal Entries */
+.active-entries-container,
+.archived-entries-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    margin-left: 7%;
+}
+
+.active-entry-container,
+.archived-entry-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3%;
+}
+
+.active-entries-title {
+    margin-left: 0px;
+    font-size: 20px;
+    background-image: url('../img/bg-1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:80%;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+    padding-left: 2%;
+    border-radius: 10px;
+    border-width: 0px;
+    text-align: start;
+    font-family:'Josefin Sans', sans-serif;
+}
+
+.archived-entries-conclusion {
+    margin-left: 0px;
+    font-size: 20px;
+    background-image: url('../img/bg-3.png');
+    width:80%;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+    padding-left: 2%;
+    border-radius: 10px;
+    border-width: 0px;
+    text-align: start;
+    font-family:'Josefin Sans', sans-serif;
+}
+
+.active-entries-text,
+.archived-entries-text {
+    margin-left: 1%;
+    margin-top: 3%;
+}
+
+.active-entries-button,
+.archived-entries-button  {
+    width:12%;
+    padding: 1%;
+    margin-top: 1%;
+    border-width: 0px;
+    border-radius: 10px;
+    font-size: 12px;
+    color: white;
+    background-color: salmon;
+    font-family:'Josefin Sans', sans-serif;
+
+
+}
+
+
+/* Main page */
+.achievements-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3%;
+}
+
+.side-col {
+    display: flex;
+    flex-direction: column;
+    margin-left: 7%;
+    width:25%;
+}
+
+.side-col-links-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+.side-col-links {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+.side-col-ext-links {
+    margin-top: 1%;
+    margin-bottom: 5%;
+}
+
+.side-col-books {
+    display: flex;
+    flex-direction: row;
+}
+
+.side-col-img {
+    border-radius: 10px;
+    width:100px;
+    height:150px;
+    margin-right: 50px;
+    margin-top: 10%;
+    margin-bottom: 20%;
+    margin-left: 0px;
+}
+
+.side-col-bubble-icon {
+    width: 40px;
+    height: 40px;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+}
+
+.profile-pic {
+    border-radius: 150px;
+    height:150px;
+    width:150px;
+    margin-left: 0px;
+    margin-bottom: 3%;
+}
+
+.analytics-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.react-calendar-heatmap {
+    width: 1000px;
+    margin-top: 2%;
+}
+
+.react-calendar-heatmap text {
+    font-size: 10px;
+    fill: black;
+  }
+  
+.react-calendar-heatmap .color-empty {
+    fill: lightgray;
+    border-radius: 100px;
+  }
+
+.achievements-title {
+    margin-top: 6%;
+}
+
+.goal-setting-section {
+    display: flex;
+    flex-direction: column;
+}

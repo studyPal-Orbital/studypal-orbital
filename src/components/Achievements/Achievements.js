@@ -4,6 +4,8 @@ import Title from '../Title/Title.js'
 import Header from '../Header/Header.js'
 import './Achievements.css';
 
+import { NavLink } from 'react-router-dom';
+
 /* Tentative */
 function Achievements() {
   return (
@@ -13,6 +15,7 @@ function Achievements() {
     <div className="achievements">
         <Header />
         <Title name={'Achievements'}/>
+        <NavLink to='/analytics'>Back</NavLink>
         <div className="cards">
           <div className="card">
             <div className="container">

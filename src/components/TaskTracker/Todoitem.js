@@ -38,7 +38,7 @@ const Todoitem = (props)  => {
   }
 
   return (
-    <div className="todo-item">
+    <div className="todo-item" draggable>
       <input
         className={"todo-item-input-field"}
         value={currentTask == "" ? props.item.task : currentTask}
