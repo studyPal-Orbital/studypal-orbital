@@ -40,7 +40,7 @@ function FocusSession () {
                 </div>
             </div>
             <div className="canvas-container">
-                <p>Doodling Canvas :) </p>
+                <p>Doodling Canvas</p>
                 <Canvas />
             </div>
         </div>
