@@ -12,24 +12,58 @@ import {
     onSnapshot,
     doc,
     updateDoc,
+    setDoc,
     deleteDoc,
-    QuerySnapshot
+    where,
+    QuerySnapshot,
+    addDoc
   } from "firebase/firestore"
+import { UserAuth } from "../../context/AuthContext.js"
+import { faTruckMedical } from "@fortawesome/free-solid-svg-icons"
+import { ConstructionOutlined } from "@mui/icons-material"
 
 
 const Todoitem = (props)  => {
 
+  const {user} = UserAuth()
+
   const [currentTask, setCurrentTask] = useState("")
+  const [currentRecords, setCurrentRecords] = useState([])
+
+  useEffect(() => {
+    let active = true
+    if (active == true & user.uid != null) {
+      const q = query(collection(db, "todos-record"), where("uid", "==", user.uid))
+      console.log("Retrieving task records")
+      const getAllRecords = onSnapshot(q, (querySnapshot) => {
+        let records = []
+        querySnapshot.forEach((doc) => {
+          records.push({...doc.data()})
+        })
+        setCurrentRecords(() => records)
+      })
+      return () => {active = false}}
+  }, [user.uid])
 
   const handleDelete = async (id) => {
     await deleteDoc(doc(db, "todos", id))
+
+    let currentDate = new Date().toISOString().split('T')[0].toString()
+    let currentRec = currentRecords.filter((rec) => rec['record'][0]['date'] == currentDate)
+    let newCount = currentRec.length == 1 ? currentRec[0]['record'][0]['count'] + 1 : 1
+    let newRecord = {
+      uid: user.uid,
+      record: [{date: currentDate, count: newCount}]
+    }
+    await setDoc(doc(db, "todos-record", user.uid), newRecord)
   }
+  
 
   const handleEdit = async (id, task) => {
     await updateDoc(doc(db, "todos", id), {task: task})
   }
 
-  const toggleComplete = async(id, completed) => {
+  const toggleComplete = async (id, completed) => {
     await updateDoc(doc(db, "todos", id), {completed: !completed})
   }
 
@@ -37,8 +71,9 @@ const Todoitem = (props)  => {
     setCurrentTask(() => e.target.value)
   }
 
+
   return (
-    <div className="todo-item">
+    <div className="todo-item" draggable>
       <input
         className={"todo-item-input-field"}
         value={currentTask == "" ? props.item.task : currentTask}
@@ -63,15 +98,3 @@ const Todoitem = (props)  => {
 
 export default Todoitem 
 
-
-/*
-
-  const handleDelete = async (id) => {
-    await deleteDoc(doc(db, "todos", id));
-  };
-
-  const handleEdit = async (id, task) => {
-    await updateDoc(doc(db, "todos", id), { task: task });
-  };
-
-  */
