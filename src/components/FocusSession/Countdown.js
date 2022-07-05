@@ -8,7 +8,7 @@ function Countdown() {
     const [ timerRunning, setTimerRunning ] = useState(false); // Is the timer running?
     const [ startTime, setStartTime ] = useState(0); // Start time (in milliseconds).
     const [ totalTime, setTotalTime ] = useState(0); // Total time (in ms) the timer will run.
-
+    const [ studyTime, setStudyTime ] = useState(0)
     // Pop-up page after countdown has stopped.
     const [countdownEnd, setCountdownEnd] = useState(false);
 
@@ -47,6 +47,7 @@ function Countdown() {
         setTimerRunning(true);
         setStartTime(totalTime);
         setTotalTime(totalTime);
+        setStudyTime(totalTime)
     };
 
     // Called when timer is stopped.
@@ -150,7 +151,7 @@ function Countdown() {
             </div>
         </div>
 
-        <Popup trigger={countdownEnd} setTrigger={setCountdownEnd}>
+        <Popup timeStudied={studyTime} trigger={countdownEnd} setTrigger={setCountdownEnd}>
             <h1 class="timer-done-text">Congratulations!<i class="fa-solid fa-trophy fa-bounce fa-2x"></i></h1>
             <h2 class="timer-done-text-h2">You have successfully completed your study session!</h2>
         </Popup>

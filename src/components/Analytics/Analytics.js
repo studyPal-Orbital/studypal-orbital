@@ -63,6 +63,7 @@ const Analytics = () => {
     const {user}  = UserAuth()
 
     const [tasksCompleted, setTasksCompleted] = useState([])
+    const [timeStudied, setTimeStudied] = useState([])
 
     useEffect(() => {
         let active = true
@@ -84,6 +85,27 @@ const Analytics = () => {
             return () => {active = false}}
     }, [user.uid])
 
+    
+    useEffect(() => {
+        let active = true
+        if (active == true & user.uid != null) {
+            const q = query(collection(db, "time-studied-record"), where("uid", "==", user.uid))
+            console.log("Retrieving user time studied records")
+            const getAllTasks = onSnapshot(q, (querySnapshot) => {
+                let timeStudiedRecords = []
+                querySnapshot.forEach((doc) => {
+                    let record = {
+                        date: doc.data()['date'],
+                        count: Number((doc.data()['time'] / 3600000).toFixed(3))
+                    }
+                    timeStudiedRecords.push(record)
+                })
+                setTimeStudied(() => timeStudiedRecords)
+                console.log(timeStudiedRecords)
+            })
+            return () => {active = false}}
+    }, [user.uid])
+    
 
     return (
         <div>
@@ -119,12 +141,12 @@ const Analytics = () => {
                     </div>
                 </div>
                 <div className="analytics-container">
-                    <h3>Focus Hours</h3>
+                    <h3>Focus Sessions</h3>
                     <CalendarHeatmap
                             className="activity-calendar"
                             startDate={new Date(`${new Date().getFullYear()-1}-12-31`)}
                             endDate={new Date(`${new Date().getFullYear()}-12-31`)}
-                            values={tasksCompleted}
+                            values={timeStudied}
                             classForValue= {classForValue}
                             tooltipDataAttrs={value => {
                                 let count = 0
