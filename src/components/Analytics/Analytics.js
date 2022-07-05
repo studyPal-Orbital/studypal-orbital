@@ -84,7 +84,7 @@ const Analytics = () => {
             return () => {active = false}}
     }, [user.uid])
 
-    console.log(tasksCompleted)
+
     return (
         <div>
             <Header />
@@ -122,8 +122,8 @@ const Analytics = () => {
                     <h3>Focus Hours</h3>
                     <CalendarHeatmap
                             className="activity-calendar"
-                            startDate={new Date('2021-12-31')}
-                            endDate={new Date('2022-12-31')}
+                            startDate={new Date(`${new Date().getFullYear()-1}-12-31`)}
+                            endDate={new Date(`${new Date().getFullYear()}-12-31`)}
                             values={tasksCompleted}
                             classForValue= {classForValue}
                             tooltipDataAttrs={value => {
@@ -141,8 +141,8 @@ const Analytics = () => {
                         <h3 className="achievements-title">Task Completion</h3>
                         <CalendarHeatmap
                             className="activity-calendar"
-                            startDate={new Date('2021-12-31')}
-                            endDate={new Date('2022-12-31')}
+                            startDate={new Date(`${new Date().getFullYear()-1}-12-31`)}
+                            endDate={new Date(`${new Date().getFullYear()}-12-31`)}
                             values={tasksCompleted}
                             classForValue={classForValue}
                             tooltipDataAttrs={value => {
