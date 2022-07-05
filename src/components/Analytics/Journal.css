@@ -219,7 +219,6 @@
 
 .react-calendar-heatmap text {
     font-size: 10px;
-    fill: black;
   }
   
 .react-calendar-heatmap .color-empty {
@@ -235,3 +234,11 @@
     display: flex;
     flex-direction: column;
 }
+
+
+/* Calendar */
+.react-calendar-heatmap .color-scale-1 { fill: #d6e685; }
+.react-calendar-heatmap .color-scale-2 { fill: #8cc665; }
+.react-calendar-heatmap .color-scale-3 { fill: #44a340; }
+.react-calendar-heatmap .color-scale-4 { fill: #217b27; }
+.react-calendar-heatmap .color-scale-5 { fill: #115117; }
