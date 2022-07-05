@@ -19,8 +19,6 @@ import {
     addDoc
   } from "firebase/firestore"
 import { UserAuth } from "../../context/AuthContext.js"
-import { faTruckMedical } from "@fortawesome/free-solid-svg-icons"
-import { ConstructionOutlined } from "@mui/icons-material"
 
 
 const Todoitem = (props)  => {
@@ -29,11 +27,13 @@ const Todoitem = (props)  => {
 
   const [currentTask, setCurrentTask] = useState("")
   const [currentRecords, setCurrentRecords] = useState([])
+  let currentDate = new Date().toISOString().split('T')[0].toString()
+  let newRecordID = currentDate + '-' + user.uid
 
   useEffect(() => {
     let active = true
     if (active == true & user.uid != null) {
-      const q = query(collection(db, "todos-record"), where("uid", "==", user.uid))
+      const q = query(collection(db, "todos-record"), where("recordID", "==", newRecordID))
       console.log("Retrieving task records")
       const getAllRecords = onSnapshot(q, (querySnapshot) => {
         let records = []
@@ -41,6 +41,7 @@ const Todoitem = (props)  => {
           records.push({...doc.data()})
         })
         setCurrentRecords(() => records)
+        console.log(records)
       })
       return () => {active = false}}
   }, [user.uid])
@@ -48,17 +49,19 @@ const Todoitem = (props)  => {
   const handleDelete = async (id) => {
     await deleteDoc(doc(db, "todos", id))
 
-    let currentDate = new Date().toISOString().split('T')[0].toString()
-    let currentRec = currentRecords.filter((rec) => rec['record'][0]['date'] == currentDate)
-    let newCount = currentRec.length == 1 ? currentRec[0]['record'][0]['count'] + 1 : 1
+    let currentRec = currentRecords.filter((rec) => rec['recordID'] == newRecordID)
+    let newDate = currentRec.length == 1 ? currentRec[0]['date'] : currentDate
+    let newCount = currentRec.length == 1 ? currentRec[0]['count'] + 1 : 1
     let newRecord = {
       uid: user.uid,
-      record: [{date: currentDate, count: newCount}]
+      recordID: newRecordID,
+      date: newDate,
+      count: newCount
     }
-    await setDoc(doc(db, "todos-record", user.uid), newRecord)
+    await setDoc(doc(db, "todos-record", newRecordID), newRecord)
   }
   
-
+    
   const handleEdit = async (id, task) => {
     await updateDoc(doc(db, "todos", id), {task: task})
   }
@@ -98,3 +101,17 @@ const Todoitem = (props)  => {
 
 export default Todoitem 
 
+/*
+    /*
+    let currentRec = currentRecords.filter((rec) => rec['record'][0]['date'] == currentDate)
+    let newDate = currentRec.length == 1 ? currentRec[0]['record'][0]['date'] : currentDate
+    let newCount = currentRec.length == 1 ? currentRec[0]['record'][0]['count'] + 1 : 1
+    let newRecord = {
+      uid: user.uid,
+      record: [{date: newDate, count: newCount}]
+    }
+   
+    currentRec[0]['record'].push(newRecord)
+    console.log(currentRec)
+
+    await setDoc(doc(db, "todos-record", user.uid), newRecord)*/

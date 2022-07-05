@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Header from '../Header/Header.js'
 import Title from '../Title/Title.js'
@@ -7,14 +7,84 @@ import archive from '../img/archive.png'
 import dp from '../img/dp.jpg'
 
 import CalendarHeatmap from "react-calendar-heatmap";
-import { UserAuth } from '../../context/AuthContext'
 
 import EditIcon from "@mui/icons-material/Edit"
+
+import {db} from "../../firebase.js"
+import { UserAuth } from '../../context/AuthContext'
+
+import {
+    collection,
+    query,
+    onSnapshot,
+    doc,
+    updateDoc,
+    setDoc,
+    deleteDoc,
+    where,
+    QuerySnapshot,
+    addDoc
+} from "firebase/firestore"
+import { ConstructionOutlined } from "@mui/icons-material";
+
+import ReactTooltip from 'react-tooltip';
+
+let classForValue = (value) => {
+    let colScale = 1
+    if (!value) {
+      return 'color-empty';
+    } else {
+        let count = value.count
+        switch (true) {
+            case count <= 5:
+                colScale = 1
+                break
+            case count <= 10:
+                colScale = 2
+                break
+            case count <= 15:
+                colScale = 3
+                break
+            case count <= 20:
+                colScale = 4
+                break
+            case count > 20:
+                colScale = 5
+                break
+            default:
+                colScale = "empty"
+        }
+    }
+    return `color-scale-${colScale}`
+}
 
 const Analytics = () => {
 
     const {user}  = UserAuth()
 
+    const [tasksCompleted, setTasksCompleted] = useState([])
+
+    useEffect(() => {
+        let active = true
+        if (active == true & user.uid != null) {
+            const q = query(collection(db, "todos-record"), where("uid", "==", user.uid))
+            console.log("Retrieving user task completion records")
+            const getAllTasks = onSnapshot(q, (querySnapshot) => {
+                let taskRecords = []
+                querySnapshot.forEach((doc) => {
+                    let record = {
+                        date: doc.data()['date'],
+                        count: doc.data()['count']
+                    }
+                    taskRecords.push(record)
+                })
+                setTasksCompleted(() => taskRecords)
+                console.log(taskRecords)
+            })
+            return () => {active = false}}
+    }, [user.uid])
+
+    console.log(tasksCompleted)
     return (
         <div>
             <Header />
@@ -51,14 +121,21 @@ const Analytics = () => {
                 <div className="analytics-container">
                     <h3>Focus Hours</h3>
                     <CalendarHeatmap
-                        className="activity-calendar"
-                        startDate={new Date('2021-12-31')}
-                        endDate={new Date('2022-12-31')}
-                        values={[
-                            { date: '2022-01-01', count: 12 },
-                            { date: '2022-01-22', count: 122 },
-                            { date: '2022-01-30', count: 38 },
-                        ]}
+                            className="activity-calendar"
+                            startDate={new Date('2021-12-31')}
+                            endDate={new Date('2022-12-31')}
+                            values={tasksCompleted}
+                            classForValue= {classForValue}
+                            tooltipDataAttrs={value => {
+                                let count = 0
+                                if (value.count != null) {
+                                    count = value.count
+                                }
+                                return {
+                                  'data-tip': `${count} hours studied`
+                                }
+                            }
+                        }
                     />
                     <div className="goal-setting-section">
                         <h3 className="achievements-title">Task Completion</h3>
@@ -66,13 +143,22 @@ const Analytics = () => {
                             className="activity-calendar"
                             startDate={new Date('2021-12-31')}
                             endDate={new Date('2022-12-31')}
-                            values={[
-                                { date: '2022-01-01', count: 12 },
-                                { date: '2022-01-22', count: 122 },
-                                { date: '2022-01-30', count: 38 },
-                            ]}
+                            values={tasksCompleted}
+                            classForValue={classForValue}
+                            tooltipDataAttrs={value => {
+                                let count = 0
+                                if (value.count != null) {
+                                    count = value.count
+                                }
+                                return {
+                                  'data-tip': `${count} tasks completed`
+                                }
+                            }
+                        }
                         />
+                        <ReactTooltip />
                     </div>
+
                 </div>
             </div>
         </div>
@@ -80,3 +166,5 @@ const Analytics = () => {
 }
 
 export default Analytics
+
+
