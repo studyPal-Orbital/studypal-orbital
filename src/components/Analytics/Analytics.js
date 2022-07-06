@@ -64,6 +64,24 @@ const Analytics = () => {
 
     const [tasksCompleted, setTasksCompleted] = useState([])
     const [timeStudied, setTimeStudied] = useState([])
+    const [totalTasksCompleted, setTotalTasksCompleted] = useState(0)
+    const [totalTimeStudied, setTotalTimeStudied] = useState(0)
+
+    const calculateTotalTasksCompleted = (taskRecords) => {
+        let counter = 0
+        taskRecords.forEach((task) => {
+            counter += task.count
+        })
+        setTotalTasksCompleted(() => counter)
+    }
+
+    const calculateTotalTimeStudied = (sessions) => {
+        let counter = 0
+        sessions.forEach((task) => {
+            counter += task.count
+        })
+        setTotalTimeStudied(() => counter)
+    }
 
     useEffect(() => {
         let active = true
@@ -80,10 +98,10 @@ const Analytics = () => {
                     taskRecords.push(record)
                 })
                 setTasksCompleted(() => taskRecords)
-                console.log(taskRecords)
+                calculateTotalTasksCompleted(taskRecords)
             })
             return () => {active = false}}
-    }, [user.uid])
+    }, [user.uid, totalTasksCompleted])
 
     
     useEffect(() => {
@@ -101,12 +119,11 @@ const Analytics = () => {
                     timeStudiedRecords.push(record)
                 })
                 setTimeStudied(() => timeStudiedRecords)
-                console.log(timeStudiedRecords)
+                calculateTotalTimeStudied(timeStudiedRecords)
             })
             return () => {active = false}}
     }, [user.uid])
     
-
     return (
         <div>
             <Header />
@@ -124,7 +141,6 @@ const Analytics = () => {
                         <NavLink className='side-col-links' to='/journal'>
                             <EditIcon/>
                         </NavLink>
-      
                     </div>
                     <div className='side-col-books'>
                         <NavLink className='side-col-img-links' to='/archived-thoughts'>
@@ -141,6 +157,11 @@ const Analytics = () => {
                     </div>
                 </div>
                 <div className="analytics-container">
+                    <h3>Your Activity at a glance</h3>
+                    <div className='overall-analytics'>
+                        <p>{totalTasksCompleted} tasks completed</p>
+                        <p>{totalTimeStudied} hours spent studying</p>
+                    </div>
                     <h3>Focus Sessions</h3>
                     <CalendarHeatmap
                             className="activity-calendar"
