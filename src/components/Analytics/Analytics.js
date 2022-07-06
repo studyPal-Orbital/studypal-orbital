@@ -117,6 +117,7 @@ const Analytics = () => {
                         count: Number((doc.data()['time'] / 3600000).toFixed(3))
                     }
                     timeStudiedRecords.push(record)
+                    console.log(timeStudiedRecords)
                 })
                 setTimeStudied(() => timeStudiedRecords)
                 calculateTotalTimeStudied(timeStudiedRecords)
@@ -160,7 +161,7 @@ const Analytics = () => {
                     <h3>Your Activity at a glance</h3>
                     <div className='overall-analytics'>
                         <p>{totalTasksCompleted} tasks completed</p>
-                        <p>{totalTimeStudied} hours spent studying</p>
+                        <p>{totalTimeStudied < 1 ? `< 1` : totalTimeStudied.toFixed(2)} hours spent studying</p>
                     </div>
                     <h3>Focus Sessions</h3>
                     <CalendarHeatmap

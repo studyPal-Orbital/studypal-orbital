@@ -7,7 +7,7 @@
     width:400px;
     height:290px;
     background-color: lightblue;
-    border-radius: 70px;
+    border-radius: 20px;
 }
 
 .countdown-setTime {
@@ -31,12 +31,11 @@
 .countdown-reset {
     background-color: #2ba4c2;
     border: solid 1px transparent;
-    border-radius: 70px;
+    border-radius: 10px;
     padding: 10px;
     color: #ffffff;
     font-size: 16px;
     margin-top: 70px;
-    margin-left: 40px;
     cursor: pointer;
     margin-right: 10px;
     font-family:'Josefin Sans', sans-serif;
@@ -61,7 +60,7 @@
     border:0px;
     background-color: #e4c4f3;
     padding: 30px;
-    border-radius: 50px;
+    border-radius: 20px;
     font-size: 15px;
     font-family:'Josefin Sans', sans-serif;
 }
@@ -138,7 +137,7 @@
 .next-button {
     background-color: rgb(119, 119, 119);
     font-family:'Josefin Sans', sans-serif;
-    border-radius: 100px;
+    border-radius: 10px;
     border-style: none;
     color: #fff;
     cursor: pointer;
@@ -155,7 +154,7 @@
 }
 
 .audio-bar {
-    width:90%;
+    width:80%;
     height:30px;
     padding:0px;
     margin:0px;
@@ -178,17 +177,18 @@
 
 .music-title-text {
     background-color: rgb(255, 195, 255);
-    width:70%;
+    width:60%;
     margin-left: 5%;
     padding:10px;
-    border-radius: 100px;
+    border-radius: 10px;
     margin-top: 0px;
 }
 
 .music-bg {
-    width: 90%;
+    width: 80%;
     height: 500px;
     margin-right: 100px;
+    border-radius: 20px;
 }
 
 .music-container-text {
@@ -202,11 +202,11 @@
 .canvas-container {
     margin-left: 7%;
     margin-bottom: 5%;
-    width:90%;
 }
 
 .canvas {
     background-color: rgb(252, 215, 167);
-    border-radius: 20px;
+    border-radius: 10px;
+    width:90%;
 }
 

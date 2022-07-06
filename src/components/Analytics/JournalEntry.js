@@ -33,7 +33,9 @@ const JournalEntry = () => {
     }
 
     const addNewActiveJournal = async (e) => {
-        if (title != "") {
+        if (title == "" || body == "" || conclusion == "") {
+            alert("You might want to type something for all prompts")
+        } else {
             await addDoc(collection(db, "active-journal"), {
                 title,
                 body,
@@ -49,7 +51,9 @@ const JournalEntry = () => {
     }
 
     const addNewArchiveJournal = async (e) => {
-        if (title != "") {
+        if (title == "" || body == "" || conclusion == "") {
+            alert("You might want to type something for all prompts")
+        } else {
             await addDoc(collection(db, "archive-journal"), {
                 title,
                 body,
@@ -61,7 +65,6 @@ const JournalEntry = () => {
             setBody(() => "")
             setConclusion(() => "")
             navigate('/thoughts-let-go')
-            
         }
     }
 
