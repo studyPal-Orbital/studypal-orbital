@@ -35,6 +35,8 @@ const AddTodo = () => {
     }
 
     return (
+        <>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" crossorigin="anonymous"></link>
         <div className="add-todo-container">
             <div className="input-container">            
                 <TextField 
@@ -49,10 +51,11 @@ const AddTodo = () => {
             </div>
             <div className="add-todo-button-container">
                 <button className="add-todo-button" onClick={addNewTask}>
-                    Add
+                <i class="fa-solid fa-plus fa-2x"></i>
                 </button>
             </div>
         </div>
+        </>
     )
 }
 

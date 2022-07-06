@@ -20,7 +20,7 @@
 
 .add-todo-button {
   background-color: salmon;
-  width:100px;
+  width: 70px;
   margin-left: 10px;
   border-width: 0px;
   border-radius: 10px;
@@ -72,6 +72,12 @@
     width:30%;
 }
 
+/* Instructions follow the same padding settinng of title */
+.todo-list-instructions {
+    color: grey;
+    padding-left: 7%;
+    line-height: 0.5;
+}
 
 .rbc-event-label {
     color: rgb(253, 166, 156);
@@ -85,4 +91,9 @@
 .nav-to-bubble-wrap {
     margin-left: 7%;
     margin-bottom: 5%;
+}
+
+/* Countdown end icon for Timer */
+.fa-plus {
+    color: rgb(255, 248, 240);
 }

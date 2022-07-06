@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Popup from "./Popup";
-import Title from '../Title/Title.js'
 
 
 function Countdown() {

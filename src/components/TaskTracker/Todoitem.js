@@ -2,7 +2,7 @@ import React from "react"
 import { useState, useEffect } from "react"
 
 import CheckCircleIcon from "@mui/icons-material/CheckCircle"
-import EditIcon from "@mui/icons-material/Edit"
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import DeleteIcon from "@mui/icons-material/Delete"
 
 import {db} from "../../firebase.js"
@@ -76,6 +76,7 @@ const Todoitem = (props)  => {
 
 
   return (
+    /* NOTE: Items can be dragged but new order is not saved. */
     <div className="todo-item" draggable>
       <input
         className={"todo-item-input-field"}
@@ -88,7 +89,7 @@ const Todoitem = (props)  => {
           <DeleteIcon id={"i"}/>
         </button>   
         <button className="todo-item-edit-button" onClick={() => handleEdit(props.item.id, currentTask)}>
-          <EditIcon id={"i"}/>
+          <CloudUploadIcon id={"i"}/>
         </button>
         <button className="todo-item-mark-complete-button" onClick={() => toggleComplete(props.item.id, props.item.completed)}>
           <CheckCircleIcon id={"i"}/>

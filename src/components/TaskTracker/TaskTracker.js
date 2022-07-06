@@ -56,6 +56,14 @@ const Todolist =  () => {
       <Title name={"Task Tracker"}/>
       <div className="todo-list-calender">
         <div className="todo-list-container">
+        { /* 
+        <div className="todo-list-instructions">
+            <h4>Instructions</h4>
+            <p>Click on the “trash” icon to delete task.</p>
+            <p>Click on the “cloudsave” icon to save edits.</p>
+            <p>Click on the “tick” icon to strike through completed task.</p>
+          </div>
+        */}
           <AddTodo />
             {currentTasks.map((todo) => (
               <Todoitem 
