@@ -4,7 +4,7 @@ import { AuthContextProvider } from './context/AuthContext';
 import './index.css';
 import Login from './components/LoginSignup/Login.jsx'
 import Signup from './components/LoginSignup/Signup.jsx'
-import Home from './components/Home/Home.jsx'
+import Home from './components/Home/Home.js'
 import LandingPage from './components/LandingPage/LandingPage.jsx'
 import TaskTracker from './components/TaskTracker/TaskTracker'
 import FocusSession from './components/FocusSession/FocusSession.js'

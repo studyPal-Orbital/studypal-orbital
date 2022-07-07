@@ -3,17 +3,16 @@ import React from 'react';
 import Title from '../Title/Title.js'
 import Header from '../Header/Header.js'
 import './Achievements.css';
-
+import SearchBar from './SearchBar.js'
 import { NavLink } from 'react-router-dom';
 
-/* Tentative */
 function Achievements() {
   return (
     <>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" crossorigin="anonymous"></link>
-    
     <div className="achievements">
         <Header />
+        <SearchBar />
         <Title name={'Achievements'}/>
         <NavLink to='/analytics'>Back</NavLink>
         <div className="cards">
