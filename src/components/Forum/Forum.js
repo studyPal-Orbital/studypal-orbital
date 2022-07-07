@@ -23,11 +23,17 @@ import {
 
 import './Forum.css'
 
+import RefreshIcon from '@mui/icons-material/Refresh';
+import SearchIcon from '@mui/icons-material/Search';
+
 const Achievements = () => {
 
     const {user}  = UserAuth()
 
-    const[currentPosts, setCurrentPosts] = useState([])
+    const [ currentPosts, setCurrentPosts ] = useState([])
+    const [ currentPostTitles, setCurrentPostTitles ] = useState([])
+    const [ currentTitleSearched, setCurrentTitleSearched ] = useState("")
+    const [ currentTitleSelected, setCurrentTileSelected ] = useState("")
 
     useEffect(() => {
         let active = true
@@ -36,15 +42,30 @@ const Achievements = () => {
             console.log("Retrieving posts")
             const getAllPosts = onSnapshot(q, (querySnapshot) => {
                 let posts = []
+                let titles = []
                 querySnapshot.forEach((doc) => {
                     posts.push({...doc.data(), id:doc.id})
-                    console.log(doc.data())
+                    titles.push(doc.data().title)
                 })
                 setCurrentPosts(() => posts)
+                setCurrentPostTitles(() => titles)
+                console.log(titles)
             })
             return () => {active = false}}
     }, [user.uid])
-        
+
+    const logUserInput = (e) => {
+        setCurrentTitleSearched(() => e.target.value)
+    }
+
+    const logUserInputSelection = (e) => {
+        setCurrentTileSelected(() => e.target.value)
+    }
+
+    const resetUserInputSelection = (e) => {
+        setCurrentTileSelected(() => "")
+    }
+
     return (
         <div>
             <Header />
@@ -61,8 +82,31 @@ const Achievements = () => {
                     </NavLink>
                 </div>
                 <div className="forum-post-feed">
-                    {currentPosts.map((post) => (
-                        <Post 
+                    <div className="forum-search-bar-container">
+                        <input
+                            className={"forum-search-bar"}
+                            placeholder={"Search for a post"}
+                            value={currentTitleSearched}
+                            onChange={logUserInput}
+                        />
+                        <button className="refresh-button" onClick={resetUserInputSelection}> 
+                            <RefreshIcon /> 
+                        </button>
+                    </div>
+                    <div className="forum-search-results-container">
+                        {currentTitleSearched != "" && currentPostTitles.map((title) => {
+                            if (title.toLocaleLowerCase().match(currentTitleSearched.toLocaleLowerCase())) {
+                                return <button className={"forum-search-results"} value={title} onClick={logUserInputSelection}>
+                                    <SearchIcon className="forum-search-results-icon" />
+                                    {title}
+                                    </button>
+                            }})
+                        }
+                    </div>
+
+                    {currentPosts.map((post) => {
+                        if (post.title == currentTitleSelected & currentTitleSelected != "") {
+                        return <Post 
                             email={post['email']}
                             title={post['title']}
                             body={post['body']}
@@ -71,7 +115,18 @@ const Achievements = () => {
                             uid={post['uid']}
                             postID={post['postID']}
                         />
-                    ))}
+                        } else if (currentTitleSelected == "" ) {
+                            return <Post 
+                            email={post['email']}
+                            title={post['title']}
+                            body={post['body']}
+                            id={post['id']}
+                            comments={post['comments']}
+                            uid={post['uid']}
+                            postID={post['postID']}
+                        />
+                        }
+                    })}
                 </div>
             </div> 
         </div>
