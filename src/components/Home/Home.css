@@ -27,23 +27,47 @@ img  {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width:100%;
-    background-color: rgb(255, 248, 240);
+}
+
+.afternoon,
+.evening {
+    display: flex;
+    background-repeat: no-repeat;
+    font-size: 70px;
+    margin-left: 7%;
+    padding:5%;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height:300px;
+    width:80%;
+    color: rgb(90, 90, 90);
+    font-weight: bold;
+}
+
+.afternoon {
+    background-image: url('../img/afternoon.png');
+}
+
+.evening {
+    background-image: url('../img/evening.png');
 }
 
 .home-page-title {
-    margin-left: 0px;
-    font-size: 50px;
+    font-size: 35px;
+    margin-top: 0%;
+    margin-left: 1%;
 }
 
-
-.home-page-emailacc {
-    font-size: 25px;
+.home-page-events {
+    font-size: 20px;
+    margin-left: 1%;
 }
   
 .home-signout {
-    margin-top: 20px;
-    margin-left: 0px;
+    margin-top: 2%;
+    margin-left: 1%;
 }
 
 .home-page-background {

@@ -235,6 +235,19 @@
     flex-direction: column;
 }
 
+.overall-analytics {
+    display: flex;
+    flex-direction: row;
+}
+
+.overall-analytics > p {
+    padding: 2.5%;
+    margin-right: 5%;
+    background-color: rgb(210, 234, 255);
+    border-radius: 10px;
+    font-size: 17px;
+}
+
 
 /* Calendar */
 .react-calendar-heatmap .color-scale-1 { fill: #d6e685; }

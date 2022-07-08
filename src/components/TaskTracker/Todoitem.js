@@ -20,7 +20,6 @@ import {
   } from "firebase/firestore"
 import { UserAuth } from "../../context/AuthContext.js"
 
-
 const Todoitem = (props)  => {
 
   const {user} = UserAuth()
