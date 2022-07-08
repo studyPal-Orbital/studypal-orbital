@@ -134,24 +134,6 @@
     color: #f7a202;
 }
 
-.next-button {
-    background-color: rgb(119, 119, 119);
-    font-family:'Josefin Sans', sans-serif;
-    border-radius: 10px;
-    border-style: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 15px;
-    outline: none;
-    height:35px;
-    width:15%;
-    margin-left: 1%;
-}
-
-.next-button:hover,
-.next-button:focus {
-  opacity: .75;
-}
 
 .audio-bar {
     width:80%;
@@ -171,10 +153,6 @@
 }
 
 
-.music-button-container {
-    display: flex;
-}
-
 .music-title-text {
     background-color: rgb(255, 195, 255);
     width:60%;
@@ -189,7 +167,9 @@
     height: 500px;
     margin-right: 100px;
     border-radius: 20px;
+    margin-top: 4%;
 }
+
 
 .music-container-text {
     margin-left: 7%;
@@ -210,3 +190,78 @@
     width:90%;
 }
 
+.music-button-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.music-search-bar {
+    margin-left: 3%;
+    width:45%;
+    padding-left:2%;
+    padding-right: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-size: 15px;
+    font-family:'Josefin Sans', sans-serif;
+    border-radius: 10px;
+    border-width:0px;
+
+
+}
+
+.music-search-options-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1%;
+    width:30%;
+    margin-bottom: 1%;
+    border-radius: 10px;
+    background-color: aliceblue;
+    margin-left: 16%;
+    position: absolute;
+    opacity: 0.85;
+    overflow: scroll;
+    max-height: 200px;
+
+}
+
+.music-search-option {
+    display: flex;
+    border-width: 0px ;
+    font-size: 15px;
+    font-family:'Josefin Sans', sans-serif;
+    border-radius: 10px;
+    background-color: transparent;
+    text-align: start;
+    align-items: center;
+    padding: 3%;
+}
+
+.next-button {
+    background-color: rgb(119, 119, 119);
+    font-family:'Josefin Sans', sans-serif;
+    border-radius: 10px;
+    border-style: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    outline: none;
+    width:12%;
+    margin-left: 3%;
+}
+
+.next-button:hover,
+.next-button:focus {
+  opacity: .75;
+}
+
+.music-genre-select {
+    margin-left: 5%;
+    font-family:'Josefin Sans', sans-serif;
+    font-size: 15px;
+    border-width: 0px;
+    padding-left: 1%;
+    border-radius: 10px;
+    padding: 1%;
+}
