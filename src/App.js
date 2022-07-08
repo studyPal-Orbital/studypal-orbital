@@ -2,8 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import { AuthContextProvider } from './context/AuthContext';
 
 import './index.css';
-import Login from './components/LoginSignup/Login.jsx'
-import Signup from './components/LoginSignup/Signup.jsx'
+import Login from './components/LoginSignup/Login.js'
+import Signup from './components/LoginSignup/Signup.js'
 import Home from './components/Home/Home.js'
 import LandingPage from './components/LandingPage/LandingPage.jsx'
 import TaskTracker from './components/TaskTracker/TaskTracker'

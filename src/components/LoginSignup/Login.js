@@ -15,36 +15,39 @@ const Signin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('')
     try {
       await signIn(email, password)
       navigate('/home')
     } catch (e) {
-      setError(e.message)
+      if (e.message == "Firebase: Error (auth/user-not-found).") {
+        setError("You do not have a registered account")
+      } else if (e.message == "Firebase: Error (auth/wrong-password).") {
+        setError("You have entered the wrong password")
+      } else {
+        setError("Your login credentials are inaccurate")
+      }
       console.log(e.message)
     }
-  };
+  }
 
   return (
-    <div className='login'>
-      <div className='login-container'>
-        <img className='login-img' src={loginImg} />
-        <h1>Log in to your account</h1>
+    <div className='login-container'>
+      <div className="credentials-container">
+        <h1>Log in</h1>
         <p>
           Don't have an account yet?{' '}
           <Link to='/signup'>Sign up.</Link>
         </p>
-      </div>
-      <div>
-        <form class='login' onSubmit={handleSubmit}>
+        {setError != '' && <p className="login-signup-error">{error}</p>}
+        <form class='login-form' onSubmit={handleSubmit}>
           <div className='login-label-container'>
             <label class='login-label'>Email </label>
             <input class='login-input' 
                    onChange={(e) => setEmail(e.target.value)} 
                    type='email' 
-            />
-          </div>
-          <div className='login-label-container'>
+          />
+        </div>
+        <div className='login-label-container'>
             <label class='login-label'>Password</label>
             <input class='login-input' onChange={(e) => setPassword(e.target.value)} type='password' />
           </div>
@@ -53,6 +56,9 @@ const Signin = () => {
             <p><Link to='/'>Home</Link></p>
           </div>
         </form>
+      </div>
+      <div className='login-img-container'>
+        <img className='login-img' src={loginImg} />
       </div>
     </div>
   );

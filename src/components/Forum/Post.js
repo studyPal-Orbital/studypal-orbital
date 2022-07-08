@@ -23,7 +23,7 @@ const Post = (props) => {
             <img className="post-user-pic" src={cat}/>
             <div className="post-content-container">
                 <div className="post-header-container">
-                    <p className="post-user">Posted by : {props.email}</p>
+                    <p className="post-user">Posted by : {props.displayName}</p>
                     <h2 className="post-title">{props.title}</h2>
                 </div>
                 <p className="post-content">{props.body}</p>
