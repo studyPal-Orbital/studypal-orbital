@@ -21,6 +21,10 @@ import { UserAuth } from "../../context/AuthContext.js"
 
 import { NavLink } from "react-router-dom";
 
+import CheckCircleIcon from "@mui/icons-material/CheckCircle"
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import DeleteIcon from "@mui/icons-material/Delete"
+
 
 const Todoitem = ({title, body, urgency, completed, createdAt, id}) => {
     const { user } = UserAuth()
@@ -65,32 +69,30 @@ const Todoitem = ({title, body, urgency, completed, createdAt, id}) => {
     const toggleShowContent = () => {
         setShowContent(() => !showContent)
     }
-
-    const toggleComplete = async(id, completed) => {
-        await updateDoc(doc(db, "todos", id), {completed: !completed})
-    }
-    
+  
     return (
         <div>
-            <button 
-                onClick={toggleShowContent} 
-                style={{ textDecoration: completed && "line-through" }}>
-                {title}
-            </button>
-            {showContent && 
-                <>
-                    <p>{body}</p>
-                    <p>{createdAt}</p>
-                    <p>{urgency}</p>
-                    <button onClick={handleDelete}>Delete</button>
-                    <button>
-                        <NavLink to="/edit-todo" state={{ title, body, urgency, completed, createdAt, id }}>
-                            Edit
-                        </NavLink>
-                    </button>
-                    <button onClick={() => toggleComplete(id, completed)}>Complete</button>
-                </>
-            }
+          <div className="display-todo-title-container" onClick={toggleShowContent}>
+            <p 
+              className={"display-task-title"}
+            >
+              {title}
+            </p>
+            <div className="display-task-control-container">
+              <p className="display-task-urgency"
+                  style={{ backgroundColor: urgency == "Low" ? "rgb(109, 209, 125)" : 
+                                            urgency == "Medium" ? "rgb(255, 193, 77)" : "rgb(238, 80, 63)"}}>
+                  {urgency}
+              </p>
+              <button className="display-task-control" onClick={handleDelete}>
+                  <DeleteIcon/>
+              </button>
+              <NavLink className="display-task-control" to="/edit-todo" state={{ title, body, urgency, completed, createdAt, id }}>
+                      <CloudUploadIcon/>
+              </NavLink>
+              </div>
+          </div>
+            {showContent && <p>{body}</p>}
         </div>
     )
 }

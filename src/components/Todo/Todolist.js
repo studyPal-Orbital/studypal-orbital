@@ -22,7 +22,6 @@ import {
     orderBy, 
     where
   } from "firebase/firestore"
-import { TaskAlt } from "@mui/icons-material"
 
 const Todolist = () => {
 
@@ -54,21 +53,32 @@ const Todolist = () => {
     return (
         <div className="task-tracker-page">
             <Header />
-            <Title name={"Task tracker"} />
-            <button onClick={recordUserCreateTaskSelection}>Create task</button>
-            {createTask && <button onClick={recordUserCreateTaskSelection}>Close</button>}
-            {createTask && <Createtodo/>}
-            <div className={"todo-table"}>
-                {allTasks.map((task) => (
-                    <Todoitem
-                        title={task.title}
-                        body={task.body}
-                        urgency={task.urgency}
-                        completed={task.completed}
-                        createdAt={task.createdAt.seconds}
-                        id={task.id}
-                    />
-                ))}
+            <Title name={"Todo List"} />
+            <NavLink className="task-tracker-nav-link" to='/calendar'>Calendar</NavLink>
+            <div className="task-tracker-container">
+                {createTask == false ? 
+                    <button className="create-task-button" onClick={recordUserCreateTaskSelection}>Create Task</button> :
+                    <button className="create-task-button" onClick={recordUserCreateTaskSelection}>Close</button>
+                }
+                <div className="todo-items-container">
+                    {createTask && <Createtodo/>}
+                    <div className={"todo-table"}>
+                        {allTasks.map((task) => (
+                            <Todoitem
+                                title={task.title}
+                                body={task.body}
+                                urgency={task.urgency}
+                                completed={task.completed}
+                                createdAt={task.createdAt.seconds}
+                                id={task.id}
+                            />
+                        ))}
+                    </div>
+                    <textarea 
+                        className="sticky-note-container"
+                        placeholder="Type down your tasks here :)"
+                    />                        
+                </div>                
             </div>
         </div>
     )

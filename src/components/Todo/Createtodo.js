@@ -51,23 +51,32 @@ const Createtodo = () => {
     }
 
     return (
-        <div>
-            <label>Title</label>
-            <input 
-                value={inputTaskTitle}
-                onChange={recordUserInputTaskTitle}
-            />
-            <label>Description</label>
-            <input 
-                value={inputTaskBody}
-                onChange={recordUserInputTaskBody}
-            />
-            <select onChange={recordUserInputTaskUrgency}>
-                <option value={"Low"}>Low</option>
-                <option value={"Medium"}>Medium</option>
-                <option value={"High"}>High</option>
-            </select>
-            <button onClick={addNewTask}>Submit</button>
+        <div className="create-task-container">
+            <div className="title-input-container">
+                <label className="title-label">Title</label>
+                <textarea 
+                    className="title-input"
+                    value={inputTaskTitle}
+                    onChange={recordUserInputTaskTitle}
+                />
+            </div>
+            <div className="desc-input-container">
+                <label className="desc-label">Description</label>
+                <textarea 
+                    className="desc-input"
+                    value={inputTaskBody}
+                    onChange={recordUserInputTaskBody}
+                />
+            </div>
+            <div className="urgency-input-container">
+                <label className="urgency-label">Urgency</label>
+                <select className="urgency-input" onChange={recordUserInputTaskUrgency}>
+                    <option value={"Low"}>Low</option>
+                    <option value={"Medium"}>Medium</option>
+                    <option value={"High"}>High</option>
+                </select>
+            </div>
+            <button className="submit-task-button" onClick={addNewTask}>Submit</button>
         </div>
     )
 }

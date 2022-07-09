@@ -27,6 +27,7 @@ import AllActiveJournalEntries from './components/Analytics/AllActiveJournalEntr
 
 import Todolist from './components/Todo/Todolist';
 import Edittodo from './components/Todo/Edittodo';
+import CalendarGrid from './components/Todo/CalendarGrid';
 
 function App() {
 
@@ -57,6 +58,7 @@ function App() {
                 <Route path='/active-thoughts' element={<AllActiveJournalEntries/>}/>
                 <Route path='/test' element={<Todolist/>}/>
                 <Route path='/edit-todo' element={<Edittodo/>}/>
+                <Route path='/calendar' element={<CalendarGrid/>}/>
                 <Route path='*' element={<NotFoundPage/>}/>
             </Routes>
           </BrowserRouter>
