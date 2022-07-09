@@ -11,17 +11,17 @@ function StickyNotes() {
         <div className="instructions-container">
             <div className="delete-instruction">
                 <DeleteIcon id={"i"}/>
-                <p>delete task</p>
+                <p>Delete Task</p>
             </div>
 
             <div className="save-instruction">
                 <CloudUploadIcon id={"i"}/>
-                <p>save edits</p>
+                <p>Cloudsave Edits</p>
             </div>
 
             <div className="complete-task-instruction">
                 <CheckCircleIcon id={"i"}/>
-                <p>complete task</p>
+                <p>Complete Task</p>
             </div>
         </div>
     )
