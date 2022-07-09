@@ -38,6 +38,7 @@ const CreatePost = () => {
                 createdAt: serverTimestamp(),
                 uid: user.uid,
                 email: user.email,
+                displayName: user.displayName,
                 comments: ["comment1", "comment2"],
                 postID: docRef.id
             }

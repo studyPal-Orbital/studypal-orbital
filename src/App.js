@@ -2,8 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import { AuthContextProvider } from './context/AuthContext';
 
 import './index.css';
-import Login from './components/LoginSignup/Login.jsx'
-import Signup from './components/LoginSignup/Signup.jsx'
+import Login from './components/LoginSignup/Login.js'
+import Signup from './components/LoginSignup/Signup.js'
 import Home from './components/Home/Home.js'
 import LandingPage from './components/LandingPage/LandingPage.jsx'
 import TaskTracker from './components/TaskTracker/TaskTracker'
@@ -24,6 +24,11 @@ import ActiveJournalSubmission from './components/Analytics/ActiveJournalSubmiss
 import ArchiveJournalSubmission from './components/Analytics/ArchiveJournalSubmission';
 import AllArchiveJournalEntries from './components/Analytics/AllArchiveJournalEntries';
 import AllActiveJournalEntries from './components/Analytics/AllActiveJournalEntries';
+
+import Todolist from './components/Todo/Todolist';
+import Edittodo from './components/Todo/Edittodo';
+import CalendarGrid from './components/Todo/CalendarGrid';
+
 function App() {
 
   return (
@@ -51,6 +56,9 @@ function App() {
                 <Route path='/thoughts-let-go' element={<ArchiveJournalSubmission/>}/>
                 <Route path='/archived-thoughts' element={<AllArchiveJournalEntries/>}/>
                 <Route path='/active-thoughts' element={<AllActiveJournalEntries/>}/>
+                <Route path='/test' element={<Todolist/>}/>
+                <Route path='/edit-todo' element={<Edittodo/>}/>
+                <Route path='/calendar' element={<CalendarGrid/>}/>
                 <Route path='*' element={<NotFoundPage/>}/>
             </Routes>
           </BrowserRouter>

@@ -69,7 +69,7 @@ const Comments = () => {
               {currentComments.map((item) => (
                 <Comment 
                   comment={item.comment}
-                  email={item.email}
+                  displayName={item.displayName}
                   className="current-comments"
                   id={item.id}
                   userID={item.uid}

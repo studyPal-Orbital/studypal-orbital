@@ -27,6 +27,7 @@ const CreateComment = (props) => {
                 createdAt: serverTimestamp(),
                 uid: user.uid,
                 email: user.email,
+                displayName: user.displayName,
                 postID : props.post
             })
             setComment(() => "")

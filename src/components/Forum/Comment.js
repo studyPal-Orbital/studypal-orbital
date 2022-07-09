@@ -26,7 +26,7 @@ const Comment = (props) => {
                 }
             </div>
             <div className="comment-content-container">
-                <p className="comment-content-user">Created by : {props.email}</p>
+                <p className="comment-content-user">Created by : {props.displayName}</p>
                 <p className="comment-content-body">{props.comment}</p>
             </div>
         </div>

@@ -75,7 +75,7 @@ const Home = () => {
                  <p className="evening"></p>}
             </div>
             <div className="home-page-content-container">
-                <h3 className="home-page-title">{greeting}</h3>
+                <h3 className="home-page-title">{greeting} {user.displayName}</h3>
                 <p className="home-page-events">Upcoming events: {upcomingEvent} on {upcomingEventDate}</p>
                 <button className = 'home-signout' onClick={handleLogout}>Sign out</button>
             </div>
