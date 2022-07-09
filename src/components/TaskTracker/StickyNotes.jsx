@@ -1,19 +1,27 @@
 import React from 'react';
+
+import CheckCircleIcon from "@mui/icons-material/CheckCircle"
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import DeleteIcon from "@mui/icons-material/Delete"
+
 import './StickyNotes.css'
 
 function StickyNotes() {
     return (
         <div className="instructions-container">
             <div className="delete-instruction">
-                <p>Click on the “trash” icon to delete task.</p>
+                <DeleteIcon id={"i"}/>
+                <p>delete task</p>
             </div>
 
             <div className="save-instruction">
-                <p>Click on the “cloudsave” icon to save edits.</p>
+                <CloudUploadIcon id={"i"}/>
+                <p>save edits</p>
             </div>
 
             <div className="complete-task-instruction">
-                <p>Click on the “tick” icon to strike through completed task.</p>
+                <CheckCircleIcon id={"i"}/>
+                <p>complete task</p>
             </div>
         </div>
     )
