@@ -1,5 +1,4 @@
 import { Task } from "@mui/icons-material";
-import { updateDoc } from "firebase/firestore";
 import React from "react";
 import { useState, useEffect } from "react";
 
@@ -12,6 +11,7 @@ import {
     doc,
     setDoc,
     deleteDoc,
+    updateDoc,
     where,
     QuerySnapshot,
     addDoc
@@ -21,10 +21,10 @@ import { UserAuth } from "../../context/AuthContext.js"
 
 import { NavLink } from "react-router-dom";
 
-import CheckCircleIcon from "@mui/icons-material/CheckCircle"
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import DeleteIcon from "@mui/icons-material/Delete"
-
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import CheckCircleIcon from "@mui/icons-material/CheckCircle"
 
 const Todoitem = ({title, body, urgency, completed, createdAt, id}) => {
     const { user } = UserAuth()
@@ -32,6 +32,7 @@ const Todoitem = ({title, body, urgency, completed, createdAt, id}) => {
     let newRecordID = currentDate + '-' + user.uid
 
     const [showContent, setShowContent] = useState(false)
+    const [complete, setComplete] = useState(completed)
     const [currentRecords, setCurrentRecords] = useState([])
 
     useEffect(() => {
@@ -52,7 +53,6 @@ const Todoitem = ({title, body, urgency, completed, createdAt, id}) => {
 
     const handleDelete = async () => {
         await deleteDoc(doc(db, "todos", id))
-    
         let currentRec = currentRecords.filter((rec) => rec['recordID'] == newRecordID)
         let newDate = currentRec.length == 1 ? currentRec[0]['date'] : currentDate
         let newCount = currentRec.length == 1 ? currentRec[0]['count'] + 1 : 1
@@ -69,12 +69,18 @@ const Todoitem = ({title, body, urgency, completed, createdAt, id}) => {
     const toggleShowContent = () => {
         setShowContent(() => !showContent)
     }
+
+    const toggleComplete = async () => {
+      setComplete(() => !complete)
+      await updateDoc(doc(db, "todos", id), {completed: !complete})
+    }
   
     return (
         <div>
-          <div className="display-todo-title-container" onClick={toggleShowContent}>
+          <div className="display-todo-title-container">
             <p 
               className={"display-task-title"}
+              style={{ textDecoration: complete && "line-through" }}
             >
               {title}
             </p>
@@ -90,9 +96,15 @@ const Todoitem = ({title, body, urgency, completed, createdAt, id}) => {
               <NavLink className="display-task-control" to="/edit-todo" state={{ title, body, urgency, completed, createdAt, id }}>
                       <CloudUploadIcon/>
               </NavLink>
+              <button className="display-task-control" onClick={toggleComplete}>
+                  <CheckCircleIcon/>
+              </button>
+              <button className="display-task-control" onClick={toggleShowContent}>
+                <ExpandMoreIcon />
+              </button>
               </div>
           </div>
-            {showContent && <p>{body}</p>}
+            {showContent && <p className="display-task-description">{body}</p>}
         </div>
     )
 }

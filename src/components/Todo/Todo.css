@@ -65,8 +65,8 @@
 .create-task-container {
     position: absolute;
     background-color: aliceblue;
-    height:47%;
-    width: 40%;
+    height:54%;
+    width: 56%;
     padding: 2%;
     z-index: 99;
     border-radius: 5px;
@@ -88,13 +88,6 @@
     color: rgb(97, 97, 97);
 }
 
-.title-input {
-    height: 20px;
-}
-
-.desc-input {
-    height: 50px;
-}
 
 .title-input,
 .desc-input,
@@ -155,4 +148,80 @@
     height: 0px;
     background-color: white;
     border-width: 0px;
+}
+
+.display-task-description {
+    padding: 2%;
+    margin: 2%;
+    border-radius: 5px;
+    background-color: rgb(131, 161, 186);
+    font-size: 15px;
+    color: white;
+}
+
+
+/* Edittodo */
+
+.edit-todo-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    margin-left: 7%;
+    width: 80%;
+}
+
+.edit-todo-navlink {
+    text-decoration: none;
+    background-color: salmon;
+    width: 3%;
+    height: 2%;
+    padding: 1%;
+    border-radius: 10px;
+    color: white;
+}
+
+.edit-todo-input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-todo-label {
+    font-size: 15px;
+    margin-bottom: 1%;
+    margin-top: 3%;
+}
+
+.edit-todo-title,
+.edit-todo-desc,
+.edit-todo-urgency {
+    border-radius: 5px;
+    border-width: 0px;
+    text-align: start;
+    font-family:'Josefin Sans', sans-serif;
+    font-variant: normal; 
+    font-size: 17px;
+    padding: 1%;
+    resize: none;
+}
+
+.edit-todo-desc {
+    height: 200px;
+}
+
+.edit-todo-urgency {
+    width: 10%;
+}
+
+.edit-todo-button {
+    background-color: salmon;
+    border-width: 0px;
+    width: 7%;
+    border-radius: 10px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    color: white;
+    font-family:'Josefin Sans', sans-serif;
+    font-variant: normal; 
+    font-size: 17px;
+    margin-top: 2%;
 }

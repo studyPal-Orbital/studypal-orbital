@@ -51,25 +51,29 @@ const Edittodo = () => {
     }
 
     return (
-        <div>
-            <NavLink to='/test'>Back</NavLink>
-            <label>Title</label>
-            <input
-                value={currentTitle}
-                onChange={recordNewTitle}
-            />
-            <label>Body</label>
-            <input
-                value={currentBody}
-                onChange={recordNewBody}
-            />
-            <label>Urgency</label>
-            <select value={currentUrgency} onChange={recordNewUrgency}>
-                <option value={"Low"}>Low</option>
-                <option value={"Medium"}>Medium</option>
-                <option value={"High"}>High</option>
-            </select>
-            <button onClick={recordUpdate}>Update</button>
+        <div className="edit-todo-container">
+            <NavLink className="edit-todo-navlink" to='/test'>Back</NavLink>
+            <div className="edit-todo-input-container">
+                <label className="edit-todo-label">Title</label>
+                <textarea
+                    className="edit-todo-title"
+                    value={currentTitle}
+                    onChange={recordNewTitle}
+                />
+                <label className="edit-todo-label">Description</label>
+                <textarea
+                    className="edit-todo-desc"
+                    value={currentBody}
+                    onChange={recordNewBody}
+                />
+                <label className="edit-todo-label">Urgency</label>
+                <select className="edit-todo-urgency" value={currentUrgency} onChange={recordNewUrgency}>
+                    <option value={"Low"}>Low</option>
+                    <option value={"Medium"}>Medium</option>
+                    <option value={"High"}>High</option>
+                </select>
+                <button className="edit-todo-button" onClick={recordUpdate}>Update</button>
+            </div>
         </div>
     )
 }

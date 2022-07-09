@@ -13,7 +13,7 @@ import { UserAuth } from '../../context/AuthContext'
 import { preventDefault } from "@fullcalendar/react"
 
 
-const Createtodo = () => {
+const Createtodo = ({closeCreateTodoScreen}) => {
 
     const {user} = UserAuth()
 
@@ -47,6 +47,7 @@ const Createtodo = () => {
             setInputTaskTitle(() => "")
             setInputTaskBody(() => "")
             setInputTaskUrgency(() => "Low")
+            closeCreateTodoScreen()
         }
     }
 

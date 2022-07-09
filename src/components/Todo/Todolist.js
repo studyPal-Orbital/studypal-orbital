@@ -15,24 +15,25 @@ import {
     collection,
     query,
     onSnapshot,
+    addDoc,
     doc,
     updateDoc,
     deleteDoc,
     QuerySnapshot,
+    serverTimestamp,
     orderBy, 
     where
-  } from "firebase/firestore"
+} from "firebase/firestore"
+
 
 const Todolist = () => {
 
     const {user} = UserAuth()
 
+    const [userEditing, setUserEditing] = useState(true)
+    const [stickyText, setStickyText] = useState("")
     const [createTask, setCreateTask] = useState(false)
     const [allTasks, setAllTasks] = useState([])
-
-    const recordUserCreateTaskSelection = () => {
-        setCreateTask(() => !createTask)
-    }
 
     useEffect(() => {
         let active = true
@@ -49,6 +50,12 @@ const Todolist = () => {
             })
             return () => {active = false}}
     }, [user.uid])
+
+    const recordUserCreateTaskSelection = () => {
+        setCreateTask(() => !createTask)
+    }
+
+ 
  
     return (
         <div className="task-tracker-page">
@@ -61,7 +68,7 @@ const Todolist = () => {
                     <button className="create-task-button" onClick={recordUserCreateTaskSelection}>Close</button>
                 }
                 <div className="todo-items-container">
-                    {createTask && <Createtodo/>}
+                    {createTask && <Createtodo closeCreateTodoScreen={recordUserCreateTaskSelection}/>}
                     <div className={"todo-table"}>
                         {allTasks.map((task) => (
                             <Todoitem
@@ -74,10 +81,11 @@ const Todolist = () => {
                             />
                         ))}
                     </div>
-                    <textarea 
-                        className="sticky-note-container"
-                        placeholder="Type down your tasks here :)"
-                    />                        
+                    <div className="sticky-note-container">
+                        <textarea 
+                            placeholder="Type down your tasks here :)"
+                        />  
+                    </div>                     
                 </div>                
             </div>
         </div>
