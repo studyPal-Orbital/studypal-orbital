@@ -24,6 +24,10 @@ import ActiveJournalSubmission from './components/Analytics/ActiveJournalSubmiss
 import ArchiveJournalSubmission from './components/Analytics/ArchiveJournalSubmission';
 import AllArchiveJournalEntries from './components/Analytics/AllArchiveJournalEntries';
 import AllActiveJournalEntries from './components/Analytics/AllActiveJournalEntries';
+
+import Todolist from './components/Todo/Todolist';
+import Edittodo from './components/Todo/Edittodo';
+
 function App() {
 
   return (
@@ -51,6 +55,8 @@ function App() {
                 <Route path='/thoughts-let-go' element={<ArchiveJournalSubmission/>}/>
                 <Route path='/archived-thoughts' element={<AllArchiveJournalEntries/>}/>
                 <Route path='/active-thoughts' element={<AllActiveJournalEntries/>}/>
+                <Route path='/test' element={<Todolist/>}/>
+                <Route path='/edit-todo' element={<Edittodo/>}/>
                 <Route path='*' element={<NotFoundPage/>}/>
             </Routes>
           </BrowserRouter>
