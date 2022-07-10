@@ -4,6 +4,7 @@ import Title from '../Title/Title.js'
 import './Todo.css'
 import Createtodo from "./Createtodo.js"
 import Todoitem from "./Todoitem.js"
+import Sticky from "./Sticky.js"
 
 import { NavLink } from "react-router-dom"
 import { useState, useEffect } from "react"
@@ -25,15 +26,17 @@ import {
     where
 } from "firebase/firestore"
 
+import ReactMarkdown from 'react-markdown'
+
 
 const Todolist = () => {
 
     const {user} = UserAuth()
 
     const [userEditing, setUserEditing] = useState(true)
-    const [stickyText, setStickyText] = useState("")
     const [createTask, setCreateTask] = useState(false)
     const [allTasks, setAllTasks] = useState([])
+    const [sticky, setSticky] = useState([])
 
     useEffect(() => {
         let active = true
@@ -51,11 +54,25 @@ const Todolist = () => {
             return () => {active = false}}
     }, [user.uid])
 
+    useEffect(() => {
+        let active = true
+        if (active == true && user.uid != null) {
+            const q = query(collection(db, "sticky"), where("uid", "==", user.uid))
+            console.log("Retrieving sticky")
+            const getSticky = onSnapshot(q, (querySnapshot) => {
+                let currentSticky = []
+                querySnapshot.forEach((doc) => {
+                    currentSticky.push({...doc.data()})
+                })
+                setSticky(() => currentSticky)
+                console.log(currentSticky)
+            })
+            return () => {active = false}}
+    }, [user.uid])
+
     const recordUserCreateTaskSelection = () => {
         setCreateTask(() => !createTask)
     }
-
- 
  
     return (
         <div className="task-tracker-page">
@@ -82,9 +99,7 @@ const Todolist = () => {
                         ))}
                     </div>
                     <div className="sticky-note-container">
-                        <textarea 
-                            placeholder="Type down your tasks here :)"
-                        />  
+                        {sticky.length != 0 && <Sticky text={sticky}/>}
                     </div>                     
                 </div>                
             </div>

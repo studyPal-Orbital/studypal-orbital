@@ -22,24 +22,9 @@
     flex-direction: row;
 }
 
-.sticky-note-container {
-    width: 28%;
-    height: 58vh;
-    background-color: antiquewhite;
-    padding-left: 1%;
-    padding-top: 1%;
-    margin-left: 2%;
-    border-radius: 5px;
-    border-width: 0px;
-    resize: none;
-    text-align: start;
-    font-family:'Josefin Sans', sans-serif;
-    font-variant: normal; 
-}
-
 .todo-table {
     width: 65%;
-    height: 60vh;
+    height: 61vh;
     border-radius: 5px;
     background-color: rgb(181, 201, 218);
     overflow: scroll;
@@ -65,7 +50,7 @@
 .create-task-container {
     position: absolute;
     background-color: aliceblue;
-    height:54%;
+    height:55%;
     width: 56%;
     padding: 2%;
     z-index: 99;
@@ -105,14 +90,12 @@
 .display-todo-title-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
     border-width: 0px;
     border-radius: 5px;
     padding:2%;
     margin: 2%;
     width:92%;
-    height:55px;
+    height: 63px;
     text-align: start;
     font-family:'Josefin Sans', sans-serif;
     font-variant: normal; 
@@ -121,16 +104,21 @@
     font-size: 17px;
 }
 
+.display-todo-first-row {
+    display: flex;
+    flex-direction: row;
+}
+
 .display-task-title {
-    margin-bottom: 0px;
+    margin-top: 1%;
 }
 
 .display-task-urgency {
-    font-size: 15px;
+    margin-top: 0px;
+    margin-left: 2%;
+    font-size: 13px;
     padding: 1%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 10px;
     border-radius: 5px;
     color: white;
 }
@@ -139,12 +127,12 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    margin-top: 0px;
 }
 
 .display-task-control {
     padding:0px;
-    margin-top: 2%;
-    margin-left: 2%;
+    margin-right: 2%;
     height: 0px;
     background-color: white;
     border-width: 0px;
@@ -187,8 +175,8 @@
 
 .edit-todo-label {
     font-size: 15px;
-    margin-bottom: 1%;
-    margin-top: 3%;
+    margin-bottom: 2%;
+    margin-top: 2%;
 }
 
 .edit-todo-title,
@@ -224,4 +212,51 @@
     font-variant: normal; 
     font-size: 17px;
     margin-top: 2%;
+}
+
+
+/* Sticky */
+
+.sticky-note-container {
+    width: 28%;
+    height: 58vh;
+    background-color: antiquewhite;
+    padding: 1%;
+    margin-left: 2%;
+    border-radius: 5px;
+    border-width: 0px;
+    resize: none;
+}
+
+.sticky-textbox {
+    resize: none;
+    width: 95%;
+    height:350px;
+    margin-top: 7%;
+    border-radius: 5px;
+    border-width: 0px;
+    background-color: transparent;
+    text-align: start;
+    font-family:'Josefin Sans', sans-serif;
+    font-variant: normal; 
+    outline: none;
+    font-size: 15px;
+    padding: 2%;
+    color: black;
+}
+
+.sticky-button {
+    margin-left: 87%;
+    border-width: 0px;
+    background-color: salmon;
+    padding: 2%;
+    font-family:'Josefin Sans', sans-serif;
+    font-variant: normal; 
+    font-size: 15px;
+    border-radius: 5px;
+    color: white;
+}
+
+.sticky-text {
+    font-size: 15px;
 }
