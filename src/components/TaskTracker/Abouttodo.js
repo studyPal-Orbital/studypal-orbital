@@ -11,7 +11,7 @@ import './Abouttodo.css'
 const Abouttodo = () => {
     return (
         <div className="abouttodo-container">
-            <NavLink className="abouttodo-button" to='/test'>Back</NavLink>
+            <NavLink className="abouttodo-button" to='/task-tracker'>Back</NavLink>
             <div className="instructions-container">
                 <h1 className="abouttodo-title">More information on the task tracker</h1> 
                 <div className="delete-instructions-container">

@@ -1,8 +1,10 @@
 .rbc-calendar {
     height:70vh;
     margin-left: 7%;
-    margin-bottom: 10vh;
+    width:85vw;
+    margin-top: 2%;
 }
+
 
 .rbc-month-view {
     margin-top: 1%;
@@ -63,6 +65,7 @@
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+    margin-bottom: 5%;
 }
 
 .rbc-btn-group > button:hover {
@@ -74,3 +77,14 @@
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
 
+.task-tracker-nav-link {
+    margin-left: 7%;
+    background-color: salmon;
+    color: white;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    border-radius: 10px;
+    text-decoration: none;
+}

@@ -99,16 +99,17 @@ const CalendarGrid = (props) => {
       <div className="calendar-page"> 
       <Header/>
       <Title name={"Calendar"} />
-      <NavLink className="task-tracker-nav-link" to='/test'>Todo List</NavLink>
+      <NavLink className="task-tracker-nav-link" to='/task-tracker'>Todo List</NavLink>
       <Calendar
         defaultDate={moment().toDate()}
         defaultView="month"
-        views={['month','week']}
+        views={['month','week','agenda']}
         localizer={localizer}
         events={events}
         selectable
         onSelectSlot={createNewEvent}
         onSelectEvent={deleteCurrentEvent}
+        popup
       />   
       </div>
     );

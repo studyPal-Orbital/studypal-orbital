@@ -47,12 +47,12 @@ const Edittodo = () => {
         }
         console.log(newTask)
         await updateDoc(doc(db, "todos", id), newTask)
-        navigate('/test')
+        navigate('/task-tracker')
     }
 
     return (
         <div className="edit-todo-container">
-            <NavLink className="edit-todo-navlink" to='/test'>Back</NavLink>
+            <NavLink className="edit-todo-navlink" to='/task-tracker'>Back</NavLink>
             <div className="edit-todo-input-container">
                 <label className="edit-todo-label">Title</label>
                 <textarea
