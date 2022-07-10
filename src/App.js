@@ -6,7 +6,6 @@ import Login from './components/LoginSignup/Login.js'
 import Signup from './components/LoginSignup/Signup.js'
 import Home from './components/Home/Home.js'
 import LandingPage from './components/LandingPage/LandingPage.jsx'
-import TaskTracker from './components/TaskTracker/TaskTracker'
 import FocusSession from './components/FocusSession/FocusSession.js'
 import Analytics from './components/Analytics/Analytics.js'
 import BubbleWrap from './components/Analytics/BubbleWrap/BubbleWrap.js'
@@ -25,9 +24,10 @@ import ArchiveJournalSubmission from './components/Analytics/ArchiveJournalSubmi
 import AllArchiveJournalEntries from './components/Analytics/AllArchiveJournalEntries';
 import AllActiveJournalEntries from './components/Analytics/AllActiveJournalEntries';
 
-import Todolist from './components/Todo/Todolist';
-import Edittodo from './components/Todo/Edittodo';
-import CalendarGrid from './components/Todo/CalendarGrid';
+import Todolist from './components/TaskTracker/Todolist';
+import Edittodo from './components/TaskTracker/Edittodo';
+import CalendarGrid from './components/TaskTracker/CalendarGrid';
+import Abouttodo from './components/TaskTracker/Abouttodo';
 
 function App() {
 
@@ -41,7 +41,6 @@ function App() {
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/signup' element={<Signup/>}/>
                 <Route path='/home' element={<Home/>}/>
-                <Route path='/task-tracker' element={<TaskTracker/>}/>
                 <Route path='/bubbles' element={<BubbleWrap/>}/>
                 <Route path='/focus-session' element={<FocusSession/>}/>
                 <Route path='/achievements' element={<Achievements/>}/>
@@ -56,9 +55,10 @@ function App() {
                 <Route path='/thoughts-let-go' element={<ArchiveJournalSubmission/>}/>
                 <Route path='/archived-thoughts' element={<AllArchiveJournalEntries/>}/>
                 <Route path='/active-thoughts' element={<AllActiveJournalEntries/>}/>
-                <Route path='/test' element={<Todolist/>}/>
+                <Route path='/task-tracker' element={<Todolist/>}/>
                 <Route path='/edit-todo' element={<Edittodo/>}/>
                 <Route path='/calendar' element={<CalendarGrid/>}/>
+                <Route path='/about-todo' element={<Abouttodo/>}/>
                 <Route path='*' element={<NotFoundPage/>}/>
             </Routes>
           </BrowserRouter>

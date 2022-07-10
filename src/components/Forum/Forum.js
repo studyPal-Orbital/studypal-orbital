@@ -60,6 +60,7 @@ const Achievements = () => {
 
     const logUserInputSelection = (e) => {
         setCurrentTileSelected(() => e.target.value)
+        setCurrentTitleSearched(() => "")
     }
 
     const resetUserInputSelection = (e) => {
