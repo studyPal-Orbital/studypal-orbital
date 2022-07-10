@@ -129,14 +129,14 @@
 .forum-search-results-container {
     margin-bottom: 2%;
     background-color: aliceblue;
-    margin-left: 4%;
-    width:67%;
-    border-radius: 5px;
-    margin-top: 4%;
+    margin-left: 3.5%;
+    width:68%;
+    border-radius: 10px;
+    margin-top: 4.3%;
     z-index: 99;
     position: absolute;
     overflow: scroll;
-    max-height: 170px;
+    max-height: 173px;
 }
 
 
