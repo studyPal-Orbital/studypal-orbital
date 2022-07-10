@@ -27,7 +27,7 @@ import {
 } from "firebase/firestore"
 
 import ReactMarkdown from 'react-markdown'
-
+import HelpIcon from '@mui/icons-material/Help';
 
 const Todolist = () => {
 
@@ -84,6 +84,9 @@ const Todolist = () => {
                     <button className="create-task-button" onClick={recordUserCreateTaskSelection}>Create Task</button> :
                     <button className="create-task-button" onClick={recordUserCreateTaskSelection}>Close</button>
                 }
+                <NavLink to='/about-todo' className="inquiry-button">
+                    More Info
+                </NavLink>
                 <div className="todo-items-container">
                     {createTask && <Createtodo closeCreateTodoScreen={recordUserCreateTaskSelection}/>}
                     <div className={"todo-table"}>

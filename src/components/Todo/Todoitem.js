@@ -93,16 +93,16 @@ const Todoitem = ({title, body, urgency, completed, createdAt, id}) => {
               </div>
                 <div className="display-task-control-container">
                   <button className="display-task-control" onClick={handleDelete}>
-                      <DeleteIcon/>
+                      <DeleteIcon className="todo-icon"/>
                   </button>
                   <NavLink className="display-task-control" to="/edit-todo" state={{ title, body, urgency, completed, createdAt, id }}>
-                          <CloudUploadIcon/>
+                      <CloudUploadIcon className="todo-icon"/>
                   </NavLink>
                   <button className="display-task-control" onClick={toggleComplete}>
-                      <CheckCircleIcon/>
+                      <CheckCircleIcon className="todo-icon"/>
                   </button>
                   <button className="display-task-control" onClick={toggleShowContent}>
-                    <ExpandMoreIcon />
+                    <ExpandMoreIcon className="todo-icon"/>
                   </button>
               </div>
               </div>

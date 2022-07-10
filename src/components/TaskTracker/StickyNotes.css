@@ -1,0 +1,60 @@
+.instructions-container{
+    font-size: 0.8em;
+    display: flex;
+    flex-wrap: wrap;
+}
+  
+.delete-instruction{
+    cursor: default;
+    line-height: 1;
+    text-align: center;
+    color: black;
+    background: #c1edfa;
+    width: 5em;
+    padding: 1em;
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    transform: rotate(-6deg);
+    transition: transform .15s linear;
+    margin: 1em;
+}
+  
+.save-instruction{
+    cursor: default;
+    line-height: 1;
+    text-align: center;
+    color: black;
+    background:#ccffcc;
+    width: 5em;
+    padding: 1em;
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    transform: rotate(4deg);
+    transition: transform .15s linear;
+    margin: 1em;
+    position: relative;
+    top: 5px;
+}
+  
+.complete-task-instruction{
+    cursor: default;
+    line-height: 1;
+    text-align: center;
+    color: black;
+    background: #e9c0fc;
+    width: 5em;
+    padding: 1em;
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    transform: rotate(-3deg);
+    transition: transform .15s linear;
+    margin: 1em;
+    position: relative;
+    top: -5px;
+}
+  
+.delete-instruction:hover,
+.save-instruction:hover,
+.complete-task-instruction:hover{
+    box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+    transform: scale(1.25);
+    position:relative;
+    z-index: 5;
+}
