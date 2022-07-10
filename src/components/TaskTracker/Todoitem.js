@@ -107,7 +107,7 @@ const Todoitem = ({title, body, urgency, completed, createdAt, id}) => {
               </div>
               </div>
               
-            {showContent && <p className="display-task-description">{body}</p>}
+            {showContent && <p className="display-task-description">{body == "" ? "No description provided" : body}</p>}
         </div>
     )
 }
