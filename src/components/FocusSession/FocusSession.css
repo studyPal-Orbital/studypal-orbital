@@ -55,7 +55,7 @@
 
 .input-text {
     width:85%;
-    height:150px;
+    height:10vh;
     border-radius: 100px;
     border:0px;
     background-color: #e4c4f3;
@@ -63,6 +63,7 @@
     border-radius: 20px;
     font-size: 15px;
     font-family:'Josefin Sans', sans-serif;
+    resize: none;
 }
 
 /* Pop-up page for Timer */
@@ -127,6 +128,7 @@
 .text-area-container {
     margin-top: 0px;
     margin-bottom: 0px;
+    height: 100%;
 }
 
 /* Countdown end icon for Timer */
@@ -134,9 +136,8 @@
     color: #f7a202;
 }
 
-
 .audio-bar {
-    width:80%;
+    width:85%;
     height:30px;
     padding:0px;
     margin:0px;
@@ -163,11 +164,11 @@
 }
 
 .music-bg {
-    width: 80%;
-    height: 500px;
+    width: 85%;
+    height: 100%;
     margin-right: 100px;
     border-radius: 20px;
-    margin-top: 4%;
+    margin-top: 3%;
 }
 
 
@@ -176,7 +177,7 @@
 }
 
 .countdown {
-    margin-top: 7%;
+    margin-top: 20px;
 }
 
 .canvas-container {

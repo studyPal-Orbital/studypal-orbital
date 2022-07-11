@@ -39,10 +39,6 @@ function FocusSession () {
                     <Music />
                 </div>
             </div>
-            <div className="canvas-container">
-                <p>Doodling Canvas</p>
-                <Canvas />
-            </div>
         </div>
     )
 }

@@ -25,9 +25,7 @@ import {
     QuerySnapshot,
     addDoc
 } from "firebase/firestore"
-import { ConstructionOutlined } from "@mui/icons-material";
 
-import ReactTooltip from 'react-tooltip';
 
 let classForValue = (value) => {
     let colScale = 1
@@ -200,7 +198,6 @@ const Analytics = () => {
                             }
                         }
                         />
-                        <ReactTooltip />
                     </div>
 
                 </div>

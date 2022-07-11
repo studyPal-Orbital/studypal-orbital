@@ -1,7 +1,5 @@
-import { Task } from "@mui/icons-material";
 import React from "react";
 import { useState, useEffect } from "react";
-
 
 import {db} from "../../firebase.js"
 import {
@@ -13,18 +11,17 @@ import {
     deleteDoc,
     updateDoc,
     where,
-    QuerySnapshot,
-    addDoc
   } from "firebase/firestore"
 
 import { UserAuth } from "../../context/AuthContext.js"
 
 import { NavLink } from "react-router-dom";
-
+import './Todo.css'
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import DeleteIcon from "@mui/icons-material/Delete"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CheckCircleIcon from "@mui/icons-material/CheckCircle"
+
 
 const Todoitem = ({title, body, urgency, completed, createdAt, id}) => {
     const { user } = UserAuth()
@@ -92,18 +89,18 @@ const Todoitem = ({title, body, urgency, completed, createdAt, id}) => {
                   </p>
               </div>
                 <div className="display-task-control-container">
-                  <button className="display-task-control" onClick={handleDelete}>
+                  <div className="display-task-control" onClick={handleDelete}>
                       <DeleteIcon className="todo-icon"/>
-                  </button>
+                  </div>
                   <NavLink className="display-task-control" to="/edit-todo" state={{ title, body, urgency, completed, createdAt, id }}>
                       <CloudUploadIcon className="todo-icon"/>
                   </NavLink>
-                  <button className="display-task-control" onClick={toggleComplete}>
+                  <div className="display-task-control" onClick={toggleComplete}>
                       <CheckCircleIcon className="todo-icon"/>
-                  </button>
-                  <button className="display-task-control" onClick={toggleShowContent}>
+                  </div>
+                  <div className="display-task-control" onClick={toggleShowContent}>
                     <ExpandMoreIcon className="todo-icon"/>
-                  </button>
+                  </div>
               </div>
               </div>
             {showContent && <p className="display-task-description">{body == "" ? "No description provided" : body}</p>}

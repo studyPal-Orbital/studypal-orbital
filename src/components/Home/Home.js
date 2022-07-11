@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom'
 import { UserAuth } from '../../context/AuthContext'
-import Sunset from "../img/mountain.png";
 import React, { useState, useEffect } from 'react'
 import Header from '../Header/Header.js';
 import './Home.css'
@@ -71,8 +70,8 @@ const Home = () => {
             <Header />
             <div className="home-page-img-container">
                 {currentHour >= 8 && currentHour <= 18 ? 
-                <p className="afternoon"></p> : 
-                 <p className="evening"></p>}
+                <div className="afternoon"></div> : 
+                 <div className="evening"></div>}
             </div>
             <div className="home-page-content-container">
                 <h3 className="home-page-title">{greeting} {user.displayName}</h3>

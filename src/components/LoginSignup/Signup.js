@@ -10,7 +10,6 @@ import { getAuth, sendPasswordResetEmail, updateProfile } from "firebase/auth";
 
 const auth = getAuth();
 
-
 const Signup = () => {
     const [username, setUsername] = useState(' ')
     const [email, setEmail] = useState('')
