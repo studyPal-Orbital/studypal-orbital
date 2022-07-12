@@ -11,15 +11,16 @@
 }
 
 .countdown-setTime {
-    margin-left:70px;
-    margin-top: 50px;
     border: solid 1px transparent;
     border-radius: 4px;
-    padding: 2px 5px;
+    width: 40px;
+    height: 40px;
     color: white;
     font-size: 20px;
     background-color: salmon;
     cursor: pointer;
+    margin-left: 17%;
+    margin-top: 10%;
 }
   
 .countdown-setTime:hover {
@@ -55,7 +56,7 @@
 
 .input-text {
     width:85%;
-    height:150px;
+    height:10vh;
     border-radius: 100px;
     border:0px;
     background-color: #e4c4f3;
@@ -63,6 +64,7 @@
     border-radius: 20px;
     font-size: 15px;
     font-family:'Josefin Sans', sans-serif;
+    resize: none;
 }
 
 /* Pop-up page for Timer */
@@ -127,6 +129,7 @@
 .text-area-container {
     margin-top: 0px;
     margin-bottom: 0px;
+    height: 100%;
 }
 
 /* Countdown end icon for Timer */
@@ -134,16 +137,14 @@
     color: #f7a202;
 }
 
-
 .audio-bar {
-    width:80%;
+    width:85%;
     height:30px;
     padding:0px;
     margin:0px;
     border:0px;
     border-radius: 100px;
     margin-top: 10px;
-    margin-left: 5%;
 }
 
 .music-container {
@@ -163,20 +164,20 @@
 }
 
 .music-bg {
-    width: 80%;
-    height: 500px;
+    width: 85%;
+    height: 100%;
     margin-right: 100px;
     border-radius: 20px;
-    margin-top: 4%;
+    margin-top: 3%;
 }
 
 
 .music-container-text {
-    margin-left: 7%;
+    margin-left: 2%;
 }
 
 .countdown {
-    margin-top: 7%;
+    margin-top: 20px;
 }
 
 .canvas-container {
@@ -218,7 +219,7 @@
     margin-bottom: 1%;
     border-radius: 10px;
     background-color: aliceblue;
-    margin-left: 16%;
+    margin-left: 13%;
     position: absolute;
     opacity: 0.85;
     overflow: scroll;
@@ -257,11 +258,11 @@
 }
 
 .music-genre-select {
-    margin-left: 5%;
     font-family:'Josefin Sans', sans-serif;
     font-size: 15px;
     border-width: 0px;
     padding-left: 1%;
     border-radius: 10px;
     padding: 1%;
+    background-color: white;
 }

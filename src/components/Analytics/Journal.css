@@ -147,21 +147,18 @@
 .achievements-container {
     display: flex;
     flex-direction: row;
-    margin-top: 3%;
+    margin-left: 7%;
 }
 
 .side-col {
     display: flex;
     flex-direction: column;
-    margin-left: 7%;
     width:25%;
 }
 
 .side-col-links-container {
     display: flex;
     flex-direction: row;
-    margin-bottom: 1%;
-    margin-top: 1%;
 }
 
 .side-col-links {
@@ -172,7 +169,6 @@
 }
 
 .side-col-ext-links {
-    margin-top: 1%;
     margin-bottom: 5%;
 }
 
@@ -210,11 +206,11 @@
 .analytics-container {
     display: flex;
     flex-direction: column;
+    width: 70%;
 }
 
 .react-calendar-heatmap {
-    width: 1000px;
-    margin-top: 2%;
+    width: 100%;
 }
 
 .react-calendar-heatmap text {
@@ -227,7 +223,7 @@
   }
 
 .achievements-title {
-    margin-top: 6%;
+    margin-top: 3%;
 }
 
 .goal-setting-section {

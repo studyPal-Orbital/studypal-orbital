@@ -56,6 +56,7 @@
     margin-right: 2%;
     background-color: rgb(255, 255, 255);
     opacity: 60%;
+    border-radius: 40px;
 }
 
 .post-user {
@@ -75,18 +76,16 @@
 }
 
 .forum-post-comments {
-    font-size: 13px;
+    font-size: 0.7rem;
     color: gray;
     text-decoration: none;
 }
 
 .forum-post-comments:hover {
     background-color: lightgray;
+    font-size: 0.7rem;
     border-radius: 10px;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 3%;
-    padding-bottom: 3%;
+    padding: 0.5rem;
 }
 
 /* Delete Button */

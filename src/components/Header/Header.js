@@ -31,11 +31,6 @@ function Header () {
                 className="nav-link"
                 to='/analytics'>Profile</NavLink>
             </h3>
-            <h3>
-                <NavLink 
-                className="nav-link"
-                to='/achievements'>Achievements</NavLink>
-            </h3>
         </nav>
     )
 }

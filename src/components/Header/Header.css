@@ -14,8 +14,8 @@
 .nav-link {
     text-decoration: none;
     transition: 0.5s;
-    padding: 10px;
-    font-size: 17px;
+    padding: 0.8rem;
+    font-size: 1.1rem;
     border-radius: 100px;
     color: black;
     white-space: nowrap;
@@ -23,4 +23,4 @@
 
 .nav-link:hover {
     background-color: rgb(255, 200, 194);
-  }
+}

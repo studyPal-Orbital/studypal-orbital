@@ -51,18 +51,16 @@
 .submit-comment-button {
     text-align: left;
     height:5%;
-    width:5%;
+    width:4.5rem;
     margin-top: 1%;
-    padding-left: 1%;
-    padding-top: 1%;
-    padding-bottom: 1%;
+    padding: 0.5rem;
     background-color: salmon;
     border-width: 0px;
     color: white;
     border-radius: 10px;
     font-family:'Josefin Sans', sans-serif;
     font-variant: normal; 
-    font-size: 15px;
+    font-size: 1rem;
 }
 
 
@@ -93,6 +91,7 @@
     margin-left: 0px;
     margin-top: 0px;
     border: 0.5px solid grey;
+    border-radius: 40px;
 }
 
 

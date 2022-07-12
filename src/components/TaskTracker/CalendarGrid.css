@@ -1,10 +1,9 @@
 .rbc-calendar {
     height:70vh;
     margin-left: 7%;
-    width:85vw;
     margin-top: 2%;
+    width:85vw;
 }
-
 
 .rbc-month-view {
     margin-top: 1%;
@@ -24,7 +23,7 @@
 }
 
 .rbc-toolbar-label {
-    font-size: 30px;
+    font-size: 1.5rem;
 }
 
 .rbc-event {

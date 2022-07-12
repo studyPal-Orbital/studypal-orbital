@@ -24,7 +24,7 @@ import {
 const Sticky = ( {text} ) => {
     const {user}  = UserAuth()
 
-    const [sticky, setSticky] = useState(text[0]['content'])
+    const [sticky, setSticky] = useState(text)
     const [stickyEditMode, toggleStickyEditMode] = useState(false)
 
     const recordUserStickyText = (e) => {
