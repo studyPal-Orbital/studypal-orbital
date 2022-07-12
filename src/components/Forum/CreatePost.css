@@ -52,16 +52,16 @@
 
 .button-create-post-page {
     color: rgb(89, 88, 88);
-    font-size: 15px;
+    font-size: 0.9rem;
     font-family:'Josefin Sans', sans-serif;
     font-variant: normal; 
     width:100px;
     height:40px;
-    font-size: 15px;
     font-family:'Josefin Sans', sans-serif;
     font-variant: normal; 
     color: rgb(89, 88, 88);
-    background-color: rgb(255, 200, 194);
+    background-color: salmon;
+    color: white;
     border:0px;
     border-radius: 10px;
     margin-left: 30px;
@@ -69,6 +69,6 @@
 }
 
 .nav-link-back-to-forum {
-    color: rgb(89, 88, 88);
+    color: white;
     text-decoration: none;
 }

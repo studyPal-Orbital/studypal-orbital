@@ -1,41 +1,26 @@
-.home-page-container {
-    width:100%;
-    height:100%;
-}
-
-img  {
-    height: 60vh;
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 1%;
-    border-radius: 50px;
-}
-
-.centered {
-    position: absolute;
-    top: 20%;
-    left: 25%;
-    font-size: 90px;
-}
-
-.home-page-content-container {
-    margin-left: 100px;
-}
-
-.home-page-img-container {
+/* Container */
+#home-page-img-container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     height: 100%;
+    margin-left: 7%;
 }
 
-.afternoon,
-.evening {
+#home-page-content-container {
+    margin-left: 7%;
+}
+
+/* Individual Elements */
+#home-page-title {
+    font-size: 2rem;
+    margin-left: 1%;
+}
+
+#afternoon,
+#evening {
     display: flex;
     background-repeat: no-repeat;
-    margin-left: 7%;
-    margin-bottom: 3%;
     margin-top: 3%;
     padding:5%;
     border-radius: 20px;
@@ -50,88 +35,51 @@ img  {
     width: 78vw;
 }
 
-.afternoon {
+#afternoon {
     background-image: url('../img/afternoon.png');
 }
 
-.evening {
+#evening {
     background-image: url('../img/evening.png');
 }
 
-.home-page-title {
-    font-size: 35px;
-    margin-top: 0%;
-    margin-left: 1%;
-}
 
 .home-page-events {
-    font-size: 20px;
+    font-size: 1.2rem;
     margin-left: 1%;
 }
   
-.home-signout {
-    margin-top: 2%;
-    margin-left: 1%;
-}
-
-.home-page-background {
-    width: 100%;
-    height: 100%;
-}
-  
-.home-page-container > h1 {
-    padding-left:5%;
-    font-size: 60px;
-    font-weight: bold;  
-}
-  
-.home-page-container > p {
-    padding-left: 5%;
-    font-size: 20px;
-    font-weight: bold;  
-}
-
-
-/* Button */
-
-.home-signout {
+#home-page-signout {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    margin-bottom:5%;
-    padding: 10px;
-    background-color: #2ba4c2;
-    border: none;
+    flex-direction: row;
+    text-decoration: none;
     color: white;
     font-weight: bold;
-    text-transform: uppercase;
+    background-color: #2ba4c2;
     cursor: pointer;
+    border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
+    padding: 0.7rem;
+    margin-top: 2%;
+    margin-left: 1%;
+    font-size: 0.8rem;
 }
 
-.home-signout a {
+#home-page-signout a {
     color: white;
     text-decoration: none;
 }
   
-.home-signout:hover {
+#home-page-signout:hover {
     background-color: #105a87;
     transition: background-color 0.5s;
 }
   
-.home-signout:active {
+#home-page-signout:active {
     background-color: #105a87;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
-
-p.home-emailacc {
-    font-weight: normal;
-    font-size: 15px;
-}
-
 
 

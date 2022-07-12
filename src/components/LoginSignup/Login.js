@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../../context/AuthContext';
-
 import loginImg from "../img/bg.png";
-
 import './LoginSignup.css'
 
 const Login = () => {
@@ -13,7 +11,7 @@ const Login = () => {
   const navigate = useNavigate();
   const { signIn } = UserAuth();
 
-  /* Submit & confirm the validity of user inputs */ 
+  /* Submit & confirm the validity of user log in inputs */ 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -32,37 +30,39 @@ const Login = () => {
   }
 
   return (
-    <div className='login-signup-container'>
-      <div className="credentials-container">
-        <h1>Log in</h1>
-        <p>
-          Don't have an account yet?{' '}
-          <Link to='/signup'>Sign up</Link>
-        </p>
-        {setError != '' && <p className="login-signup-error">{error}</p>}
-        <form class='login-form' onSubmit={handleSubmit}>
+  <div id='login-container'>
+      <div id="login-credentials-container">
+        <div id="login-text-desc-container">
+          <h1>Log in</h1>
+          <p>
+            Don't have an account yet?{' '}
+            <Link to='/signup'>Sign up</Link>
+          </p>
+          {setError != '' && <p id="login-error">{error}</p>}
+        </div>
+        <form id='login-form' onSubmit={handleSubmit}>
           <div className='login-label-container'>
-            <label class='login-label'>Email </label>
-            <input class='login-input' 
+            <label className='login-label'>Email </label>
+            <input className='login-input' 
                    onChange={(e) => setEmail(e.target.value)} 
                    type='email' 
             />
           </div>
           <div className='login-label-container'>
-            <label class='login-label'>Password</label>
-            <input class='login-input' onChange={(e) => setPassword(e.target.value)} type='password' />
+            <label className='login-label'>Password</label>
+            <input className='login-input' onChange={(e) => setPassword(e.target.value)} type='password' />
           </div>
           <div>
-          <button class='login-button'>Log In</button>
+          <button className='login-button'>Log In</button>
             <p><Link to='/'>Home</Link></p>
           </div>
         </form>
       </div>
-      <div className='login-img-container'>
-        <img className='login-img' src={loginImg} />
+      <div id='login-img-container'>
+        <img id='login-img' src={loginImg} />
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default Login;

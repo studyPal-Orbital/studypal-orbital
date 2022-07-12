@@ -102,7 +102,7 @@ const Todolist = () => {
                         ))}
                     </div>
                     <div className="sticky-note-container">
-                        {sticky.length != 0 && <Sticky text={sticky}/>}
+                        {sticky.length != 0 && <Sticky text={sticky[0]['content']}/>}
                     </div>                     
                 </div>                
             </div>

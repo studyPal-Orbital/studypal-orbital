@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate, useLocation } from 'react-router-dom'
 
 import { db } from "../../firebase"
 import { collection, 
@@ -17,6 +17,8 @@ import './CreatePost.css'
 const CreatePost = () => {
 
     const { user } = UserAuth()
+    const location = useLocation()
+    const navigate = useNavigate();
 
     const [postTitle, setPostTitle] = useState("")
     const [postBody, setPostBody] = useState("")
@@ -46,6 +48,7 @@ const CreatePost = () => {
             setPostBody(() => "")
             await setDoc(doc(db, "posts", docRef.id), newDoc)   
             alert("Post created! :)") 
+            navigate('/forum')
         } else {
             alert("Please fill in both post title and post body")
         }

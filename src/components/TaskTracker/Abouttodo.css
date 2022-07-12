@@ -1,18 +1,13 @@
+/* Containers */
 .abouttodo-container {
     margin-top: 5%;
 }
 
 .instructions-container{
-    font-size: 0.8em;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     margin-left: 7%;
-}
-
-.abouttodo-title {
-    margin-top: 70px;
-    margin-bottom: 0px;
 }
 
 .delete-instructions-container,
@@ -20,13 +15,21 @@
 .complete-instructions-container {
     display: flex;
     flex-direction: row;
-    height:170px;
+    font-size: 0.8em;
+    padding: 0.3rem;
+    width: 90%;
+}
+
+/* Individual components */
+.abouttodo-title {
+    margin-top: 5%;
+    font-size: 1.5rem;
 }
 
 .instructions-elab {
-    margin-top: 7%;
+    margin-top: 5%;
     margin-left: 3%;
-    font-size: 20px;
+    font-size: 1.2rem;
 }
   
 .delete-instruction{
@@ -35,14 +38,14 @@
     text-align: center;
     color: black;
     background: #c1edfa;
-    width: 6em;
-    height: 6em;
+    width: 5em;
+    height: 5em;
     padding: 1em;
     box-shadow: 5px 5px 7px rgba(33,33,33,.7);
     transform: rotate(-6deg);
     transition: transform .15s linear;
     margin: 1em;
-    margin-top: 5%;
+    margin-top: 3%;
 }
   
 .save-instruction {
@@ -51,8 +54,8 @@
     text-align: center;
     color: black;
     background:#e9c0fc;
-    width: 6em;
-    height: 6em;
+    width: 5em;
+    height: 5em;
     padding: 1em;
     box-shadow: 5px 5px 7px rgba(33,33,33,.7);
     transform: rotate(4deg);
@@ -60,7 +63,7 @@
     margin: 1em;
     position: relative;
     top: 5px;
-    margin-top: 5%;
+    margin-top: 3%;
 }
   
 .complete-task-instruction{
@@ -69,16 +72,15 @@
     text-align: center;
     color: black;
     background: #ccffcc;
-    width: 6em;
-    height: 6em;
+    width: 5em;
+    height: 5em;
     padding: 1em;
     box-shadow: 5px 5px 7px rgba(33,33,33,.7);
     transform: rotate(-3deg);
     transition: transform .15s linear;
     margin: 1em;
     position: relative;
-    top: -5px;
-    margin-top: 5%;
+    margin-top: 3%;
 }
   
 .delete-instruction:hover,
@@ -93,7 +95,7 @@
 
 .abouttodo-button {
     margin-left: 7%;
-    padding: 1%;
+    padding: 0.8rem;
     border-radius: 10px;
     background-color: salmon;
     color: white;

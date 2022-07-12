@@ -87,6 +87,8 @@
     font-variant: normal; 
     font-size: 15px;
     margin-top: 1%;
+    background-color: white;
+    -webkit-appearance:none;
 }
 
 .display-todo-title-container {
@@ -152,7 +154,6 @@
 
 
 /* Edittodo */
-
 .edit-todo-container {
     display: flex;
     flex-direction: column;
@@ -193,6 +194,7 @@
     font-size: 17px;
     padding: 1%;
     resize: none;
+    background-color: white;
 }
 
 .edit-todo-desc {

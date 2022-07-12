@@ -2,10 +2,12 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-top: 7%;
-    margin-bottom: 5%;
-    margin-right: 10%;
-    margin-left: 20%;
+    width: 80vw;
+    height: 80vh;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
 }
 
 #landing-page-content-container {
@@ -14,8 +16,9 @@
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: flex-start;
-    width: 40%;
+    width: 30%;
     height: 100%;
+    margin-left: 10%;
 }
 
 #landing-page-img-container {
@@ -34,24 +37,63 @@
 
 #landing-page-title {
     margin-top: 50%;
-    font-size: 80px;
-    margin-bottom: 1%;
+    font-size: 4rem;
     margin-right: 10%;
 }
 
 #landing-page-caption {
-    font-size: 22px;
+    margin-top: 0%;
+    font-size: 1.5rem;
 }
 
 #landing-page-img {
-    margin-left: 3%;
+    margin-left: 1%;
+    margin-top: 1%;
+    height: 90%;
+    width: 90%;
 }
 
 .landing-page-button {
     display: flex;
     flex-direction: row;
-    margin-left: 0px;
-    margin-top: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: #2ba4c2;
+    cursor: pointer;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    padding: 0.6em;
+    margin-right: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+
+.landing-page-button a {
+    color: white;
+    text-decoration: none;
+}
+  
+.landing-page-button:hover {
+    background-color: #105a87;
+    transition: background-color 0.5s;
+}
+  
+.landing-page-button:active {
+    background-color: #105a87;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+
+/*
+.landing-page-button {
+    display: flex;
+    flex-direction: row;
+    margin-left: 0%;
+    margin-top: 5%;
     text-decoration: none;
     color: white;
 }
@@ -83,3 +125,4 @@
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
+*/
