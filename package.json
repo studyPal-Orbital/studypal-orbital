@@ -24,7 +24,6 @@
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
     "@uiw/react-heat-map": "^2.0.4",
-    "axios": "^0.27.2",
     "firebase": "^9.8.1",
     "framer-motion": "^4.1.17",
     "moment": "^2.29.3",
@@ -46,6 +45,7 @@
     "react-grid-heatmap": "^1.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
+    "react-tooltip": "^4.2.21",
     "reactjs-calendar-heatmap": "^0.2.1",
     "reaviz": "^13.1.4",
     "recharts": "^2.1.10",
@@ -75,8 +75,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "react-markdown": "^8.0.3"
   }
 }
