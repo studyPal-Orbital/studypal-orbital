@@ -1,220 +1,257 @@
-/* Journal Submission */
-.active-journal-submission {
-    background-image: url('../img/planet.gif');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    padding:10px;
-    margin:0px;
-}
-
-.archive-journal-submission-text,
-.active-journal-submission-text {
-    text-align: center;
-    padding-top: 3%;
-    font-weight: bold;
-    font-size: 40px;
-}
-
-.archive-journal-redirect-text {
-    margin-left: 1%;
-}
-
-.archive-journal-submission {
-    background-image: url('../img/kirby.gif');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    padding-top:10px;
-    margin:0;
-}
-
-/* Create Journal Entry */
-.journal-entry-container {
+/* Journal Entry */
+#journal-entry-container {
     display: flex;
     flex-direction: column;
     margin-left: 7%;
     margin-top: 5%;
 }
 
+#journal-entry-nav-link {
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: salmon;
+    color: white;
+    text-decoration: none;
+    width: 2em;
+    margin-bottom: 5vh;
+    border-radius: 10px;
+}
 .journal-entry-prompts {
     display: flex;
     flex-direction: column;
-    margin-top: 2%;
+    margin-bottom: 5vh;
+}
+
+.journal-entry-label {
+    margin-bottom: 1vh;
 }
 
 .journal-entry-input {
-    height:300px;
-    width:80%;
-    border-radius: 20px;
+    height:30vh;
+    width:80vw;
+    border-radius: 10px;
     resize: none;
     border-width: 0px;
-    padding-left: 3%;
-    padding-top: 3%;
-    font-size: 17px;
+    padding: 1rem;
+    font-size: 1rem;
     font-family:'Josefin Sans', sans-serif;
 }
 
-.journal-entry-button-container {
+#journal-entry-button-container {
     display: flex;
-    flex-direction: row;
-    margin-top: 3%;
-    margin-bottom: 5%;
+    flex-direction: row;    
+    margin-bottom: 10vh;
+    margin-top: 1vh;
 }
 
 .journal-entry-button {
-    border-width: 0px;
+    padding: 1rem;
+    font-size: 1rem;
     border-radius: 5px;
-    margin-right: 10px;
-    font-size: 15px;
     font-family:'Josefin Sans', sans-serif;
-    padding:1%;
     background-color: salmon;
     color: white;
+    border-width: 0px;
+    margin-right: 5vh;
 }
 
-/* Journal Entries */
-.active-entries-container,
-.archived-entries-container {
+/* Journal Submission */
+#active-journal-submission,
+#archive-journal-submission {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    margin:0px;
+}
+
+#active-journal-submission {
+    background-image: url('../img/planet.gif');
+}
+
+#archive-journal-submission {
+    background-image: url('../img/kirby.gif');
+}
+
+.journal-submission-text {
+    text-align: center;
+    padding-top: 3vh;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.journal-nav-icon {
+    margin-left: 3vw;
+    margin-top: 5vh;
+}
+
+
+
+/* All Journal Entries */
+.journal-entries-container {
     display: flex;
     flex-direction: column;
     margin-top: 5%;
     margin-left: 7%;
 }
 
-.active-entry-container,
-.archived-entry-container {
+.journal-entries-nav-link {
+    padding: 0.7rem;
+    font-size: 1rem;
+    width: 2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    background-color: salmon;
+}
+
+.journal-entries-title {
+    margin-top: 5vh;
+
+}
+
+/* Journal Entry */
+#created-entries-container {
     display: flex;
     flex-direction: column;
-    margin-bottom: 3%;
+    margin-bottom: 5vh;
 }
 
-.active-entries-title {
-    margin-left: 0px;
-    font-size: 20px;
-    background-image: url('../img/bg-1.png');
+
+#archived-entries-title,
+#active-entries-title {
+    font-size: 1rem;
+    width:80%;
+    padding: 1.5rem;
+    margin-bottom: 3vh;
+    border-radius: 10px;
+    border-width: 0px;
+    text-align: start;
+    font-family:'Josefin Sans', sans-serif;
     background-repeat: no-repeat;
     background-size: cover;
-    width:80%;
-    padding-top: 2.5%;
-    padding-bottom: 2.5%;
-    padding-left: 2%;
-    border-radius: 10px;
-    border-width: 0px;
-    text-align: start;
-    font-family:'Josefin Sans', sans-serif;
 }
 
-.archived-entries-conclusion {
-    margin-left: 0px;
-    font-size: 20px;
+
+#archived-entries-title {
     background-image: url('../img/bg-3.png');
-    width:80%;
-    padding-top: 2.5%;
-    padding-bottom: 2.5%;
-    padding-left: 2%;
-    border-radius: 10px;
-    border-width: 0px;
-    text-align: start;
-    font-family:'Josefin Sans', sans-serif;
 }
 
-.active-entries-text,
-.archived-entries-text {
-    margin-left: 1%;
-    margin-top: 3%;
+#active-entries-title {
+    background-image: url('../img/bg-1.png');
 }
 
-.active-entries-button,
-.archived-entries-button  {
-    width:12%;
-    padding: 1%;
-    margin-top: 1%;
+.created-entries-text {
+    margin-left: 1vw;
+    margin-top: 3vh;
+}
+
+.created-entries-button {
+    width:15vw;
+    font-size: 1rem;
+    padding: 0.8rem;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
     border-width: 0px;
     border-radius: 10px;
-    font-size: 12px;
     color: white;
     background-color: salmon;
     font-family:'Josefin Sans', sans-serif;
-
-
 }
 
 
-/* Main page */
-.achievements-container {
+/* Main - side column container */ 
+#achievements-container {
     display: flex;
     flex-direction: row;
     margin-left: 7%;
 }
 
-.side-col {
+#side-column-container {
     display: flex;
     flex-direction: column;
-    width:25%;
+    width:20vw;
 }
 
-.side-col-links-container {
+#side-column-journal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+#side-column-journal-title-container {
     display: flex;
     flex-direction: row;
 }
 
-.side-col-links {
-    display: flex;
-    flex-direction: row;
-    margin-left: 5%;
-    margin-top: 2%;
+#side-col-edit-journal-links {
+    margin-left: 0.5vw;
+    margin-top: 1.5vh;
 }
 
-.side-col-ext-links {
-    margin-bottom: 5%;
-}
-
-.side-col-books {
+#side-column-books-container {
     display: flex;
     flex-direction: row;
 }
 
-.side-col-img {
+.side-column-img {
     border-radius: 10px;
-    width:100px;
-    height:150px;
-    margin-right: 50px;
-    margin-top: 10%;
-    margin-bottom: 20%;
-    margin-left: 0px;
+    width:5vw;
+    height:15vh;
+    margin-right:2vw;
+    margin-bottom: 2vh;
 }
 
-.side-col-bubble-icon {
-    width: 40px;
-    height: 40px;
-    margin-left: 0px;
-    margin-top: 0px;
-    margin-right: 0px;
-}
-
-.profile-pic {
-    border-radius: 150px;
-    height:150px;
-    width:150px;
-    margin-left: 0px;
-    margin-bottom: 3%;
-}
-
-.analytics-container {
+#side-column-links-container {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    margin-top: 2vh;
 }
 
+.side-column-ext-links {
+    width: 13vw;
+    padding: 0.8rem;
+    font-size: 1rem;
+    text-decoration: none;
+    color: white;
+    background-color: salmon;
+    border-radius: 5px;
+    margin-bottom: 2vh;
+
+}
+
+/* Main - Analytics container */ 
+#analytics-container {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    margin-left: 1vw;
+}
+
+#overall-analytics-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.overall-analytics-desc {
+    padding: 1.5rem;
+    margin-right: 5%;
+    background-color: rgb(210, 234, 255);
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-top: 1vh;
+}
+
+/* Calendar */
 .react-calendar-heatmap {
-    width: 100%;
+    width: 60vw;
+    margin-bottom: 3vh;
 }
 
 .react-calendar-heatmap text {
-    font-size: 10px;
+    font-size: 0.7rem;
   }
   
 .react-calendar-heatmap .color-empty {
@@ -222,30 +259,6 @@
     border-radius: 100px;
   }
 
-.achievements-title {
-    margin-top: 3%;
-}
-
-.goal-setting-section {
-    display: flex;
-    flex-direction: column;
-}
-
-.overall-analytics {
-    display: flex;
-    flex-direction: row;
-}
-
-.overall-analytics > p {
-    padding: 2.5%;
-    margin-right: 5%;
-    background-color: rgb(210, 234, 255);
-    border-radius: 10px;
-    font-size: 17px;
-}
-
-
-/* Calendar */
 .react-calendar-heatmap .color-scale-1 { fill: #d6e685; }
 .react-calendar-heatmap .color-scale-2 { fill: #8cc665; }
 .react-calendar-heatmap .color-scale-3 { fill: #44a340; }

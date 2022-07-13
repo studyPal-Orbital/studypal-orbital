@@ -4,31 +4,19 @@ import Header from '../Header/Header.js'
 import Title from '../Title/Title.js'
 import active from '../img/active.png'
 import archive from '../img/archive.png'
-import dp from '../img/dp.jpg'
-
 import CalendarHeatmap from "react-calendar-heatmap";
-
 import EditIcon from "@mui/icons-material/Edit"
-
 import {db} from "../../firebase.js"
 import { UserAuth } from '../../context/AuthContext'
-
 import {
     collection,
     query,
     onSnapshot,
-    doc,
-    updateDoc,
-    setDoc,
-    deleteDoc,
-    where,
-    QuerySnapshot,
-    addDoc
+    where
 } from "firebase/firestore"
-import { ConstructionOutlined } from "@mui/icons-material";
-
 import ReactTooltip from 'react-tooltip';
 
+/* Determine colour scale for activity heatmap */ 
 let classForValue = (value) => {
     let colScale = 1
     if (!value) {
@@ -61,12 +49,12 @@ let classForValue = (value) => {
 const Analytics = () => {
 
     const {user}  = UserAuth()
-
     const [tasksCompleted, setTasksCompleted] = useState([])
     const [timeStudied, setTimeStudied] = useState([])
     const [totalTasksCompleted, setTotalTasksCompleted] = useState(0)
     const [totalTimeStudied, setTotalTimeStudied] = useState(0)
 
+    /* Calculate total number of tasks completed by user */
     const calculateTotalTasksCompleted = (taskRecords) => {
         let counter = 0
         taskRecords.forEach((task) => {
@@ -75,6 +63,7 @@ const Analytics = () => {
         setTotalTasksCompleted(() => counter)
     }
 
+    /* Calculate total time spent in focus session by user */
     const calculateTotalTimeStudied = (sessions) => {
         let counter = 0
         sessions.forEach((task) => {
@@ -83,6 +72,7 @@ const Analytics = () => {
         setTotalTimeStudied(() => counter)
     }
 
+    /* Retrieve all user task completion records by day for the activity heatmap */
     useEffect(() => {
         let active = true
         if (active == true & user.uid != null) {
@@ -103,7 +93,7 @@ const Analytics = () => {
             return () => {active = false}}
     }, [user.uid, totalTasksCompleted])
 
-    
+    /* Retrieve all user time studied records by day for the activity heatmap */
     useEffect(() => {
         let active = true
         if (active == true & user.uid != null) {
@@ -126,44 +116,43 @@ const Analytics = () => {
     }, [user.uid])
     
     return (
-        <div>
+        <div id="profile-container">
             <Header />
             <Title name={"Profile"} />
-            <div className="achievements-container">
-                <div className="side-col">
-                    <h3>Account details</h3>
-                    <img className="profile-pic" src={dp}></img>
-                    <p>Email: {user.email}</p>
-                    <NavLink className='side-col-ext-links' to='/achievements'>
-                            View Badges Collected
-                    </NavLink>
-                    <div className="side-col-links-container">
-                        <h3>Mood Journals</h3>
-                        <NavLink className='side-col-links' to='/journal'>
-                            <EditIcon/>
-                        </NavLink>
+            <div id="achievements-container">
+                <div id="side-column-container">
+                    <div id="side-column-journal-container">
+                        <div id="side-column-journal-title-container">
+                            <h3 id="side-column-journal-title">Mood Journals</h3>
+                            <NavLink id='side-col-edit-journal-links' to='/journal'>
+                                <EditIcon/>
+                            </NavLink>
+                        </div>
+                        <div id='side-column-books-container'>
+                            <NavLink className='side-column-img-links' to='/archived-thoughts'>
+                                <img className='side-column-img' src={archive}></img>
+                            </NavLink>
+                            <NavLink className='side-column-img-links' to='/active-thoughts'>
+                                <img className='side-column-img' src={active}></img>
+                            </NavLink>
+                        </div>
                     </div>
-                    <div className='side-col-books'>
-                        <NavLink className='side-col-img-links' to='/archived-thoughts'>
-                            <img className='side-col-img' src={archive}></img>
-                        </NavLink>
-                        <NavLink className='side-col-img-links' to='/active-thoughts'>
-                            <img className='side-col-img' src={active}></img>
-                        </NavLink>
-                    </div>
-                    <div className="side-col-links-container">
-                        <NavLink className='side-col-ext-links' to='/bubbles'>
+                    <div id="side-column-links-container">
+                        <NavLink className='side-column-ext-links' to='/bubbles'>
                             Pop some bubbles!
+                        </NavLink>
+                        <NavLink className='side-column-ext-links' to='/achievements'>
+                            View Badges Collected
                         </NavLink>
                     </div>
                 </div>
-                <div className="analytics-container">
-                    <h3>Your Activity at a glance</h3>
-                    <div className='overall-analytics'>
-                        <p>{totalTasksCompleted} tasks completed</p>
-                        <p>{totalTimeStudied < 1 ? `< 1` : totalTimeStudied.toFixed(2)} hours spent studying</p>
+                <div id="analytics-container">
+                    <h3 id="analytics-title">Your Activity at a glance</h3>
+                    <div id='overall-analytics-container'>
+                        <p className="overall-analytics-desc">{totalTasksCompleted} tasks completed</p>
+                        <p className="overall-analytics-desc">{totalTimeStudied < 1 ? `< 1` : totalTimeStudied.toFixed(2)} hours spent studying</p>
                     </div>
-                    <h3>Focus Sessions</h3>
+                    <h3 className="analytics-heatmap-title">Focus Sessions</h3>
                     <CalendarHeatmap
                             className="activity-calendar"
                             startDate={new Date(`${new Date().getFullYear()-1}-12-31`)}
@@ -181,28 +170,25 @@ const Analytics = () => {
                             }
                         }
                     />
-                    <div className="goal-setting-section">
-                        <h3 className="achievements-title">Task Completion</h3>
-                        <CalendarHeatmap
-                            className="activity-calendar"
-                            startDate={new Date(`${new Date().getFullYear()-1}-12-31`)}
-                            endDate={new Date(`${new Date().getFullYear()}-12-31`)}
-                            values={tasksCompleted}
-                            classForValue={classForValue}
-                            tooltipDataAttrs={value => {
-                                let count = 0
-                                if (value.count != null) {
-                                    count = value.count
-                                }
-                                return {
-                                  'data-tip': `${count} tasks completed`
-                                }
+                    <h3 className="analytics-heatmap-title">Task Completion</h3>
+                    <CalendarHeatmap
+                        className="activity-calendar"
+                        startDate={new Date(`${new Date().getFullYear()-1}-12-31`)}
+                        endDate={new Date(`${new Date().getFullYear()}-12-31`)}
+                        values={tasksCompleted}
+                        classForValue={classForValue}
+                        tooltipDataAttrs={value => {
+                            let count = 0
+                            if (value.count != null) {
+                                count = value.count
+                            }
+                            return {
+                                'data-tip': `${count} tasks completed`
                             }
                         }
-                        />
-                        <ReactTooltip />
-                    </div>
-
+                    }
+                    />
+                    <ReactTooltip />
                 </div>
             </div>
         </div>
