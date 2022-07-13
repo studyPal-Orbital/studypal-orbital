@@ -33,8 +33,8 @@ const Login = () => {
   <div id='login-container'>
       <div id="login-credentials-container">
         <div id="login-text-desc-container">
-          <h1>Log in</h1>
-          <p>
+          <h1 id="login-title">Log in</h1>
+          <p id="login-desc">
             Don't have an account yet?{' '}
             <Link to='/signup'>Sign up</Link>
           </p>
@@ -54,7 +54,7 @@ const Login = () => {
           </div>
           <div>
           <button className='login-button'>Log In</button>
-            <p><Link to='/'>Home</Link></p>
+          <p className='login-link-back'><Link to='/'>Home</Link></p>
           </div>
         </form>
       </div>

@@ -1,24 +1,11 @@
 import React from "react"
 import './Todo.css'
-
-import { useState, useEffect } from "react"
-
+import { useState } from "react"
 import { UserAuth } from '../../context/AuthContext'
-
 import {db} from "../../firebase.js"
 import {
-    collection,
-    query,
     setDoc,
-    onSnapshot,
-    addDoc,
     doc,
-    updateDoc,
-    deleteDoc,
-    QuerySnapshot,
-    serverTimestamp,
-    orderBy, 
-    where
 } from "firebase/firestore"
 
 const Sticky = ( {text} ) => {
@@ -27,11 +14,14 @@ const Sticky = ( {text} ) => {
     const [sticky, setSticky] = useState(text)
     const [stickyEditMode, toggleStickyEditMode] = useState(false)
 
+    /* Record user input in Sticky */
     const recordUserStickyText = (e) => {
         setSticky(() => e.target.value)
     }
 
-    const addSticky = async () => {
+    /* Add user saved sticky to firebase */
+    const addSticky = async (e) => {
+        e.preventDefault()
         let newSticky = {
             content: sticky,
             uid: user.uid
@@ -41,12 +31,13 @@ const Sticky = ( {text} ) => {
     }
 
     return (
-        <div className="sticky-container">
+        <>
+        <form>
             {!stickyEditMode &&
             <>
-                <button className="sticky-button" onClick={addSticky}>Edit</button> 
+                <button id="sticky-button" onClick={addSticky}>Edit</button> 
                 <textarea 
-                    className="sticky-textbox" 
+                    id="sticky-textbox" 
                     disabled="disabled"
                     placeholder="Click Edit and type down your tasks here :)"
                 >
@@ -56,9 +47,9 @@ const Sticky = ( {text} ) => {
             }
             {stickyEditMode &&
             <>
-                <button className="sticky-button" onClick={addSticky}>Save</button> 
+                <button id="sticky-button" onClick={addSticky}>Save</button> 
                 <textarea
-                    className="sticky-textbox"
+                    id="sticky-textbox"
                     placeholder="Type down your tasks here :)"
                     value={sticky}
                     onChange={recordUserStickyText}
@@ -66,7 +57,8 @@ const Sticky = ( {text} ) => {
                 /> 
             </>
             }
-        </div>
+        </form>
+    </>
     )
 }
 

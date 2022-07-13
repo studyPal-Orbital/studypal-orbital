@@ -1,29 +1,24 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-
 import {db} from "../../firebase.js"
 import {
     collection,
     query,
     onSnapshot,
     doc,
-    updateDoc,
     setDoc,
-    deleteDoc,
     where,
-    QuerySnapshot,
-    addDoc
-  } from "firebase/firestore"
+} from "firebase/firestore"
 import { UserAuth } from "../../context/AuthContext.js"
 
-
-function Popup(props) {
+const Popup = (props) => {
     const { user } = UserAuth()
     let timeStudied = props.timeStudied
     const [currentRecords, setCurrentRecords] = useState([])
     let currentDate = new Date().toISOString().split('T')[0].toString()
     let newRecordID = currentDate + '-' + user.uid
 
+    /* Retrieving records of total time studied by user */
     useEffect(() => {
         let active = true 
         if (active = true & user.uid != null) {
@@ -40,6 +35,7 @@ function Popup(props) {
             return () => {active = false}}
     }, [user.uid])
 
+    /* Record total duration of time user has studied */
     const logTimeStudied = async () => {
         props.setTrigger(false)
         let currentRec = currentRecords.filter((rec) => rec['recordID'] == newRecordID)
@@ -57,9 +53,9 @@ function Popup(props) {
     }
 
     return (props.trigger) ? (
-        <div className="popup">
-            <div className="popup-inner">
-                <button className="close-btn" onClick ={logTimeStudied}> CLOSE </button>
+        <div id="popup">
+            <div id="popup-inner">
+                <button id="close-btn" onClick ={logTimeStudied}> Close </button>
                     { props.children }
             </div>
         </div>

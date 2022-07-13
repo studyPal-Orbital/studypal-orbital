@@ -5,37 +5,26 @@ import './Todo.css'
 import Createtodo from "./Createtodo.js"
 import Todoitem from "./Todoitem.js"
 import Sticky from "./Sticky.js"
-
 import { NavLink } from "react-router-dom"
 import { useState, useEffect } from "react"
-
 import { UserAuth } from '../../context/AuthContext'
-
 import {db} from "../../firebase.js"
 import {
     collection,
     query,
     onSnapshot,
-    addDoc,
-    doc,
-    updateDoc,
-    deleteDoc,
-    QuerySnapshot,
-    serverTimestamp,
     orderBy, 
     where
 } from "firebase/firestore"
 
-
 const Todolist = () => {
 
     const {user} = UserAuth()
-
-    const [userEditing, setUserEditing] = useState(true)
     const [createTask, setCreateTask] = useState(false)
     const [allTasks, setAllTasks] = useState([])
     const [sticky, setSticky] = useState([])
 
+    /* Retreive all tasks created */ 
     useEffect(() => {
         let active = true
         if (active == true && user.uid != null) {
@@ -52,6 +41,7 @@ const Todolist = () => {
             return () => {active = false}}
     }, [user.uid])
 
+    /* Retrieving words typed on sticky */
     useEffect(() => {
         let active = true
         if (active == true && user.uid != null) {
@@ -68,6 +58,7 @@ const Todolist = () => {
             return () => {active = false}}
     }, [user.uid])
 
+    /* Determine whether user is currently creating a new task (after clicking on create task button) */
     const recordUserCreateTaskSelection = () => {
         setCreateTask(() => !createTask)
     }
@@ -82,12 +73,12 @@ const Todolist = () => {
                     <button className="create-task-button" onClick={recordUserCreateTaskSelection}>Create Task</button> :
                     <button className="create-task-button" onClick={recordUserCreateTaskSelection}>Close</button>
                 }
-                <NavLink to='/about-todo' className="inquiry-button">
+                <NavLink to='/about-todo' id="inquiry-button">
                     More Info
                 </NavLink>
-                <div className="todo-items-container">
+                <div id="todo-items-container">
                     {createTask && <Createtodo closeCreateTodoScreen={recordUserCreateTaskSelection}/>}
-                    <div className={"todo-table"}>
+                    <div id={"todo-table"}>
                         {allTasks.map((task) => (
                             <Todoitem
                                 title={task.title}
@@ -99,7 +90,7 @@ const Todolist = () => {
                             />
                         ))}
                     </div>
-                    <div className="sticky-note-container">
+                    <div id="sticky-note-container">
                         {sticky.length != 0 && <Sticky text={sticky[0]['content']}/>}
                     </div>                     
                 </div>                

@@ -1,99 +1,28 @@
-/* Containers */
-.abouttodo-container {
-    margin-top: 5%;
-}
-
-.instructions-container{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+/* Containers */ 
+#abouttodo-container {
+    width: 90%;
+    margin-top: 7%;
     margin-left: 7%;
 }
 
-.delete-instructions-container,
-.save-instructions-container,
-.complete-instructions-container {
-    display: flex;
-    flex-direction: row;
-    font-size: 0.8em;
-    padding: 0.3rem;
+#all-instructions-container{
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    height: 80%;
     width: 90%;
 }
 
-/* Individual components */
-.abouttodo-title {
-    margin-top: 5%;
-    font-size: 1.5rem;
+.instruction-container {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 1%;
+    width: 100%;
 }
 
-.instructions-elab {
-    margin-top: 5%;
-    margin-left: 3%;
-    font-size: 1.2rem;
-}
-  
-.delete-instruction{
-    cursor: default;
-    line-height: 1;
-    text-align: center;
-    color: black;
-    background: #c1edfa;
-    width: 5em;
-    height: 5em;
-    padding: 1em;
-    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-    transform: rotate(-6deg);
-    transition: transform .15s linear;
-    margin: 1em;
-    margin-top: 3%;
-}
-  
-.save-instruction {
-    cursor: default;
-    line-height: 1;
-    text-align: center;
-    color: black;
-    background:#e9c0fc;
-    width: 5em;
-    height: 5em;
-    padding: 1em;
-    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-    transform: rotate(4deg);
-    transition: transform .15s linear;
-    margin: 1em;
-    position: relative;
-    top: 5px;
-    margin-top: 3%;
-}
-  
-.complete-task-instruction{
-    cursor: default;
-    line-height: 1;
-    text-align: center;
-    color: black;
-    background: #ccffcc;
-    width: 5em;
-    height: 5em;
-    padding: 1em;
-    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-    transform: rotate(-3deg);
-    transition: transform .15s linear;
-    margin: 1em;
-    position: relative;
-    margin-top: 3%;
-}
-  
-.delete-instruction:hover,
-.save-instruction:hover,
-.complete-task-instruction:hover{
-    box-shadow: 10px 10px 7px rgba(0,0,0,.7);
-    transform: scale(1.25);
-    position:relative;
-    z-index: 5;
-}
-
-
-.abouttodo-button {
+/* Individual Elements */ 
+#abouttodo-button {
     margin-left: 7%;
     padding: 0.8rem;
     border-radius: 10px;
@@ -102,6 +31,53 @@
     text-decoration: none;
 }
 
-#i {
+#abouttodo-title {
+    margin-left: 7%;
+    margin-top: 5%;
+}
+
+.instruction {
+    font-size: 1.3rem;
+    width: 80%;
+    margin-top: 5%;
+    margin-left: 2em;
+}
+  
+.icon {
+    cursor: default;
+    line-height: 1;
+    text-align: center;
+    color: black;
+    width: 5em;
+    height: 5em;
+    padding: 1em;
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    transition: transform .15s linear;
+    margin: 1em;
+    margin-top: 3%;
+    margin-left: 7%;
     color: rgb(119, 119, 119);
 }
+
+.icon:hover {
+    box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+    transform: scale(1.25);
+    position:relative;
+    z-index: 5;
+}
+
+#delete {
+    background: #c1edfa;
+    transform: rotate(-6deg);
+}
+
+#save {
+    background:#e9c0fc;
+    transform: rotate(4deg);
+}  
+
+#complete {
+    background: #ccffcc;
+    transform: rotate(-3deg);
+}
+

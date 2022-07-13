@@ -1,84 +1,203 @@
+/* Todolist */
+.task-tracker-page {
+    width: 100%;
+    height: 100%;
+}
 
 .task-tracker-nav-link {
     margin-left: 7%;
     background-color: salmon;
     color: white;
-    padding-left: 1%;
-    padding-right: 1%;
-    padding-top: 0.5%;
-    padding-bottom: 0.5%;
+    padding: 0.8rem;
     border-radius: 10px;
     text-decoration: none;
 }
 
 .task-tracker-container {
-    margin-left: 7%;
-    margin-top: 2%;
+     width:90%;
+     height:100%;
+     margin-top: 3rem;
+     margin-left: 7%;
 }
 
-
-.todo-items-container {
+#todo-items-container {
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
 
-.todo-table {
-    width: 65%;
-    height: 61vh;
+#todo-table {
+    width: 68vw;
+    height: 55vh;
+    padding: 1rem;
     border-radius: 5px;
     background-color: rgb(181, 201, 218);
     overflow: scroll;
 }
 
+#sticky-note-container {
+    width: 30vw;
+    height: 55vh;
+    margin-left: 2vw;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: antiquewhite;
+    border-width: 0px;
+    resize: none;
+}
+
 .create-task-button,
-.submit-task-button,
-.inquiry-button {
+#submit-task-button,
+#inquiry-button {
     border-radius: 5px;
     border-width: 0px;
-    padding: 10px;
-    margin-right: 1%;
+    margin-right: 3%;
     margin-bottom: 2%;
+    font-size: 1em;
+    padding: 0.7em;
     background-color: rgb(110, 207, 246);
     color: white;
     font-family:'Josefin Sans', sans-serif;
     font-variant: normal; 
     text-decoration: none;
-    font-size: 15px;
 }
 
-.submit-task-button {
+#submit-task-button {
     background-color: rgb(150, 204, 147);
 }
 
-.create-task-container {
-    position: absolute;
-    background-color: aliceblue;
-    height:55%;
-    width: 56%;
-    padding: 2%;
-    z-index: 99;
-    border-radius: 5px;
+#inquiry-button {
+    font-size: 1em;
+    padding: 0.78m;
 }
 
-.title-input-container,
-.desc-input-container,
-.urgency-input-container {
+/* Todoitem */ 
+#display-todo-title-container {
     display: flex;
     flex-direction: column;
-    margin-bottom: 5%;
+    border-width: 0px;
+    border-radius: 5px;
+    margin-bottom: 1em;
+    padding: 1em;
+    height: 15%;
+    text-align: start;
+    font-family:'Josefin Sans', sans-serif;
+    font-variant: normal; 
+    background-color: rgb(255, 255, 255);
+    color: rgb(71, 71, 71);
+    font-size: 1em;
 }
 
-.title-label,
-.desc-label,
-.urgency-label {
+#display-todo-first-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#display-task-title {
+    margin-top: 0%;
+    padding: 0.3em;
+    font-size: 1em;
+}
+
+#display-task-urgency {
+    margin-left: 1%;
+    margin-top: 0%;
+    padding: 0.3em;
+    margin-left: 2%;
+    border-radius: 5px;
+    font-size: 1em;
+    color: white;
+}
+
+#display-task-control-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 0%;
+}
+
+.display-task-control {
+    margin-right: 2%;
+    border-width: 0px;
+    background-color: white;
+}
+
+.todo-icon {
+    color: rgb(119, 119, 119);
+}
+
+#display-task-description {
+    padding: 1em;
+    border-radius: 5px;
+    background-color: rgb(131, 161, 186);
     font-size: 15px;
-    color: rgb(97, 97, 97);
+    color: white;
 }
 
+/* Sticky */
+#sticky-textbox {
+    width: 90%;
+    height: 45vh;
+    margin-top: 3%;
+    border-radius: 5px;
+    border-width: 0px;
+    background-color: transparent;
+    text-align: start;
+    font-family:'Josefin Sans', sans-serif;
+    font-variant: normal; 
+    outline: none;
+    font-size: 1em;
+    padding: 0.5em;
+    color: black;
+    margin-left: 3%;
+    resize: none;
+}
 
-.title-input,
-.desc-input,
-.urgency-input {
+#sticky-button {
+    border-width: 0px;
+    background-color: salmon;
+    font-family:'Josefin Sans', sans-serif;
+    font-variant: normal; 
+    font-size: 0.9rem;
+    padding: 0.5em;
+    border-radius: 5px;
+    margin-top: 5%;
+    margin-left: 3%;
+    color: white;
+}
+
+.sticky-text {
+    font-size: 15px;
+}
+
+/* Create todo */ 
+#create-task-container {
+    position: absolute;
+    background-color: rgb(181, 201, 218);
+    height:56.5%;
+    width: 57%;
+    z-index: 99;
+    border-radius: 5px;
+    height: 55vh;
+    padding: 1rem;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3%;
+}
+
+.input-label {
+    font-size: 15px;
+    color: white;
+}
+
+#title-input,
+#desc-input,
+#urgency-input {
     resize: none;
     border-radius: 5px;
     border: 0.5px solid rgb(97, 97, 97); 
@@ -91,182 +210,71 @@
     -webkit-appearance:none;
 }
 
-.display-todo-title-container {
-    display: flex;
-    flex-direction: column;
-    border-width: 0px;
-    border-radius: 5px;
-    padding:2%;
-    margin: 2%;
-    width:92%;
-    height: 63px;
-    text-align: start;
-    font-family:'Josefin Sans', sans-serif;
-    font-variant: normal; 
-    background-color: rgb(255, 255, 255);
-    color: rgb(71, 71, 71);
-    font-size: 17px;
-}
-
-.display-todo-first-row {
-    display: flex;
-    flex-direction: row;
-}
-
-.display-task-title {
-    margin-top: 1%;
-    margin-bottom: 2%;
-}
-
-.display-task-urgency {
-    margin-top: 0px;
-    margin-left: 2%;
-    font-size: 13px;
-    padding: 1%;
-    height: 10px;
-    border-radius: 5px;
-    color: white;
-}
-
-.display-task-control-container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    margin-top: 0px;
-}
-
-.display-task-control {
-    padding:0px;
-    margin-right: 2%;
-    height: 0px;
-    background-color: white;
-    border-width: 0px;
-}
-
-.display-task-description {
-    padding: 2%;
-    margin: 2%;
-    border-radius: 5px;
-    background-color: rgb(131, 161, 186);
-    font-size: 15px;
-    color: white;
+#desc-input {
+    height: 13vh;
 }
 
 
 /* Edittodo */
-.edit-todo-container {
+#edit-todo-container {
     display: flex;
     flex-direction: column;
-    margin-top: 5%;
+    margin-top: 7%;
     margin-left: 7%;
     width: 80%;
 }
 
-.edit-todo-navlink {
+
+#edit-todo-navlink {
     text-decoration: none;
     background-color: salmon;
-    width: 3%;
-    height: 2%;
-    padding: 1%;
+    padding: 0.7em;
     border-radius: 10px;
     color: white;
+    margin-bottom: 5%;
 }
 
-.edit-todo-input-container {
+#edit-todo-input-container {
     display: flex;
     flex-direction: column;
-}
-
-.edit-todo-label {
-    font-size: 15px;
-    margin-bottom: 2%;
     margin-top: 2%;
 }
 
-.edit-todo-title,
-.edit-todo-desc,
-.edit-todo-urgency {
+.edit-todo-label {
+    font-size: 1em;
+    margin-bottom: 1%;
+    margin-top: 2%;
+}
+
+.edit-todo-input {
     border-radius: 5px;
     border-width: 0px;
     text-align: start;
     font-family:'Josefin Sans', sans-serif;
     font-variant: normal; 
-    font-size: 17px;
-    padding: 1%;
+    font-size: 1.1em;
+    padding: 0.7rem;
     resize: none;
     background-color: white;
 }
 
-.edit-todo-desc {
-    height: 200px;
+#edit-todo-desc {
+    height: 25vh;
 }
 
-.edit-todo-urgency {
+#edit-todo-urgency {
     width: 10%;
 }
 
-.edit-todo-button {
+#edit-todo-button {
     background-color: salmon;
     border-width: 0px;
-    width: 7%;
     border-radius: 10px;
-    padding-top: 1%;
-    padding-bottom: 1%;
+    padding: 0.7rem;
     color: white;
     font-family:'Josefin Sans', sans-serif;
     font-variant: normal; 
-    font-size: 17px;
-    margin-top: 2%;
+    font-size: 1rem;
+    margin-top: 3%;
+    -webkit-appearance:none;
 }
-
-
-/* Sticky */
-
-.sticky-note-container {
-    width: 28%;
-    height: 58vh;
-    background-color: antiquewhite;
-    padding: 1%;
-    margin-left: 2%;
-    border-radius: 5px;
-    border-width: 0px;
-    resize: none;
-}
-
-.sticky-textbox {
-    resize: none;
-    width: 95%;
-    height:350px;
-    margin-top: 7%;
-    border-radius: 5px;
-    border-width: 0px;
-    background-color: transparent;
-    text-align: start;
-    font-family:'Josefin Sans', sans-serif;
-    font-variant: normal; 
-    outline: none;
-    font-size: 15px;
-    padding: 2%;
-    color: black;
-}
-
-.sticky-button {
-    margin-left: 87%;
-    border-width: 0px;
-    background-color: salmon;
-    padding: 2%;
-    font-family:'Josefin Sans', sans-serif;
-    font-variant: normal; 
-    font-size: 15px;
-    border-radius: 5px;
-    color: white;
-}
-
-.sticky-text {
-    font-size: 15px;
-}
-
-.todo-icon {
-    color: rgb(119, 119, 119);
-}
-

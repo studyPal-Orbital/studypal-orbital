@@ -1,41 +1,33 @@
 import React from 'react'
-import { Component } from "react";
 import Countdown from "./Countdown";
 import Title from "../Title/Title.js";
 import Header from '../Header/Header.js'
 import Music from './Music.js'
-import Canvas from './Canvas.js'
 import './FocusSession.css'
-
-
-import { useEffect, useRef, useState } from 'react';
-
-import ReactDOM from "react-dom";
-import CanvasDraw from "react-canvas-draw";
-
 
 function FocusSession () {
     return (
-        <div class="timer">
+        <div id="focus-session-container">
             <Header />
             <Title name={'Focus Session'} />
-            <div className="timer-canvas-container">
-                <div className="timer-container">
-                    <div className="countdown-container">
-                    <div className="text-area-container">
-                        <p>Goal Setting</p>
+            <div id="timer-music-container">
+                <div id="timer-container">
+                    <div id="text-area-container">
+                        <label id="goal-label">Goal Setting</label>
                         <textarea
+                            name="goal"
                             placeholder='Type your goal for this session'
-                            className="input-text"
+                            id="goal-setting-text-area"
                         />
                     </div>
+                    <div id="countdown-container">
                         <Countdown 
                             className={"countdown"}
                         />
                     </div>
                 </div>
-                <div className="music-container">
-                <p className="music-container-text">Study Music Tracks</p>
+                <div id="music-container">
+                <p id="music-title-text">Study Music Tracks</p>
                     <Music />
                 </div>
             </div>

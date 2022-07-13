@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-
 import {db} from "../../firebase.js"
 import {
     collection,
@@ -12,9 +11,7 @@ import {
     updateDoc,
     where,
   } from "firebase/firestore"
-
 import { UserAuth } from "../../context/AuthContext.js"
-
 import { NavLink } from "react-router-dom";
 import './Todo.css'
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
@@ -32,6 +29,7 @@ const Todoitem = ({title, body, urgency, completed, createdAt, id}) => {
     const [complete, setComplete] = useState(completed)
     const [currentRecords, setCurrentRecords] = useState([])
 
+    /* Retrieving task created */
     useEffect(() => {
         let active = true
         if (active == true & user.uid != null) {
@@ -48,6 +46,7 @@ const Todoitem = ({title, body, urgency, completed, createdAt, id}) => {
           return () => {active = false}}
       }, [user.uid])
 
+    /* Delete user selected task */
     const handleDelete = async () => {
         await deleteDoc(doc(db, "todos", id))
         let currentRec = currentRecords.filter((rec) => rec['recordID'] == newRecordID)
@@ -62,33 +61,34 @@ const Todoitem = ({title, body, urgency, completed, createdAt, id}) => {
         await setDoc(doc(db, "todos-record", newRecordID), newRecord)
       }
 
-
+    /* Expand task card to show task description */
     const toggleShowContent = () => {
         setShowContent(() => !showContent)
     }
 
+    /* Toggle status of completion for user selected task */
     const toggleComplete = async () => {
       setComplete(() => !complete)
       await updateDoc(doc(db, "todos", id), {completed: !complete})
     }
   
     return (
-        <div>
-            <div className="display-todo-title-container">
-              <div className="display-todo-first-row">
+        <>
+            <div id="display-todo-title-container">
+              <div id="display-todo-first-row">
                 <p 
-                    className={"display-task-title"}
+                    id={"display-task-title"}
                     style={{ textDecoration: complete && "line-through" }}
                   >
                     {title}
                   </p>
-                  <p className="display-task-urgency"
+                  <p id="display-task-urgency"
                         style={{ backgroundColor: urgency == "Low" ? "rgb(109, 209, 125)" : 
                                                   urgency == "Medium" ? "rgb(255, 193, 77)" : "rgb(238, 80, 63)"}}>
                         {urgency}
                   </p>
               </div>
-                <div className="display-task-control-container">
+                <div id="display-task-control-container">
                   <div className="display-task-control" onClick={handleDelete}>
                       <DeleteIcon className="todo-icon"/>
                   </div>
@@ -103,8 +103,8 @@ const Todoitem = ({title, body, urgency, completed, createdAt, id}) => {
                   </div>
               </div>
               </div>
-            {showContent && <p className="display-task-description">{body == "" ? "No description provided" : body}</p>}
-        </div>
+            {showContent && <p id="display-task-description">{body == "" ? "No description provided" : body}</p>}
+        </>
     )
 }
 

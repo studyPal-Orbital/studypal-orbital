@@ -1,32 +1,25 @@
 #login-container,
 #signup-container {
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
-    width: 60vw;
-    height: 60vh;
-    margin-left: 20vw;
-    margin-right: 20vw;
-    margin-top: 20vh;
-    margin-bottom: 20vh;
+    width: 60%;
+    height: 100%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 10%;
 }
 
 #login-credentials-container,
 #signup-credentials-container {
-    width: 30vw;
+    width: 40%;
+    height: 100%;
 }
 
 #login-img-container,
 #signup-img-container {
-    width: 30vw;
-    height: 60vh;
-}
-
-#login-img,
-#signup-img {
-    width: 80%;
-    height: 80%;
-    margin-left: 10%;
+    width: 60%;
+    height: 100%;
 }
 
 #login-text-desc-container,
@@ -38,7 +31,6 @@
 #login-form,
 #signup-form {
     margin-top: 5%;
-    height: 10%;
 }
 
 .login-label-container,
@@ -47,6 +39,15 @@
     flex-direction: column;
     margin-top: 2%;
     padding-bottom: 2%;
+}
+
+
+#login-img,
+#signup-img {
+    width: 80%;
+    height: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
 }
 
 .login-input,
@@ -58,6 +59,12 @@
     font-family:'Josefin Sans', sans-serif;
     font-variant: normal; 
     font-size: 1rem;
+}
+
+#login-error,
+#signup-error {
+    font-size: 0.9rem;
+    color: rgb(255, 51, 28);
 }
 
 .login-button,
@@ -90,11 +97,4 @@
     background-color: #85e1f8;
     box-shadow: 0 2px rgb(183, 182, 182);
     transform: translateY(4px);
-}
-
-
-#login-error,
-#signup-error {
-    font-size: 0.9rem;
-    color: rgb(255, 51, 28);
 }

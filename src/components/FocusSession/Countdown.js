@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Popup from "./Popup";
 
-
-function Countdown() {
+const Countdown = () => {
 
     const [ timerRunning, setTimerRunning ] = useState(false); // Is the timer running?
     const [ startTime, setStartTime ] = useState(0); // Start time (in milliseconds).
@@ -99,23 +98,25 @@ function Countdown() {
     return (
         <>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" crossorigin="anonymous"></link>
-        <div className="countdown">
-            <div className="countdown-buttons">
+        <div id="countdown-card">
                 {/* Upwards White Arrow &#8679 */}
-                <button class = 'countdown-setTime' onClick={() => setDuration("addHours")}>&#8679;</button>
-                <button class = 'countdown-setTime' onClick={() => setDuration("addMinutes")}>&#8679;</button>
-                <button class = 'countdown-setTime' onClick={() => setDuration("addSeconds")}>&#8679;</button>
-            
+                <div id="countdown-buttons-first-row">
+                    <button class = 'countdown-setTime' onClick={() => setDuration("addHours")}>&#8679;</button>
+                    <button class = 'countdown-setTime' onClick={() => setDuration("addMinutes")}>&#8679;</button>
+                    <button class = 'countdown-setTime' onClick={() => setDuration("addSeconds")}>&#8679;</button>
+                </div>
+
                 <div className="countdown-timeDisplay">
-                    {hours} : {minutes} : {seconds}
+                    {hours} : {minutes}  : {seconds}
                 </div>
             
                 {/* Downwards White Arrow &#8681 */}
-                <button class = 'countdown-setTime' onClick={() => setDuration("minusHours")}>&#8681;</button>
-                <button class = 'countdown-setTime' onClick={() => setDuration("minusMinutes")}>&#8681;</button>
-                <button class = 'countdown-setTime' onClick={() => setDuration("minusSeconds")}>&#8681;</button>
+                <div id="countdown-buttons-second-row">
+                    <button class = 'countdown-setTime' onClick={() => setDuration("minusHours")}>&#8681;</button>
+                    <button class = 'countdown-setTime' onClick={() => setDuration("minusMinutes")}>&#8681;</button>
+                    <button class = 'countdown-setTime' onClick={() => setDuration("minusSeconds")}>&#8681;</button>
+                </div>
             </div>
-        
             <div class="button-wrapper">
                 {/* Start - Show button when timer is not running and 
                 (start time is 0, or equals total time, or total time is 0). */}
@@ -147,14 +148,11 @@ function Countdown() {
                         Reset
                     </button>
                 )}
-            </div>
         </div>
-
         <Popup timeStudied={studyTime} trigger={countdownEnd} setTrigger={setCountdownEnd}>
-            <h1 class="timer-done-text">Congratulations!<i class="fa-solid fa-trophy fa-bounce fa-2x"></i></h1>
-            <h2 class="timer-done-text-h2">You have successfully completed your study session!</h2>
+            <h1 id="timer-done-title">Congratulations!<i className="fa-solid fa-trophy fa-bounce fa-2x"></i></h1>
+            <h2 id="timer-done-text">You have successfully completed your study session!</h2>
         </Popup>
-
         </>
     );
     

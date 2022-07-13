@@ -1,9 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-
 import { db } from "../../firebase"
 import {  doc, 
-          addDoc, 
           collection, 
           query, 
           onSnapshot,
@@ -11,31 +9,27 @@ import {  doc,
           where,
           setDoc
         } from "firebase/firestore"; 
-
 import { UserAuth } from '../../context/AuthContext'
-
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-
 import Header from '../Header/Header';
 import Title from '../Title/Title.js'
 import { NavLink } from 'react-router-dom';
 import './CalendarGrid.css'
-
+import './Todo.css'
 
 const localizer = momentLocalizer(moment);
-
 
 const CalendarGrid = (props) => {
   
   const {user}  = UserAuth()
   const[events, setEvent] = useState([])
 
+  /* Convert date time stamp from seconds and nanoseconds (firebase timestamp format) to 24 hour format */
   const normalizeDateTimeField = (events) => {
     for (let i = 0; i < events.length; i++) {
       let title = events[i]['title']
-      let id = events[i]['id']
       let docID = events[i]['docID']
       let start = new Date(events[i]['start']['seconds'] * 1000)
       let end = new Date(events[i]['end']['seconds'] * 1000)
@@ -52,6 +46,7 @@ const CalendarGrid = (props) => {
     return events
   }
 
+  /* Retrieving all saved calendar events */ 
   useEffect((e) => {
     let active = true
     if (active == true && user.uid != null) {
@@ -69,7 +64,7 @@ const CalendarGrid = (props) => {
     return () => {active = false}}
   },[user.uid])
 
- 
+  /* Create a new calendar event */ 
   const createNewEvent = async (e) => {
     const docRef = doc(collection(db, "calendar"));
     let confirmEventTitle = window.prompt("Create a new event")
@@ -87,6 +82,7 @@ const CalendarGrid = (props) => {
     }
   }
 
+  /* Delete a current calendar event */
   const deleteCurrentEvent = async (e) => {
     let confirmDeleteEvent = window.confirm("Delete this event?")
     if (confirmDeleteEvent) {
@@ -96,21 +92,23 @@ const CalendarGrid = (props) => {
   }
 
   return (
-      <div className="calendar-page"> 
-      <Header/>
-      <Title name={"Calendar"} />
-      <NavLink className="task-tracker-nav-link" to='/task-tracker'>Todo List</NavLink>
-      <Calendar
-        defaultDate={moment().toDate()}
-        defaultView="month"
-        views={['month','week','agenda']}
-        localizer={localizer}
-        events={events}
-        selectable
-        onSelectSlot={createNewEvent}
-        onSelectEvent={deleteCurrentEvent}
-        popup
-      />   
+      <div id="calendar-page-container"> 
+        <Header/>
+        <Title name={"Calendar"} />
+        <NavLink className="task-tracker-nav-link" to='/task-tracker'>Todo List</NavLink>
+        <div className="task-tracker-container">
+          <Calendar
+            defaultDate={moment().toDate()}
+            defaultView="month"
+            views={['month','week','agenda']}
+            localizer={localizer}
+            events={events}
+            selectable
+            onSelectSlot={createNewEvent}
+            onSelectEvent={deleteCurrentEvent}
+            popup
+          />   
+        </div>
       </div>
     );
 }

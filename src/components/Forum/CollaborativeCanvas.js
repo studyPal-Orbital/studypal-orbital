@@ -1,7 +1,5 @@
 import React from 'react'
-
 import { useState, useEffect } from 'react'
-
 import { db } from "../../firebase"
 import { collection, 
          query,
@@ -10,14 +8,10 @@ import { collection,
          setDoc, 
          serverTimestamp,
          onSnapshot } from "firebase/firestore"
-
 import { UserAuth } from '../../context/AuthContext'
-
 import { NavLink } from 'react-router-dom'
-
 import Title from '../Title/Title.js'
 import './CollaborativeCanvas.css'
-
 import moment from 'moment'
 
 const CollaborativeCanvas = () => {
@@ -32,6 +26,7 @@ const CollaborativeCanvas = () => {
     const [canvasColour, setCanvasColour] = useState(arr)
     const [endTime, setEndTime] = useState("")
 
+    /* Retrieve current state of canvas */
     useEffect(() => {
         let active = true
         if (active == true && user.uid != null) {
@@ -46,6 +41,7 @@ const CollaborativeCanvas = () => {
         }
     }, [user.uid])
 
+    /* Retrieve next timestamp that user can place a canvas block */
     useEffect(() => {
         let active = true
         if (active == true && user.uid != null) {
@@ -60,10 +56,12 @@ const CollaborativeCanvas = () => {
         }
     }, [user.uid])
 
+    /* Change canvas block colour */
     const toggleColour = (e) => {
         setCurrentColour(() => e.target.value)
     }
-    
+
+    /* Save user action on the canvas */
     const saveCanvas = async (e) => {
         let elemId = e.target.id
         let elem = document.getElementById(elemId)
@@ -87,6 +85,7 @@ const CollaborativeCanvas = () => {
 
     }
 
+    /* Record user placing a block & start the 40 min cooldown period */
     const placeBlockandStartTimer = (e) => {
         let current = moment(new Date()).format('hh:mm A')
         if (endTime == "" || current > endTime) {
@@ -98,23 +97,23 @@ const CollaborativeCanvas = () => {
     }
 
     return (
-        <div>
+        <div id="collab-canvas-container">
             <Title name={"Collaborative Canvas"} />
-            <p className="canvas-description">Place a block upon completion of your study sessions and create a pixel art together with other users!
+            <p id="canvas-description">Place a block upon completion of your study sessions and create a pixel art together with other users!
             <br></br><br></br>Come back 40 mins later at {endTime} to place another block</p>
-            <div className="colour-picker-container">
+            <div id="colour-picker-container">
                 <NavLink 
-                    className="nav-link-canvas"
+                    id="nav-link-canvas"
                     to='/forum'>Back
                 </NavLink>
-                <p className="colour-picker-caption">Colour Picker: </p>
+                <p id="colour-picker-caption">Colour Picker: </p>
                 <input
-                    className="colour-picker"
+                    id="colour-picker"
                     type='color'
                     onChange={toggleColour}
                 />
             </div>
-            <div class="squaregrid">
+            <div id="squaregrid">
                 {keys.map((index) => <button className={"cell"} onClick={placeBlockandStartTimer} 
                 id={index} style={{backgroundColor: canvasColour[index]}}/>)}
             </div>
@@ -124,59 +123,4 @@ const CollaborativeCanvas = () => {
     )
 }
 
-export default CollaborativeCanvas;
-
-/*
- const [timer, setTimer] = useState(false)
-
-    let [timerClock, setTimerClock] = useState(5000); 
-
-    useEffect((timer) => {
-        if (timer == true) {
-            const timerClock = setTimeout(() => {
-                console.log("minus: ", timerClock)
-                setTimerClock(() => timerClock - 1);
-            }, 1000)
-            return () => { 
-            clearTimeout(timerClock)
-            }
-        }}, [timerClock])
-
-    const registerEv = (e) => {
-        saveCanvas(e)
-        setTimer(() => true)
-        console.log(timer)
-    }
-    */
-
-
-    /*
-
-  
-
-
-          /*
-          const getAllComments = onSnapshot(q, (querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                console.log(doc.data()['endTime'])
-                setEndTime(() => doc.data()['endTime'])
-            })
-          })
-          return () => {active = false}
-    }, [user.uid])*/
-
-    /*
-    const placeBlockandStartTimer = (e) => {
-        let current = moment(new Date()).format('hh:mm A')
-        if (endTime == "" || current > endTime) {
-            let end = moment(new Date()).add(1, 'minutes').format('hh:mm A')
-            setEndTime(() => end)
-            saveCanvas(e)
-        } else {
-            alert("Come back again after 30 mins is up to place another block")
-        }
-
-    }*/
-
-
-            
+export default CollaborativeCanvas      

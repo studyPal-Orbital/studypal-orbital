@@ -2,39 +2,29 @@ import React from 'react'
 import Header from '../Header/Header.js'
 import Title from '../Title/Title.js'
 import Post from './Post.js'
-
 import { NavLink } from 'react-router-dom'
 import { useState, useEffect } from "react"
-
 import { UserAuth } from '../../context/AuthContext'
-
 import {db} from "../../firebase.js"
 import {
     collection,
     query,
     onSnapshot,
-    doc,
-    updateDoc,
-    deleteDoc,
-    QuerySnapshot,
-    orderBy, 
-    where
+    orderBy
   } from "firebase/firestore"
-
 import './Forum.css'
-
 import RefreshIcon from '@mui/icons-material/Refresh';
 import SearchIcon from '@mui/icons-material/Search';
 
 const Achievements = () => {
 
     const {user}  = UserAuth()
-
     const [ currentPosts, setCurrentPosts ] = useState([])
     const [ currentPostTitles, setCurrentPostTitles ] = useState([])
     const [ currentTitleSearched, setCurrentTitleSearched ] = useState("")
     const [ currentTitleSelected, setCurrentTileSelected ] = useState("")
 
+    /* Retrieve all posts */
     useEffect(() => {
         let active = true
         if (active == true && user.uid != null) {
@@ -54,57 +44,59 @@ const Achievements = () => {
             return () => {active = false}}
     }, [user.uid])
 
+    /* Record user typed search input */
     const logUserInput = (e) => {
         setCurrentTitleSearched(() => e.target.value)
     }
 
+    /* Record user selection in the search suggestions provided by the search bar */
     const logUserInputSelection = (e) => {
         setCurrentTileSelected(() => e.target.value)
         setCurrentTitleSearched(() => "")
     }
 
+    /* Display all posts on the page without search filters */
     const resetUserInputSelection = (e) => {
         setCurrentTileSelected(() => "")
     }
 
     return (
-        <div>
+        <div id="forum-content-container">
             <Header />
             <Title name={"Forum"} />
-            <div className="forum">
-                <div className="forum-side-bar">
+            <div id="forum-container">
+                <div id="forum-side-bar">
                     <NavLink 
                         className="nav-link-forum"
-                        to='/forum/canvas'>View Collaborative canvas
+                        to='/forum/canvas'>View canvas
                     </NavLink>
                     <NavLink 
                         className="nav-link-forum"
                         to='/forum/createpost'>Create Post
                     </NavLink>
                 </div>
-                <div className="forum-post-feed">
-                    <div className="forum-search-bar-container">
+                <div id="forum-post-feed">
+                    <div id="forum-search-bar-container">
                         <input
-                            className={"forum-search-bar"}
+                            id={"forum-search-bar"}
                             placeholder={"Search for a post"}
                             value={currentTitleSearched}
                             onChange={logUserInput}
                         />
-                        <button className="refresh-button" onClick={resetUserInputSelection}> 
+                        <button id="refresh-button" onClick={resetUserInputSelection}> 
                             <RefreshIcon /> 
                         </button>
                     </div>
-                    <div className="forum-search-results-container">
+                    <div id="forum-search-results-container">
                         {currentTitleSearched != "" && currentPostTitles.map((title) => {
                             if (title.toLocaleLowerCase().match(currentTitleSearched.toLocaleLowerCase())) {
-                                return <button className={"forum-search-results"} value={title} onClick={logUserInputSelection}>
-                                    <SearchIcon className="forum-search-results-icon" />
-                                    {title}
-                                    </button>
+                                return <button id={"forum-search-results"} value={title} onClick={logUserInputSelection}>
+                                            <SearchIcon id="forum-search-results-icon" />
+                                            {title}
+                                        </button>
                             }})
                         }
                     </div>
-
                     {currentPosts.map((post) => {
                         if (post.title == currentTitleSelected & currentTitleSelected != "") {
                         return <Post 

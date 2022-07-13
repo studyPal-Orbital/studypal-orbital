@@ -1,17 +1,10 @@
 import React from "react"
 import { useState } from "react"
-
-import { NavLink } from "react-router-dom"
-
 import { db } from "../../firebase"
 import { collection, 
-         addDoc, 
-         updateDoc, 
-         serverTimestamp } from "firebase/firestore"
-
+         addDoc
+        } from "firebase/firestore"
 import { UserAuth } from '../../context/AuthContext'
-import { preventDefault } from "@fullcalendar/react"
-
 
 const Createtodo = ({closeCreateTodoScreen}) => {
 
@@ -21,19 +14,24 @@ const Createtodo = ({closeCreateTodoScreen}) => {
     const [inputTaskBody, setInputTaskBody] = useState("")
     const [inputTaskUrgency, setInputTaskUrgency] = useState("Low")
 
+    /* Record user todo input for title field */
     const recordUserInputTaskTitle = (e) => {
         setInputTaskTitle(() => e.target.value)
     }
-
+    
+    /* Record user todo input for description body field */
     const recordUserInputTaskBody = (e) => {
         setInputTaskBody(() => e.target.value)
     }
 
+    /* Record user todo input for urgency field */
     const recordUserInputTaskUrgency = (e) => {
         setInputTaskUrgency(() => e.target.value)
     }
 
+    /* Add user created todo to firebase */ 
     const addNewTask = async (e) => {
+        e.preventDefault()
         if (inputTaskTitle != "") {
             let newTask = {
                 title: inputTaskTitle,
@@ -52,33 +50,35 @@ const Createtodo = ({closeCreateTodoScreen}) => {
     }
 
     return (
-        <div className="create-task-container">
-            <div className="title-input-container">
-                <label className="title-label">Title</label>
+        <form id="create-task-container">
+            <div className="input-container">
+                <label className="input-label">Title</label>
                 <textarea 
-                    className="title-input"
+                    name="title-label"
+                    id="title-input"
                     value={inputTaskTitle}
                     onChange={recordUserInputTaskTitle}
                 />
             </div>
-            <div className="desc-input-container">
-                <label className="desc-label">Description</label>
+            <div className="input-container">
+                <label className="input-label">Description</label>
                 <textarea 
-                    className="desc-input"
+                    name="desc-label"
+                    id="desc-input"
                     value={inputTaskBody}
                     onChange={recordUserInputTaskBody}
                 />
             </div>
-            <div className="urgency-input-container">
-                <label className="urgency-label">Urgency</label>
-                <select className="urgency-input" onChange={recordUserInputTaskUrgency}>
+            <div className="input-container">
+                <label className="input-label">Urgency</label>
+                <select name="urgency-label" id="urgency-input" onChange={recordUserInputTaskUrgency}>
                     <option value={"Low"}>Low</option>
                     <option value={"Medium"}>Medium</option>
                     <option value={"High"}>High</option>
                 </select>
             </div>
-            <button className="submit-task-button" onClick={addNewTask}>Submit</button>
-        </div>
+            <button id="submit-task-button" onClick={addNewTask}>Submit</button>
+        </form>
     )
 }
 

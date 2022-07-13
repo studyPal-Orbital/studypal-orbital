@@ -1,25 +1,21 @@
 import React from "react"
-
 import { useState } from "react"
-
 import { db } from "../../firebase"
 import { collection, 
          addDoc, 
-         updateDoc, 
          serverTimestamp } from "firebase/firestore"
-
 import { UserAuth } from '../../context/AuthContext'
-import { PropaneSharp } from "@mui/icons-material"
 
 const CreateComment = (props) => {
     const { user } = UserAuth()
-
     const [comment, setComment] = useState("")
 
+    /* Record user input comment */
     const setNewComment = (e) => {
         setComment(() => e.target.value)
     }
 
+    /* Save user input comment to firebase */
     const createComment = async (e) => {
         if (comment != "") {
             await addDoc(collection(db, "comments"), {
@@ -35,19 +31,17 @@ const CreateComment = (props) => {
     }
 
     return (
-        <div>
-            <div className="create-comment-container">
-                <textarea
-                    placeholder="Leave a comment"
-                    value={comment}
-                    onChange={setNewComment}
-                    className="create-comment-input"
-                />
-                <button className="submit-comment-button" onClick={createComment}>
-                    Submit
-                </button>
-            </div>
-        </div>
+    <div id="create-comment-container">
+        <textarea
+            placeholder="Leave a comment"
+            value={comment}
+            onChange={setNewComment}
+            id="create-comment-input"
+        />
+        <button id="submit-comment-button" onClick={createComment}>
+            Submit
+        </button>
+    </div>
     )
 }
 

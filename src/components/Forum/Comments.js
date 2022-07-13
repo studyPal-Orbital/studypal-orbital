@@ -1,28 +1,18 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-
 import { db } from "../../firebase"
-    
 import { UserAuth } from '../../context/AuthContext'
-
 import {
     collection,
     query,
     onSnapshot,
-    doc,
-    updateDoc,
-    deleteDoc,
-    QuerySnapshot,
     orderBy, 
     where
     } from "firebase/firestore"
-
 import { useLocation } from 'react-router-dom';
-
 import CreateComment from './CreateComment'
 import Comment from './Comment'
-
 import './Comments.css'
 
 const Comments = () => {
@@ -38,6 +28,7 @@ const Comments = () => {
 
     const [currentComments, setCurrentComments] = useState([])
 
+    /* Retrieve all comments for the current post */
     useEffect(() => {
       let active = true
       if (active == true && user.uid != null) {
@@ -54,18 +45,20 @@ const Comments = () => {
       }, [user.uid])
 
     return (
-        <div className="comments-container">
-          <div>
-          < NavLink className="back-to-home-page-from-comments" to='/forum'>
-                    Back        
-            </NavLink>
-            <h2 className="post-title-in-comment-page">{postTitle}</h2>
-            <p className="post-body-in-comment-page">{postBody}</p>
+        <div id="comments-container">
+          <div id="comments-desc-container">
+              <NavLink id="comments-nav-link" to='/forum'>
+                Back        
+              </NavLink>
+              <h2 id="comments-page-post-title">{postTitle}</h2>
+              <p id="comments-page-post-body">{postBody}</p>
           </div>
+          <div id="create-comment-container">
             <CreateComment 
-              post={id}
+                post={id}
             />
-            <div ClassName="current-comments-container">
+          </div>
+            <div id="current-comments-container">
               {currentComments.map((item) => (
                 <Comment 
                   comment={item.comment}
@@ -78,7 +71,6 @@ const Comments = () => {
             </div>
         </div>
     )
-
 }
 
 export default Comments;

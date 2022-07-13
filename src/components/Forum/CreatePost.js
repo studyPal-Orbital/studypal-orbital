@@ -1,17 +1,13 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { NavLink, useNavigate, useLocation } from 'react-router-dom'
 
 import { db } from "../../firebase"
 import { collection, 
-         addDoc, 
          setDoc,
-         updateDoc, 
          serverTimestamp, 
          doc } from "firebase/firestore"
-
 import { UserAuth } from '../../context/AuthContext'
-
 import './CreatePost.css'
 
 const CreatePost = () => {
@@ -23,14 +19,17 @@ const CreatePost = () => {
     const [postTitle, setPostTitle] = useState("")
     const [postBody, setPostBody] = useState("")
 
+    /* Record user input post title */
     const setNewPostTitle = (e) => {
         setPostTitle(() => e.target.value)
     }
 
+    /* Record user input post body */
     const setNewPostBody = (e) => {
         setPostBody(() => e.target.value)
     }
     
+    /* Save user created post to firebase */
     const createPost = async (e) => {
         const docRef = doc(collection(db, "posts"))
         if (postTitle != "" && postBody != "") {
@@ -55,27 +54,29 @@ const CreatePost = () => {
     }
 
     return (
-        <div className="create-post-container">
-            <h2 className="create-post-heading">Create a post</h2>
-            <div className="create-post-input-container">
+        <div id="create-post-container">
+            <h2 id="create-post-heading">Create a post</h2>
+            <div id="create-post-input-container">
                 <textarea
-                    className="create-post-title"
+                    className="create-post"
+                    id="create-post-title"
                     value={postTitle}
                     onChange={setNewPostTitle}
                     placeholder={"Title of post"}
                 />
                 <textarea
-                    className="create-post-body"
+                    className="create-post"
+                    id="create-post-body"
                     value={postBody}
                     onChange={setNewPostBody}
                     placeholder={"Write down your thoughts here :)"}
                 />
             </div>
-            <div className="buttons-container">
+            <div id="buttons-container">
                 <button className="button-create-post-page">
                     <NavLink 
-                    className="nav-link-back-to-forum"
-                    to='/forum'>Back</NavLink>
+                    id="nav-link-back-to-forum"
+                    to='/forum'>Back to forum</NavLink>
                 </button>
                 <button className="button-create-post-page" onClick={createPost}>
                     Create Post   

@@ -2,44 +2,38 @@ import { updateDoc } from "firebase/firestore";
 import React from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { useLocation, useHistory, useNavigate } from "react-router-dom";
-
-import {db} from "../../firebase.js"
-import {
-    collection,
-    query,
-    onSnapshot,
-    doc,
-    setDoc,
-    deleteDoc,
-    where,
-    QuerySnapshot,
-    addDoc
-  } from "firebase/firestore"
+import { useLocation, useNavigate } from "react-router-dom";
+import { db } from "../../firebase.js"
+import { doc } from "firebase/firestore"
 
 const Edittodo = () => {
     const location = useLocation()
     const navigate = useNavigate();
 
-    const { title, body, urgency, createdAt, id} = location.state
+    const { title, body, urgency, id} = location.state
 
     const [ currentTitle, setCurrentTitle ] = useState(title)
     const [ currentBody, setCurrentBody ] = useState(body)
     const [ currentUrgency, setCurrentUrgency ] = useState(urgency)
 
+    /* Retrieve current title of todo */
     const recordNewTitle = (e) => {
         setCurrentTitle(() => e.target.value)
     }
 
+    /* Retrieve current body desc  of todo */
     const recordNewBody = (e) => {
         setCurrentBody(() => e.target.value)
     }
 
+    /* Retrieve current urgency status of todo */
     const recordNewUrgency = (e) => {
         setCurrentUrgency(() => e.target.value)
     }
 
+    /* Update todo fields in firebase */
     const recordUpdate = async (e) => {
+        e.preventDefault()
         let newTask = {
             title: currentTitle,
             body: currentBody,
@@ -51,30 +45,44 @@ const Edittodo = () => {
     }
 
     return (
-        <div className="edit-todo-container">
-            <NavLink className="edit-todo-navlink" to='/task-tracker'>Back</NavLink>
-            <div className="edit-todo-input-container">
-                <label className="edit-todo-label">Title</label>
+        <form id="edit-todo-container">
+            <div id="edit-todo-nav-container">
+                <NavLink id="edit-todo-navlink" to='/task-tracker'>Back</NavLink>
+            </div>
+            <div id="edit-todo-input-container">
+                <label name="edit-title" className="edit-todo-label">Title</label>
                 <textarea
-                    className="edit-todo-title"
+                    name="edit-title"
+                    className="edit-todo-input"
+                    id="edit-todo-input"
                     value={currentTitle}
                     onChange={recordNewTitle}
                 />
-                <label className="edit-todo-label">Description</label>
+                <label name="edit-desc" className="edit-todo-label">Description</label>
                 <textarea
-                    className="edit-todo-desc"
+                    name="edit-desc"
+                    className="edit-todo-input"
+                    id="edit-todo-desc"
                     value={currentBody}
                     onChange={recordNewBody}
                 />
-                <label className="edit-todo-label">Urgency</label>
-                <select className="edit-todo-urgency" value={currentUrgency} onChange={recordNewUrgency}>
+                <label name="edit-urgency" className="edit-todo-label">Urgency</label>
+                <select 
+                    name="edit-urgency" 
+                    className="edit-todo-input" 
+                    id="edit-todo-urgency" 
+                    value={currentUrgency} 
+                    onChange={recordNewUrgency}
+                >
                     <option value={"Low"}>Low</option>
                     <option value={"Medium"}>Medium</option>
                     <option value={"High"}>High</option>
                 </select>
-                <button className="edit-todo-button" onClick={recordUpdate}>Update</button>
+                <div>
+                    <button id="edit-todo-button" onClick={recordUpdate}>Update</button>
+                </div>
             </div>
-        </div>
+        </form>
     )
 }
 
