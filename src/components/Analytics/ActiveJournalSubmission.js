@@ -1,17 +1,15 @@
 import React from 'react'
 import './Journal.css'
-
 import { NavLink } from 'react-router-dom'
 import CloseIcon from '@mui/icons-material/Close';
 
-
 const ActiveJournalSubmission = () => {
     return (
-        <div className='active-journal-submission'>
-            <NavLink className='active-journal-redirect-text' to='/analytics'>
-                <CloseIcon />
+        <div id='active-journal-submission'>
+            <NavLink className='journal-nav-link' to='/analytics'>
+                <CloseIcon className='journal-nav-icon'/>
             </NavLink>
-            <p className='active-journal-submission-text'>Please rest more and take good care of yourself!</p>
+            <p className='journal-submission-text'>Please rest more and take good care of yourself!</p>
         </div>
     )
 }

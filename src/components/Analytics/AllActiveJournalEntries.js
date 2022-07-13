@@ -6,19 +6,16 @@ import {
     collection,
     query,
     onSnapshot,
-    doc,
-    updateDoc,
-    deleteDoc,
-    QuerySnapshot,
     orderBy, 
     where
   } from "firebase/firestore"
-import ActiveJournalEntries from './ActiveJournalEntries';
+import ActiveJournalEntry from './ActiveJournalEntry';
 
 const AllActiveJournalEntries = () => {
     const {user} = UserAuth()
-
     const [activeEntries, setActiveEntries] = useState([])
+
+    /* Retrieve all active journal entries of user */ 
     useEffect(() => {
         let active = true
         if (active == true && user.uid != null) {
@@ -35,14 +32,14 @@ const AllActiveJournalEntries = () => {
     }, [user.uid])
 
     return (
-        <div className="active-entries-container">
-            <NavLink to='/analytics'>
+        <div className="journal-entries-container">
+            <NavLink className="journal-entries-nav-link" to='/analytics'>
                 Back
             </NavLink>
-            <h1>Thoughts kept</h1>
-            <p>Let go of these thoughts when you have overcome your worries!</p>
+            <h1 className="journal-entries-title">Thoughts kept</h1>
+            <p className="journal-entries-desc">Let go of these thoughts when you have overcome your worries!</p>
             {activeEntries.map((entry) => (
-                <ActiveJournalEntries
+                <ActiveJournalEntry
                     title={entry.title}
                     body={entry.body}
                     conclusion={entry.conclusion}
@@ -52,7 +49,6 @@ const AllActiveJournalEntries = () => {
             ))}
         </div>
     )
-
 }
 
 export default AllActiveJournalEntries

@@ -1,38 +1,30 @@
-import React, { useState, useRef } from 'react';
-import prepop from '../../img/prepop.svg'
-import pop from '../../img/popped.svg'
-
+import React from 'react';
 import './BubbleWrap.css'
 import Bubble from './Bubble';
-
 import { NavLink } from 'react-router-dom';
 
 const BubbleWrap = () => {
 
+    /* Generate bubbles for user to pop */
     let arr = [...Array(200).keys()]
 
     return (
-        <div>
-            <h1 className="bubble-wrap-header">Bubble Wrap</h1>
+        <div id="bubble-wrap">
+            <h1 id="bubble-wrap-header">Bubble Wrap</h1>
             <NavLink
                 to='/analytics'
-                className="bubble-wrap-back"
+                id="bubble-wrap-nav-link"
             >
                 Back
             </NavLink>
-            <div className="bubble-wrap-container">
-                <div className="bubble-wrap-container">
-                    {arr.map((index) => (
-                        <Bubble 
-                            className="bubbles" 
-                            id={index}
-                        />
-                    ))}
-                </div>
+            <div id="bubble-wrap-container">
+                {arr.map((index) => (
+                    <Bubble 
+                        id={index}
+                    />
+                ))}
             </div>
-        </div>
-       
+        </div>  
     )
-
 }
 export default BubbleWrap;

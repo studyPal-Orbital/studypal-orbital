@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
 import { NavLink, useNavigate, useLocation } from 'react-router-dom'
-
 import { db } from "../../firebase"
 import { collection, 
          setDoc,
@@ -15,7 +14,6 @@ const CreatePost = () => {
     const { user } = UserAuth()
     const location = useLocation()
     const navigate = useNavigate();
-
     const [postTitle, setPostTitle] = useState("")
     const [postBody, setPostBody] = useState("")
 
