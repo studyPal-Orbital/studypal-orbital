@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { NavLink, useNavigate, useLocation } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { db } from "../../firebase"
 import { collection, 
          setDoc,
@@ -12,7 +12,6 @@ import './CreatePost.css'
 const CreatePost = () => {
 
     const { user } = UserAuth()
-    const location = useLocation()
     const navigate = useNavigate();
     const [postTitle, setPostTitle] = useState("")
     const [postBody, setPostBody] = useState("")
@@ -30,7 +29,7 @@ const CreatePost = () => {
     /* Save user created post to firebase */
     const createPost = async (e) => {
         const docRef = doc(collection(db, "posts"))
-        if (postTitle != "" && postBody != "") {
+        if (postTitle !== "" && postBody !== "") {
             let newDoc = {
                 title: postTitle,
                 body: postBody,

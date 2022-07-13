@@ -18,10 +18,10 @@ const AllActiveJournalEntries = () => {
     /* Retrieve all active journal entries of user */ 
     useEffect(() => {
         let active = true
-        if (active == true && user.uid != null) {
+        if (active === true && user.uid !== null) {
             const q = query(collection(db, "active-journal"), where ("uid", "==", user.uid), orderBy('createdAt'))
             console.log("Retrieving active journal entries")
-            const getAllArchivedEntries = onSnapshot(q, (querySnapshot) => {
+            onSnapshot(q, (querySnapshot) => {
                 let activeEntriesCollected = []
                 querySnapshot.forEach((doc) => {
                     activeEntriesCollected.push({...doc.data(), id: doc.id})

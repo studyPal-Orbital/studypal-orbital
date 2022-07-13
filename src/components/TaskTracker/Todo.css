@@ -60,6 +60,7 @@
     font-family:'Josefin Sans', sans-serif;
     font-variant: normal; 
     text-decoration: none;
+    cursor:pointer;
 }
 
 #submit-task-button {
@@ -126,6 +127,7 @@
 
 .todo-icon {
     color: rgb(119, 119, 119);
+    cursor: pointer;
 }
 
 #display-task-description {
@@ -166,6 +168,7 @@
     margin-top: 5%;
     margin-left: 3%;
     color: white;
+    cursor: pointer;
 }
 
 .sticky-text {
@@ -276,5 +279,6 @@
     font-variant: normal; 
     font-size: 1rem;
     margin-top: 3%;
+    cursor: pointer;
     -webkit-appearance:none;
 }

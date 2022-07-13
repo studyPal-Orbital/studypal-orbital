@@ -75,10 +75,10 @@ const Analytics = () => {
     /* Retrieve all user task completion records by day for the activity heatmap */
     useEffect(() => {
         let active = true
-        if (active == true & user.uid != null) {
+        if (active === true & user.uid !== null) {
             const q = query(collection(db, "todos-record"), where("uid", "==", user.uid))
             console.log("Retrieving user task completion records")
-            const getAllTasks = onSnapshot(q, (querySnapshot) => {
+            onSnapshot(q, (querySnapshot) => {
                 let taskRecords = []
                 querySnapshot.forEach((doc) => {
                     let record = {
@@ -96,10 +96,10 @@ const Analytics = () => {
     /* Retrieve all user time studied records by day for the activity heatmap */
     useEffect(() => {
         let active = true
-        if (active == true & user.uid != null) {
+        if (active === true & user.uid !== null) {
             const q = query(collection(db, "time-studied-record"), where("uid", "==", user.uid))
             console.log("Retrieving user time studied records")
-            const getAllTasks = onSnapshot(q, (querySnapshot) => {
+            onSnapshot(q, (querySnapshot) => {
                 let timeStudiedRecords = []
                 querySnapshot.forEach((doc) => {
                     let record = {
@@ -130,10 +130,10 @@ const Analytics = () => {
                         </div>
                         <div id='side-column-books-container'>
                             <NavLink className='side-column-img-links' to='/archived-thoughts'>
-                                <img className='side-column-img' src={archive}></img>
+                                <img className='side-column-img' alt="archived-journal" src={archive}></img>
                             </NavLink>
                             <NavLink className='side-column-img-links' to='/active-thoughts'>
-                                <img className='side-column-img' src={active}></img>
+                                <img className='side-column-img' alt="active-journal" src={active}></img>
                             </NavLink>
                         </div>
                     </div>

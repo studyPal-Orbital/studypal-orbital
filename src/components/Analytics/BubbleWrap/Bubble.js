@@ -21,6 +21,7 @@ const Bubble = (props) => {
             id={props.index}
             onClick={popBubble}
             src={bubbleState}
+            alt={"bubble"}
         />
     )
 

@@ -5,7 +5,6 @@ import {
     collection,
     query,
     onSnapshot,
-    doc,
     orderBy, 
     where
   } from "firebase/firestore"
@@ -19,10 +18,10 @@ const AllArchiveJournalEntries = () => {
     /* Retrieve all archived journal entries of user */ 
     useEffect(() => {
         let active = true
-        if (active == true && user.uid != null) {
+        if (active === true && user.uid !== null) {
             const q = query(collection(db, "archive-journal"), where ("uid", "==", user.uid), orderBy('createdAt'))
             console.log("Retrieving archived journal entries")
-            const getAllArchivedEntries = onSnapshot(q, (querySnapshot) => {
+            onSnapshot(q, (querySnapshot) => {
                 let archived = []
                 querySnapshot.forEach((doc) => {
                     archived.push({...doc.data(), id: doc.id})

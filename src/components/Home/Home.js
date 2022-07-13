@@ -9,14 +9,12 @@ import {
     where,
     orderBy
 } from "firebase/firestore"
-import Header from '../Header/Header.js';
+import Header from '../Header/Header.js'
 import './Home.css'
-  
+
 const Home = () => {
-
-    const { user, logout } = UserAuth()
     const navigate = useNavigate()
-
+    const { user, logout } = UserAuth()
     const [ calendarRecords, setCalendarRecords ] = useState([])
     const [ upcomingEvent, setUpcomingEvent ] = useState("")
     const [ upcomingEventDate, setUpcomingEventDate ] = useState("")
@@ -29,10 +27,10 @@ const Home = () => {
     // Fetch calendar events to display notifications for upcoming events (if any) 
     useEffect(() => {
         let active = true
-        if (active == true & user.uid != null) {
+        if (active === true & user.uid !== null) {
             const q = query(collection(db, "calendar"), where ("uid", "==", user.uid), orderBy("start"))
             console.log("Retrieving calendar records")
-            const getAllRecords = onSnapshot(q, (querySnapshot) => {
+            onSnapshot(q, (querySnapshot) => {
                 let records = []
                 querySnapshot.forEach((doc) => {
                     records.push({...doc.data()})
@@ -40,8 +38,8 @@ const Home = () => {
 
                 records = records.filter((record) => new Date(record['start']['seconds'] * 1000) >= new Date())
                 setCalendarRecords(() => records)
-
-                if (records.length != 0) {
+                
+                if (records.length !== 0) {
                     let dateFormat = new Date(records[0]['start']['seconds'] * 1000).toString().split(' ')
                     let date = `${dateFormat[1]} ${dateFormat[2]} ${dateFormat[3]}`
                     setUpcomingEvent(() => records[0]['title'])
@@ -74,7 +72,7 @@ const Home = () => {
             </div>
             <div id="home-page-content-container">
                 <h3 id="home-page-title">{greeting} {user.displayName}</h3>
-                {upcomingEventDate == "" ? 
+                {upcomingEventDate === "" ? 
                     <p className="home-page-events">Upcoming events: {upcomingEvent}</p> : 
                     <p className="home-page-events">Upcoming events: {upcomingEvent} on {upcomingEventDate}</p>
                 }

@@ -28,5 +28,6 @@
     width:5%;
     border-radius: 30px;
     background-color: rgb(180, 201, 218);
+    cursor: pointer;
 }
 

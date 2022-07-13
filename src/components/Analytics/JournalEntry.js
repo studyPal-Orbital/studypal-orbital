@@ -32,7 +32,7 @@ const JournalEntry = () => {
     /* For thoughts kept : Check that user has provided inputs for title, body, conclusion & add user input to firebase */
     const addNewActiveJournal = async (e) => {
         e.preventDefault()
-        if (title == "" || body == "" || conclusion == "") {
+        if (title === "" || body === "" || conclusion === "") {
             alert("You might want to type something for all prompts")
         } else {
             await addDoc(collection(db, "active-journal"), {
@@ -52,7 +52,7 @@ const JournalEntry = () => {
     /* For thoughts let go : Check that user has provided inputs for title, body, conclusion & add user input to firebase */
     const addNewArchiveJournal = async (e) => {
         e.preventDefault()
-        if (title == "" || body == "" || conclusion == "") {
+        if (title === "" || body === "" || conclusion === "") {
             alert("You might want to type something for all prompts")
         } else {
             await addDoc(collection(db, "archive-journal"), {
