@@ -12,7 +12,11 @@ const Sticky = ( {text} ) => {
     const {user}  = UserAuth()
 
     const [sticky, setSticky] = useState(text)
-    const [stickyEditMode, toggleStickyEditMode] = useState(false)
+    const [stickyEditMode, setStickyEditMode] = useState(false)
+
+    const toggleStickyEditMode = () => {
+        setStickyEditMode(() => !stickyEditMode)
+    }
 
     /* Record user input in Sticky */
     const recordUserStickyText = (e) => {
@@ -27,7 +31,7 @@ const Sticky = ( {text} ) => {
             uid: user.uid
         }
         await setDoc(doc(db, "sticky", user.uid), newSticky)
-        toggleStickyEditMode(() => !stickyEditMode)      
+        toggleStickyEditMode()
     }
 
     return (
@@ -35,11 +39,11 @@ const Sticky = ( {text} ) => {
         <form>
             {!stickyEditMode &&
             <>
-                <button id="sticky-button" onClick={addSticky}>Edit</button> 
+                <button id="sticky-button" onClick={toggleStickyEditMode}>Edit</button> 
                 <textarea 
                     id="sticky-textbox" 
                     disabled="disabled"
-                    placeholder="Click Edit and type down your tasks here :)"
+                    placeholder=""
                 >
                     {sticky}
                 </textarea>
