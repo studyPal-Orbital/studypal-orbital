@@ -14,7 +14,7 @@ import {
 import { UserAuth } from "../../context/AuthContext.js"
 import { NavLink } from "react-router-dom";
 import './Todo.css'
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from "@mui/icons-material/Delete"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CheckCircleIcon from "@mui/icons-material/CheckCircle"
@@ -93,7 +93,7 @@ const Todoitem = ({title, body, urgency, completed, createdAt, id}) => {
                       <DeleteIcon className="todo-icon"/>
                   </div>
                   <NavLink className="display-task-control" to="/edit-todo" state={{ title, body, urgency, completed, createdAt, id }}>
-                      <CloudUploadIcon className="todo-icon"/>
+                      <EditIcon className="todo-icon"/>
                   </NavLink>
                   <div className="display-task-control" onClick={toggleComplete}>
                       <CheckCircleIcon className="todo-icon"/>

@@ -19,11 +19,9 @@ import {
     doc
 } from "firebase/firestore"
 
+
 const ascending = 'asc'
 const descending = 'desc'
-
-    
-
 
 const Todolist = () => {
     const {user} = UserAuth()
@@ -178,19 +176,21 @@ const Todolist = () => {
     sortCreatedTime(allTasks, descending)
 
     return (
+        <>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" crossorigin="anonymous"></link>
         <div className="task-tracker-page">
             <Header />
-            <Title name={"Todo List"} />
+            <Title name={"To-do List"} />
             <NavLink className="task-tracker-nav-link" to='/calendar'>Calendar</NavLink>
             <div className="task-tracker-container">
                 {createTask == false ? 
-                    <button className="create-task-button" onClick={recordUserCreateTaskSelection}>Create Task</button> :
+                    <button className="create-task-button" onClick={recordUserCreateTaskSelection}>Create Task <i class="fa-solid fa-plus"></i></button> :
                     <button className="create-task-button" onClick={recordUserCreateTaskSelection}>Close</button>
                 }
                 <NavLink to='/about-todo' id="inquiry-button">
-                    User Guide
+                    User Guide <i class="fa-solid fa-book-open"></i>
                 </NavLink>
-                <button className="create-task-button" onClick={toggleSortOptions}>Sort options</button>
+                <button className="create-task-button" onClick={toggleSortOptions}>Sort Options <i class="fa-solid fa-sort"></i></button>
                 <div id="sort-tasks-container">
                     {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByCreatedTime(descending)}>Time: Oldest &rarr; Newest</button>}
                     {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByCreatedTime(ascending)}>Time: Newest &rarr; Oldest</button>}
@@ -218,6 +218,7 @@ const Todolist = () => {
                 </div>                
             </div>
         </div>
+        </>
     )
 
 }

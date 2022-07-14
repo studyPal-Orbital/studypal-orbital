@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle"
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from "@mui/icons-material/Delete"
 import './Abouttodo.css'
 
@@ -13,15 +13,20 @@ const Abouttodo = () => {
             <div id="all-instructions-container">
                 <div className="instruction-container">
                     <DeleteIcon className={"icon"} id="delete"/>
-                    <p className="instruction">Click on the delete icon to delete your task<br></br>Each completed and hence deleted task is logged in the activity heatmap</p>
+                    <p className="instruction">Click on the trash icon to delete unwanted or completed task.</p>
                 </div>
                 <div className="instruction-container">
-                    <CloudUploadIcon className={"icon"} id="save"/>
-                    <p className="instruction">Click on the cloudsave edits icon to edit your task and save the edits</p>
+                    <EditIcon className={"icon"} id="save"/>
+                    <p className="instruction">Click on the pencil icon to edit your task.</p>
                 </div>
                 <div className="instruction-container">
                     <CheckCircleIcon className={"icon"} id="complete"/>
-                    <p className="instruction">Click on the checkmark icon to mark a task as completed with a strikethrough</p>
+                    <p className="instruction">
+                        Click on the checkmark icon to mark a task as completed with a strikethrough.
+                        <br></br>
+                        <br></br>
+                        All completed tasks are logged in the activity heatmap, so you can safely delete them.
+                    </p>
                 </div>
             </div>
         </div>
