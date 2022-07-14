@@ -282,3 +282,34 @@
     cursor: pointer;
     -webkit-appearance:none;
 }
+
+
+
+#sort-tasks-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1%;
+    border-radius: 10px;
+    background-color: aliceblue;
+    margin-left: 20vw;
+    position: absolute;
+    opacity: 0.85;
+    overflow: scroll;
+    max-height: 33vh;
+}
+
+.sort-tasks-button {
+    display: flex;
+    border-width: 0px ;
+    font-size: 0.9rem;
+    font-family:'Josefin Sans', sans-serif;
+    border-radius: 10px;
+    background-color: transparent;
+    text-align: start;
+    align-items: center;
+    padding: 1rem;
+}
+
+.sort-tasks-button:hover {
+    background-color: rgb(124, 194, 255);
+}
