@@ -52,8 +52,10 @@ const Todolist = () => {
                 querySnapshot.forEach((doc) => {
                     currentSticky.push({...doc.data()})
                 })
-                setSticky(() => currentSticky)
-                console.log(currentSticky)
+                if (currentSticky.length != 0) {
+                    setSticky(() => currentSticky[0]['content'])
+                    console.log(currentSticky[0]['content'])
+                }
             })
             return () => {active = false}}
     }, [user.uid])
@@ -91,7 +93,8 @@ const Todolist = () => {
                         ))}
                     </div>
                     <div id="sticky-note-container">
-                        {sticky.length != 0 && <Sticky text={sticky[0]['content']}/>}
+                        {sticky.length != 0 && <Sticky text={sticky}/>}
+                        {sticky.length == 0 && <Sticky text={""}/>}
                     </div>                     
                 </div>                
             </div>
