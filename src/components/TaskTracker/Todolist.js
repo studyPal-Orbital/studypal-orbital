@@ -188,14 +188,14 @@ const Todolist = () => {
                     <button className="create-task-button" onClick={recordUserCreateTaskSelection}>Close</button>
                 }
                 <NavLink to='/about-todo' id="inquiry-button">
-                    More Info
+                    User Guide
                 </NavLink>
                 <button className="create-task-button" onClick={toggleSortOptions}>Sort options</button>
                 <div id="sort-tasks-container">
-                    {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByCreatedTime(descending)}>Created Time Descending</button>}
-                    {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByCreatedTime(ascending)}>Created Time Ascending</button>}
-                    {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByUrgency(descending)}>Urgency Descending</button>}
-                    {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByUrgency(ascending)}>Urgency Ascending</button>}
+                    {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByCreatedTime(descending)}>Time: Oldest &rarr; Newest</button>}
+                    {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByCreatedTime(ascending)}>Time: Newest &rarr; Oldest</button>}
+                    {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByUrgency(descending)}>Urgency: Low &rarr; High</button>}
+                    {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByUrgency(ascending)}>Urgency: High &rarr; Low</button>}
                 </div>
                 <div id="todo-items-container">
                     {createTask && <Createtodo closeCreateTodoScreen={recordUserCreateTaskSelection}/>}
