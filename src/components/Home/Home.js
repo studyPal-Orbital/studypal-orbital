@@ -65,16 +65,16 @@ const Home = () => {
     return (
          <div id="home-page-container">
             <Header />
-            <div id="home-page-img-container">
+            <div id="home-page-img-container" data-cy={"home-img"}>
                 {currentHour >= 8 && currentHour <= 18 ? 
                 <div id="afternoon"></div> : 
                  <div id="evening"></div>}
             </div>
             <div id="home-page-content-container">
-                <h3 id="home-page-title">{greeting} {user.displayName}</h3>
+                <h3  data-cy={"greeting"} id="home-page-title">{greeting} {user.displayName}</h3>
                 {upcomingEventDate === "" ? 
-                    <p className="home-page-events">Upcoming events: {upcomingEvent}</p> : 
-                    <p className="home-page-events">Upcoming events: {upcomingEvent} on {upcomingEventDate}</p>
+                    <p className="home-page-events" data-cy={"upcoming-event"}>Upcoming events: {upcomingEvent}</p> : 
+                    <p className="home-page-events" data-cy={"upcoming-event"}>Upcoming events: {upcomingEvent} on {upcomingEventDate}</p>
                 }
                 <button id="home-page-signout" onClick={handleLogout}>Sign out</button>
             </div>

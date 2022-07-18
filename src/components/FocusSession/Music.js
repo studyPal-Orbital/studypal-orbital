@@ -104,7 +104,7 @@ const Music = () => {
     return (
         <div>
             <div id="music-button-container">
-                <select id="music-genre-select" onChange={updateSongGenre}>
+                <select id="music-genre-select" onChange={updateSongGenre} data-cy="genre-select">
                     <option value={"All"}>All</option>
                     <option value={"lo-fi"}>Lo-fi</option>
                     <option value={"piano"}>Piano</option>
@@ -117,12 +117,13 @@ const Music = () => {
                     placeholder={"Search for songs"}
                     value={userSongSearchInput}
                     onChange={recordUserSongSearchInput}
+                    data-cy="search-music"
                 />
                 <button id="next-button" onClick={showNextGif}>
                         Next Gif
                 </button>
                 </div>
-                <div id="music-search-options-container">
+                <div id="music-search-options-container" data-cy="search-bar">
                     {collapseSearchBar == false && userSongSearchInput != "" && genreCategorySongTitles.map((song) => {
                         if (song.toLocaleLowerCase().match(userSongSearchInput.toLocaleLowerCase())) {
                             return (
@@ -130,6 +131,7 @@ const Music = () => {
                                     value={song} 
                                     onClick={recordUserSelectedSong}
                                     id={"music-search-option"}
+                                    data-cy="option"
                                 >
                                     {song}
                                 </button>
@@ -144,6 +146,7 @@ const Music = () => {
                 frameBorder="0" scrolling="no"
                 autoPlay="true"
                 src={userSelectedSongTrack}
+                data-cy="audio"
             />}
        </div>
     )

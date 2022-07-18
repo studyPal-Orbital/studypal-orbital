@@ -20,12 +20,9 @@ const Login = () => {
     } catch (e) {
       if (e.message == "Firebase: Error (auth/user-not-found).") {
         setError("You do not have a registered account")
-      } else if (e.message == "Firebase: Error (auth/wrong-password).") {
-        setError("You have entered the wrong password")
       } else {
         setError("Your login credentials are inaccurate")
       }
-      console.log(e.message)
     }
   }
 
@@ -38,28 +35,35 @@ const Login = () => {
             Don't have an account yet?{' '}
             <Link to='/signup'>Sign up</Link>
           </p>
-          {setError != '' && <p id="login-error">{error}</p>}
+          {setError != '' && <p data-testid="error" id="login-error">{error}</p>}
         </div>
         <form id='login-form' onSubmit={handleSubmit}>
           <div className='login-label-container'>
-            <label className='login-label'>Email </label>
+            <label className="login-label" htmlFor="email-input">Email</label>
             <input className='login-input' 
                    onChange={(e) => setEmail(e.target.value)} 
                    type='email' 
+                   value={email}
+                   data-cy="email-input"
             />
           </div>
           <div className='login-label-container'>
-            <label className='login-label'>Password</label>
-            <input className='login-input' onChange={(e) => setPassword(e.target.value)} type='password' />
+            <label className='login-label' htmlFor="password-input">Password</label>
+            <input className='login-input'
+                  onChange={(e) => setPassword(e.target.value)} 
+                  type='password' 
+                  value={password}
+                  data-cy="password-input"
+            />
           </div>
           <div>
-          <button className='login-button'>Log In</button>
+          <button className='login-button'  data-cy="log-in-account">Log In</button>
           <p className='login-link-back'><Link to='/'>Home</Link></p>
           </div>
         </form>
       </div>
       <div id='login-img-container'>
-        <img id='login-img' src={loginImg} />
+        <img id='login-img' alt='login-page-img' src={loginImg} />
       </div>
     </div>
   )
