@@ -846,3 +846,4 @@ node_modules/.cache/babel-loader/3225b6e421ad7bac293a9fed4ab99e18.json
 node_modules/.cache/babel-loader/adf896799bedb76f5714bf2db835f0c2.json
 node_modules/.cache/babel-loader/79cdf16ebac9cb8196919cab4b15aefa.json
 node_modules/.cache/babel-loader/ac1d9161ba42281b8e8b87562fa0c0c7.json
+*.json

@@ -13,7 +13,12 @@ const Abouttodo = () => {
             <div id="all-instructions-container">
                 <div className="instruction-container">
                     <DeleteIcon className={"icon"} id="delete"/>
-                    <p className="instruction"  data-cy="delete">Click on the trash icon to delete unwanted or completed task.</p>
+                    <p className="instruction"  data-cy="delete">
+                        Click on the trash icon to delete unwanted or completed task.
+                        <br></br>
+                        <br></br>
+                        All completed tasks are logged into the activity heatmap <b>after deletion</b>.
+                    </p>
                 </div>
                 <div className="instruction-container">
                     <EditIcon className={"icon"} id="save"/>
@@ -21,12 +26,7 @@ const Abouttodo = () => {
                 </div>
                 <div className="instruction-container">
                     <CheckCircleIcon className={"icon"} id="complete"/>
-                    <p className="instruction" data-cy="complete">
-                        Click on the checkmark icon to mark a task as completed with a strikethrough.
-                        <br></br>
-                        <br></br>
-                        All completed tasks are logged in the activity heatmap, so you can safely delete them.
-                    </p>
+                    <p className="instruction" data-cy="complete">Click on the checkmark icon to mark a task as completed with a strikethrough.</p>
                 </div>
             </div>
         </div>
