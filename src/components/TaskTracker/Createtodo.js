@@ -58,6 +58,7 @@ const Createtodo = ({closeCreateTodoScreen}) => {
                     id="title-input"
                     value={inputTaskTitle}
                     onChange={recordUserInputTaskTitle}
+                    data-cy="title"
                 />
             </div>
             <div className="input-container">
@@ -67,17 +68,18 @@ const Createtodo = ({closeCreateTodoScreen}) => {
                     id="desc-input"
                     value={inputTaskBody}
                     onChange={recordUserInputTaskBody}
+                    data-cy="desc"
                 />
             </div>
             <div className="input-container">
                 <label className="input-label">Urgency</label>
-                <select name="urgency-label" id="urgency-input" onChange={recordUserInputTaskUrgency}>
+                <select name="urgency-label" id="urgency-input" data-cy="urgency" onChange={recordUserInputTaskUrgency}>
                     <option value={"Low"}>Low</option>
                     <option value={"Medium"}>Medium</option>
                     <option value={"High"}>High</option>
                 </select>
             </div>
-            <button id="submit-task-button" onClick={addNewTask}>Submit</button>
+            <button id="submit-task-button" data-cy="submit" onClick={addNewTask}>Submit</button>
         </form>
     )
 }

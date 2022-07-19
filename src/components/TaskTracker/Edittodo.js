@@ -57,6 +57,7 @@ const Edittodo = () => {
                     id="edit-todo-input"
                     value={currentTitle}
                     onChange={recordNewTitle}
+                    data-cy="edit-title"
                 />
                 <label name="edit-desc" className="edit-todo-label">Description</label>
                 <textarea
@@ -65,6 +66,7 @@ const Edittodo = () => {
                     id="edit-todo-desc"
                     value={currentBody}
                     onChange={recordNewBody}
+                    data-cy="edit-body"
                 />
                 <label name="edit-urgency" className="edit-todo-label">Urgency</label>
                 <select 
@@ -73,13 +75,14 @@ const Edittodo = () => {
                     id="edit-todo-urgency" 
                     value={currentUrgency} 
                     onChange={recordNewUrgency}
+                    data-cy="edit-urgency"
                 >
                     <option value={"Low"}>Low</option>
                     <option value={"Medium"}>Medium</option>
                     <option value={"High"}>High</option>
                 </select>
                 <div>
-                    <button id="edit-todo-button" onClick={recordUpdate}>Update</button>
+                    <button id="edit-todo-button" onClick={recordUpdate} data-cy="update">Update</button>
                 </div>
             </div>
         </form>
