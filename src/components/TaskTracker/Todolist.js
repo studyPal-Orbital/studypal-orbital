@@ -19,11 +19,9 @@ import {
     doc
 } from "firebase/firestore"
 
+
 const ascending = 'asc'
 const descending = 'desc'
-
-    
-
 
 const Todolist = () => {
     const {user} = UserAuth()
@@ -178,29 +176,27 @@ const Todolist = () => {
     sortCreatedTime(allTasks, descending)
 
     return (
+        <>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" crossorigin="anonymous"></link>
         <div className="task-tracker-page">
             <Header />
-            <Title name={"Todo List"} />
+            <Title name={"To-do List"} />
             <NavLink className="task-tracker-nav-link" to='/calendar' data-cy="calendar">Calendar</NavLink>
             <div className="task-tracker-container">
                 {createTask == false ? 
-                    <button data-cy="create-task" className="create-task-button" onClick={recordUserCreateTaskSelection}>Create Task</button> :
+                    <button data-cy="create-task" className="create-task-button" onClick={recordUserCreateTaskSelection}>Create Task <i class="fa-solid fa-plus"></i></button> :
                     <button className="create-task-button" onClick={recordUserCreateTaskSelection}>Close</button>
                 }
                 <NavLink to='/about-todo' id="inquiry-button" data-cy="more-info">
-                    More Info
+                    User Guide <i class="fa-solid fa-book-open"></i>
                 </NavLink>
-                {createTask == false && 
-                    <>
-                    <button className="create-task-button" onClick={toggleSortOptions} data-cy="sort">Sort options</button>
-                    <div id="sort-tasks-container">
-                        {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByCreatedTime(descending)} data-cy="time-desc">Created Time Descending</button>}
-                        {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByCreatedTime(ascending)} data-cy="time-asc">Created Time Ascending</button>}
-                        {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByUrgency(descending)} data-cy="urgency-desc">Urgency Descending</button>}
-                        {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByUrgency(ascending)} data-cy="urgency-asc">Urgency Ascending</button>}
-                    </div>
-                    </>
-                }
+                <button className="create-task-button" onClick={toggleSortOptions} data-cy="sort">Sort Options <i class="fa-solid fa-sort"></i></button>
+                <div id="sort-tasks-container">
+                    {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByCreatedTime(descending) data-cy="time-desc"}>Time: Oldest &rarr; Newest</button>}
+                    {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByCreatedTime(ascending)} data-cy="time-asc">Time: Newest &rarr; Oldest</button>}
+                    {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByUrgency(descending)} data-cy="urgency-desc">Urgency: Low &rarr; High</button>}
+                    {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByUrgency(ascending)} data-cy="urgency-asc">Urgency: High &rarr; Low</button>}
+                </div>
                 <div id="todo-items-container">
                     {createTask && <Createtodo closeCreateTodoScreen={recordUserCreateTaskSelection}/>}
                     <div id={"todo-table"} data-cy="todos">
@@ -222,6 +218,7 @@ const Todolist = () => {
                 </div>                
             </div>
         </div>
+        </>
     )
 
 }
