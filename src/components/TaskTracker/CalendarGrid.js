@@ -95,7 +95,7 @@ const CalendarGrid = (props) => {
       <div id="calendar-page-container"> 
         <Header/>
         <Title name={"Calendar"} />
-        <NavLink className="task-tracker-nav-link" to='/task-tracker'>Todo List</NavLink>
+        <NavLink className="task-tracker-nav-link" to='/task-tracker'>To-do List</NavLink>
         <div className="task-tracker-container">
           <Calendar
             defaultDate={moment().toDate()}
