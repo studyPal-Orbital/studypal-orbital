@@ -55,7 +55,7 @@ const Popup = (props) => {
     return (props.trigger) ? (
         <div id="popup">
             <div id="popup-inner">
-                <button id="close-btn" onClick ={logTimeStudied}> Close </button>
+                <button id="close-btn" data-cy="close-popup" onClick ={logTimeStudied}> Close </button>
                     { props.children }
             </div>
         </div>

@@ -101,12 +101,12 @@ const Countdown = () => {
         <div id="countdown-card">
                 {/* Upwards White Arrow &#8679 */}
                 <div id="countdown-buttons-first-row">
-                    <button class = 'countdown-setTime' onClick={() => setDuration("addHours")}>&#8679;</button>
-                    <button class = 'countdown-setTime' onClick={() => setDuration("addMinutes")}>&#8679;</button>
-                    <button class = 'countdown-setTime' onClick={() => setDuration("addSeconds")}>&#8679;</button>
+                    <button class = 'countdown-setTime' data-cy="set-hours-increase" onClick={() => setDuration("addHours")}>&#8679;</button>
+                    <button class = 'countdown-setTime' data-cy="set-minutes-increase" onClick={() => setDuration("addMinutes")}>&#8679;</button>
+                    <button class = 'countdown-setTime' data-cy="set-seconds-increase" onClick={() => setDuration("addSeconds")}>&#8679;</button>
                 </div>
 
-                <div className="countdown-timeDisplay">
+                <div className="countdown-timeDisplay" data-cy="time-left">
                     {hours} : {minutes}  : {seconds}
                 </div>
             
@@ -114,21 +114,21 @@ const Countdown = () => {
                 <div id="countdown-buttons-second-row">
                     <button class = 'countdown-setTime' onClick={() => setDuration("minusHours")}>&#8681;</button>
                     <button class = 'countdown-setTime' onClick={() => setDuration("minusMinutes")}>&#8681;</button>
-                    <button class = 'countdown-setTime' onClick={() => setDuration("minusSeconds")}>&#8681;</button>
+                    <button class = 'countdown-setTime' data-cy="set-seconds-decrease" onClick={() => setDuration("minusSeconds")}>&#8681;</button>
                 </div>
             </div>
             <div class="button-wrapper">
                 {/* Start - Show button when timer is not running and 
                 (start time is 0, or equals total time, or total time is 0). */}
                 {timerRunning === false && (startTime === 0 || startTime === totalTime || totalTime === 0) && (
-                    <button className="countdown-start" onClick={startTimer}>
+                    <button className="countdown-start" data-cy="start-timer" onClick={startTimer}>
                         Start
                     </button>
                 )}
         
                 {/* Stop - Show button when timer is running and time >= 1 second. */}
                 {timerRunning === true && totalTime >= 1000 && (
-                    <button className="countdown-stop" onClick={stopTimer}>
+                    <button className="countdown-stop" data-cy="stop-timer" onClick={stopTimer}>
                         Stop
                     </button>
                 )}
@@ -136,7 +136,7 @@ const Countdown = () => {
                 {/* Resume - Show button when timer is not running and 
                 (start time > 0, and not equals total time, and total time not equals 0). */}
                 {timerRunning === false && (startTime > 0 && startTime !== totalTime && totalTime !== 0) && (
-                    <button className="countdown-start" onClick={startTimer}>
+                    <button className="countdown-start" data-cy="resume-timer" onClick={startTimer}>
                         Resume
                     </button>
                 )}
@@ -144,14 +144,14 @@ const Countdown = () => {
                 {/* Reset - Show button when timer is not running and 
                 (start time > 0, or not equals total time, or total time > 0. */}
                 {timerRunning === false && (startTime > 0 || startTime !== totalTime || totalTime > 0) && (
-                    <button className="countdown-reset" onClick={resetTimer}>
+                    <button className="countdown-reset" data-cy="reset-timer" onClick={resetTimer}>
                         Reset
                     </button>
                 )}
         </div>
         <Popup timeStudied={studyTime} trigger={countdownEnd} setTrigger={setCountdownEnd}>
-            <h1 id="timer-done-title">Congratulations!<i className="fa-solid fa-trophy fa-bounce fa-2x"></i></h1>
-            <h2 id="timer-done-text">You have successfully completed your study session!</h2>
+            <h1 id="timer-done-title" data-cy="session-finished">Congratulations!<i className="fa-solid fa-trophy fa-bounce fa-2x"></i></h1>
+            <h2 id="timer-done-text" data-cy="session-finished">You have successfully completed your study session!</h2>
         </Popup>
         </>
     );

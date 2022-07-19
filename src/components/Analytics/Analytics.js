@@ -114,6 +114,7 @@ const Analytics = () => {
             })
             return () => {active = false}}
     }, [user.uid])
+
     
     return (
         <div id="profile-container">
@@ -138,7 +139,11 @@ const Analytics = () => {
                         </div>
                     </div>
                     <div id="side-column-links-container">
-                        <NavLink className='side-column-ext-links' to='/bubbles'>
+                        <NavLink 
+                            className='side-column-ext-links' 
+                            to='/bubbles'
+                            state={totalTasksCompleted != null && { numBubbles: totalTasksCompleted}}
+                        >
                             Pop some bubbles!
                         </NavLink>
                         <NavLink className='side-column-ext-links' to='/achievements'>

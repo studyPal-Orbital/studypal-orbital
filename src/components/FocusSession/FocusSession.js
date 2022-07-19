@@ -18,6 +18,7 @@ function FocusSession () {
                             name="goal"
                             placeholder='Type your goal for this session'
                             id="goal-setting-text-area"
+                            data-cy="goal-input"
                         />
                     </div>
                     <div id="countdown-container">
