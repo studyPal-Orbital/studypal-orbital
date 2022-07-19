@@ -39,11 +39,17 @@ const Sticky = ( {text} ) => {
         <form>
             {!stickyEditMode &&
             <>
-                <button id="sticky-button" onClick={toggleStickyEditMode}>Edit</button> 
+                <button 
+                    id="sticky-button" 
+                    onClick={toggleStickyEditMode}
+                    data-cy="edit-sticky"
+                >Edit
+                </button> 
                 <textarea 
                     id="sticky-textbox" 
                     disabled="disabled"
                     placeholder=""
+                    data-cy="non-edit-state-sticky"
                 >
                     {sticky}
                 </textarea>
@@ -51,13 +57,19 @@ const Sticky = ( {text} ) => {
             }
             {stickyEditMode &&
             <>
-                <button id="sticky-button" onClick={addSticky}>Save</button> 
+                <button 
+                    id="sticky-button"
+                    onClick={addSticky}
+                    data-cy="edit-sticky"
+                >Save
+                </button> 
                 <textarea
                     id="sticky-textbox"
                     placeholder="Type down your tasks here :)"
                     value={sticky}
                     onChange={recordUserStickyText}
                     style={{"border": "0.5px solid gray"}}
+                    data-cy="edit-state-sticky"
                 /> 
             </>
             }

@@ -79,6 +79,7 @@ const Todoitem = ({title, body, urgency, completed, createdAt, id}) => {
                 <p 
                     id={"display-task-title"}
                     style={{ textDecoration: complete && "line-through" }}
+                    data-cy="task-title"
                   >
                     {title}
                   </p>
@@ -90,16 +91,16 @@ const Todoitem = ({title, body, urgency, completed, createdAt, id}) => {
               </div>
                 <div id="display-task-control-container">
                   <div className="display-task-control" onClick={handleDelete}>
-                      <DeleteIcon className="todo-icon"/>
+                      <DeleteIcon className="todo-icon" data-cy="delete-tasks"/>
                   </div>
                   <NavLink className="display-task-control" to="/edit-todo" state={{ title, body, urgency, completed, createdAt, id }}>
-                      <EditIcon className="todo-icon"/>
+                      <EditIcon className="todo-icon" data-cy="edit-tasks"/>
                   </NavLink>
                   <div className="display-task-control" onClick={toggleComplete}>
-                      <CheckCircleIcon className="todo-icon"/>
+                      <CheckCircleIcon className="todo-icon" data-cy="toggle-tasks"/>
                   </div>
                   <div className="display-task-control" onClick={toggleShowContent}>
-                    <ExpandMoreIcon className="todo-icon"/>
+                    <ExpandMoreIcon className="todo-icon" data-cy="expand-tasks"/>
                   </div>
               </div>
               </div>

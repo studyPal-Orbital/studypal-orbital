@@ -181,25 +181,25 @@ const Todolist = () => {
         <div className="task-tracker-page">
             <Header />
             <Title name={"To-do List"} />
-            <NavLink className="task-tracker-nav-link" to='/calendar'>Calendar</NavLink>
+            <NavLink className="task-tracker-nav-link" to='/calendar' data-cy="calendar">Calendar</NavLink>
             <div className="task-tracker-container">
                 {createTask == false ? 
-                    <button className="create-task-button" onClick={recordUserCreateTaskSelection}>Create Task <i class="fa-solid fa-plus"></i></button> :
+                    <button data-cy="create-task" className="create-task-button" onClick={recordUserCreateTaskSelection}>Create Task <i class="fa-solid fa-plus"></i></button> :
                     <button className="create-task-button" onClick={recordUserCreateTaskSelection}>Close</button>
                 }
-                <NavLink to='/about-todo' id="inquiry-button">
+                <NavLink to='/about-todo' id="inquiry-button" data-cy="more-info">
                     User Guide <i class="fa-solid fa-book-open"></i>
                 </NavLink>
-                <button className="create-task-button" onClick={toggleSortOptions}>Sort Options <i class="fa-solid fa-sort"></i></button>
+                <button className="create-task-button" onClick={toggleSortOptions} data-cy="sort">Sort Options <i class="fa-solid fa-sort"></i></button>
                 <div id="sort-tasks-container">
-                    {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByCreatedTime(descending)}>Time: Oldest &rarr; Newest</button>}
-                    {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByCreatedTime(ascending)}>Time: Newest &rarr; Oldest</button>}
-                    {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByUrgency(descending)}>Urgency: Low &rarr; High</button>}
-                    {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByUrgency(ascending)}>Urgency: High &rarr; Low</button>}
+                    {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByCreatedTime(descending) data-cy="time-desc"}>Time: Oldest &rarr; Newest</button>}
+                    {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByCreatedTime(ascending)} data-cy="time-asc">Time: Newest &rarr; Oldest</button>}
+                    {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByUrgency(descending)} data-cy="urgency-desc">Urgency: Low &rarr; High</button>}
+                    {sortButtonsClicked && <button className="sort-tasks-button" onClick={() => sortTasksByUrgency(ascending)} data-cy="urgency-asc">Urgency: High &rarr; Low</button>}
                 </div>
                 <div id="todo-items-container">
                     {createTask && <Createtodo closeCreateTodoScreen={recordUserCreateTaskSelection}/>}
-                    <div id={"todo-table"}>
+                    <div id={"todo-table"} data-cy="todos">
                         {allTasks.map((task) => (
                             <Todoitem
                                 title={task.title}

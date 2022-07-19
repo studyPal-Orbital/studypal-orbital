@@ -1,5 +1,5 @@
 import React from 'react';
-import LandingPage from './LandingPage.js';
+import LandingPage from './LandingPage.jsx';
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect';
 import { MemoryRouter } from 'react-router-dom';
@@ -35,8 +35,14 @@ test("landing page image should be rendered", () => {
     expect(img).toBeInTheDocument()
 })
 
-test('check if login button is not disabled', () => {
+test('check if login button is enabled on click', () => {
     render(<LandingPage/>, {wrapper:MemoryRouter})
     userEvent.click(screen.getByText('Log in'))
-    expect(screen.getByText('Log in')).toBeDisabled()
+    expect(screen.getByText('Log in')).toBeEnabled()
+});
+
+test('check if signup button is enabled on click', () => {
+    render(<LandingPage/>, {wrapper:MemoryRouter})
+    userEvent.click(screen.getByText('Sign up'))
+    expect(screen.getByText('Sign up')).toBeEnabled()
 });
