@@ -25,7 +25,7 @@ describe('User can search for and play music', () => {
       cy.get('[data-cy="greeting"]').should('be.visible')
       cy.get('[data-cy="upcoming-event"]').should('be.visible')
   
-      // Task Tracker Page 
+      // Focus Session Page 
       cy.get('[data-cy="focus-session-header"]').click()
     })
 
