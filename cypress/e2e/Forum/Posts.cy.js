@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('User can create events on the Calendar', () => {
+describe('User can type out tasks on a sticky note', () => {
     beforeEach(() => {
       /* Visit website */
       cy.visit('http://localhost:3000')
@@ -25,22 +25,26 @@ describe('User can create events on the Calendar', () => {
       cy.get('[data-cy="greeting"]').should('be.visible')
       cy.get('[data-cy="upcoming-event"]').should('be.visible')
   
-      /* Task Tracker Page */
-      cy.get('[data-cy="task-tracker-header"]').click()
+      /* Forum Page */
+      cy.get('[data-cy="forum-header"]').click()
     })
 
-    it('Create event in monthly, weekly & agenda view', () => {
-      cy.get('[data-cy="calendar"]').click()
-      cy.get('[class="rbc-day-bg"]').eq(13).click()
-      cy.on('window:prompt', (str) => {
-        expect(str).to.equal(`Create a new event`)
-      })
+    it('Create new post', () => {
+      cy.get('[data-cy="nav-to-create-post"]').click()
+      cy.get('[data-cy="create-post-title"]').type("Test title")
+      cy.get('[data-cy="create-post-body"]').type("Test body")
+      cy.get('[data-cy="create-post"]').click()
+      cy.get('[data-cy="forum"]').contains('Test title')
+    })
 
-      cy.get('[type="button"]').eq(4).click()
-      cy.get('[class="rbc-row-segment"]').contains('event 2')
+    it('Search for post', () => {
+      cy.get('[data-cy="search-posts"]').type("Test title")
+      cy.get('[data-cy="search-results"]').eq(0).click()
+      cy.get('[data-cy="forum"]').contains('Test title')
+    })
 
-      cy.get('[type="button"]').eq(5).click()
-      cy.get('[class="rbc-agenda-event-cell"]').contains('event 1')
-
+    it('Delete post', () => {
+      cy.get('[data-cy="delete-post"]').eq(0).click()
+      cy.get('[data-cy="forum"]').contains('Test title').should('not.exist')
     })
 })

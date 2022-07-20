@@ -16,8 +16,8 @@ describe('User can type out tasks on a sticky note', () => {
       cy.get('[data-cy="log-in"]').click()
   
       /* Log in page */ 
-      cy.get('[data-cy="email-input"]').type('ongyongen95@gmail.com')
-      cy.get('[data-cy="password-input"]').type('blooberry95')
+      cy.get('[data-cy="email-input"]').type('test123@email.com')
+      cy.get('[data-cy="password-input"]').type('test12345')
       cy.get('[data-cy="log-in-account"]').click()
   
       /* Home Page */
@@ -25,7 +25,16 @@ describe('User can type out tasks on a sticky note', () => {
       cy.get('[data-cy="greeting"]').should('be.visible')
       cy.get('[data-cy="upcoming-event"]').should('be.visible')
   
-      /* Task Tracker Page */
-      cy.get('[data-cy="task-tracker-header"]').click()
+      /* Forum Page */
+      cy.get('[data-cy="forum-header"]').click()
+    })
+
+    it('Place square block only at allowed time intervals', () => {
+        cy.get('[data-cy="nav-to-canvas"]').click()
+        cy.get('[data-cy="change-color"]').click()
+        cy.get('[data-cy="canvas-grid"]').click()
+        cy.on('window:alert',(t)=>{expect(t).to.contains('Come back again')})
+        cy.get('[data-cy="nav-back-forum"]').click()
+        cy.get('[data-cy="forum"]').contains('Forum')
     })
 })
