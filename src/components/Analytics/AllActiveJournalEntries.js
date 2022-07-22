@@ -33,7 +33,7 @@ const AllActiveJournalEntries = () => {
 
     return (
         <div className="journal-entries-container">
-            <NavLink className="journal-entries-nav-link" to='/analytics'>
+            <NavLink className="journal-entries-nav-link" to='/analytics' data-cy="back-to-profile">
                 Back
             </NavLink>
             <h1 className="journal-entries-title">Thoughts kept</h1>

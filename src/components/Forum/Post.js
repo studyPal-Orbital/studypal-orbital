@@ -21,7 +21,7 @@ const Post = (props) => {
             <div id="post-user-details-container">
                 <img id="post-user-pic" src={cat}/>
                 {user.uid == props.uid ? 
-                    <button id="delete-post" onClick={deletePost}>
+                    <button id="delete-post" data-cy="delete-post" onClick={deletePost}>
                         <DeleteIcon/>
                     </button> 
                     : <></>
@@ -36,6 +36,7 @@ const Post = (props) => {
                 <NavLink 
                     id="forum-post-comments-nav-link" 
                     to='/forum/comments'
+                    data-cy="show-post-comments"
                     state={{ id: props.id,
                              comments: props.comments,
                              email: props.email,

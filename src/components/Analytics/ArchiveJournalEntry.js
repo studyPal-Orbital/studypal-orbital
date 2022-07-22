@@ -21,10 +21,10 @@ const ArchiveJournalEntry = (props) => {
 
     return (
         <div className="created-entries-container">
-            <button onClick={toggleEntry} id="archived-entries-title">{props.conclusion}</button>
-            {clicked && <p className="created-entries-text">{props.title}</p>}
-            {clicked && <p className="created-entries-text">{props.body}</p>}
-            {clicked && <button className="created-entries-button" onClick={deleteEntryFromArchive}>Delete</button>}
+            <button onClick={toggleEntry} id="archived-entries-title" data-cy="archived-title">{props.conclusion}</button>
+            {clicked && <p className="created-entries-text" data-cy="archived-body">{props.title}</p>}
+            {clicked && <p className="created-entries-text" data-cy="archived-conclusion">{props.body}</p>}
+            {clicked && <button className="created-entries-button" onClick={deleteEntryFromArchive} data-cy="delete">Delete</button>}
         </div>
     )
 }

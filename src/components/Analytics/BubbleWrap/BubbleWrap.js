@@ -9,11 +9,12 @@ const BubbleWrap = () => {
     let arr = [...Array(200).keys()]
 
     return (
-        <div id="bubble-wrap">
+        <div id="bubble-wrap" data-cy="bubble-wrap">
             <h1 id="bubble-wrap-header">Bubble Wrap</h1>
             <NavLink
                 to='/analytics'
                 id="bubble-wrap-nav-link"
+                data-cy="nav-bubble-to-forum"
             >
                 Back
             </NavLink>

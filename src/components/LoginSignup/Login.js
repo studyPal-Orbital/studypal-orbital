@@ -35,7 +35,7 @@ const Login = () => {
             Don't have an account yet?{' '}
             <Link to='/signup'>Sign up</Link>
           </p>
-          {setError != '' && <p data-testid="error" id="login-error">{error}</p>}
+          {setError != '' && <p data-testid="error" id="login-error" data-cy="error">{error}</p>}
         </div>
         <form id='login-form' onSubmit={handleSubmit}>
           <div className='login-label-container'>

@@ -104,16 +104,18 @@ const CollaborativeCanvas = () => {
             <div id="colour-picker-container">
                 <NavLink 
                     id="nav-link-canvas"
-                    to='/forum'>Back
+                    to='/forum'
+                    data-cy="nav-back-forum">Back
                 </NavLink>
                 <p id="colour-picker-caption">Colour Picker: </p>
                 <input
                     id="colour-picker"
                     type='color'
                     onChange={toggleColour}
+                    data-cy="change-color"
                 />
             </div>
-            <div id="squaregrid">
+            <div id="squaregrid" data-cy="canvas-grid">
                 {keys.map((index) => <button className={"cell"} onClick={placeBlockandStartTimer} 
                 id={index} style={{backgroundColor: canvasColour[index]}}/>)}
             </div>

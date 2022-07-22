@@ -37,8 +37,9 @@ const CreateComment = (props) => {
             value={comment}
             onChange={setNewComment}
             id="create-comment-input"
+            data-cy="create-comment"
         />
-        <button id="submit-comment-button" onClick={createComment}>
+        <button id="submit-comment-button"  data-cy="submit-comment" onClick={createComment}>
             Submit
         </button>
     </div>

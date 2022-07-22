@@ -42,11 +42,11 @@ const ActiveJournalEntry = (props) => {
     }
 
     return (
-        <div className="created-entries-container">
-            <button onClick={showJournalContent} id="active-entries-title">{props.title}</button>   
-            {showContent &&  <p className="created-entries-text">{props.body}</p>}
-            {showContent &&  <p className="created-entries-text">{props.conclusion}</p>}
-            {showContent && <button className="created-entries-button" onClick={handleUserArchiveEntry}>Let go of this thought!</button>}
+        <div className="created-entries-container" data-cy="created-entries">
+            <button onClick={showJournalContent} id="active-entries-title" data-cy="active-title">{props.title}</button>   
+            {showContent &&  <p className="created-entries-text" data-cy="active-body">{props.body}</p>}
+            {showContent &&  <p className="created-entries-text" data-cy="active-conclusion">{props.conclusion}</p>}
+            {showContent && <button className="created-entries-button" onClick={handleUserArchiveEntry}  data-cy="send-to-archive">Let go of this thought!</button>}
         </div>
     )
 }

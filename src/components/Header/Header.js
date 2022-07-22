@@ -29,12 +29,14 @@ function Header () {
                 <NavLink 
                 id="forum-header"
                 className="nav-link"
+                data-cy="forum-header"
                 to='/forum'>Forum</NavLink>
             </h3>
             <h3>
                 <NavLink 
                 id="profile-header"
                 className="nav-link"
+                data-cy="profile-header"
                 to='/analytics'>Profile</NavLink>
             </h3>
         </nav>

@@ -60,6 +60,7 @@ const CreatePost = () => {
                     value={postTitle}
                     onChange={setNewPostTitle}
                     placeholder={"Title of post"}
+                    data-cy="create-post-title"
                 />
                 <textarea
                     className="create-post"
@@ -67,6 +68,7 @@ const CreatePost = () => {
                     value={postBody}
                     onChange={setNewPostBody}
                     placeholder={"Write down your thoughts here :)"}
+                    data-cy="create-post-body"
                 />
             </div>
             <div id="buttons-container">
@@ -75,7 +77,7 @@ const CreatePost = () => {
                     id="nav-link-back-to-forum"
                     to='/forum'>Back to forum</NavLink>
                 </button>
-                <button className="button-create-post-page" onClick={createPost}>
+                <button className="button-create-post-page" data-cy="create-post" onClick={createPost}>
                     Create Post   
                 </button>
             </div>

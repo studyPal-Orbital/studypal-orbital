@@ -117,7 +117,7 @@ const Analytics = () => {
 
     
     return (
-        <div id="profile-container">
+        <div id="profile-container" data-cy="profile">
             <Header />
             <Title name={"Profile"} />
             <div id="achievements-container">
@@ -125,15 +125,15 @@ const Analytics = () => {
                     <div id="side-column-journal-container">
                         <div id="side-column-journal-title-container">
                             <h3 id="side-column-journal-title">Mood Journals</h3>
-                            <NavLink id='side-col-edit-journal-links' to='/journal'>
-                                <EditIcon/>
+                            <NavLink id='side-col-edit-journal-links' to='/journal' data-cy="create-journal">
+                                <EditIcon />
                             </NavLink>
                         </div>
                         <div id='side-column-books-container'>
-                            <NavLink className='side-column-img-links' to='/archived-thoughts'>
+                            <NavLink className='side-column-img-links' to='/archived-thoughts' data-cy="archived-thoughts">
                                 <img className='side-column-img' alt="archived-journal" src={archive}></img>
                             </NavLink>
-                            <NavLink className='side-column-img-links' to='/active-thoughts'>
+                            <NavLink className='side-column-img-links' to='/active-thoughts' data-cy="active-thoughts">
                                 <img className='side-column-img' alt="active-journal" src={active}></img>
                             </NavLink>
                         </div>
@@ -142,6 +142,7 @@ const Analytics = () => {
                         <NavLink 
                             className='side-column-ext-links' 
                             to='/bubbles'
+                            data-cy="nav-to-bubbles"
                             state={totalTasksCompleted != null && { numBubbles: totalTasksCompleted}}
                         >
                             Pop some bubbles!
