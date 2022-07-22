@@ -32,7 +32,7 @@ const TotalStudyTime = () => {
                 querySnapshot.forEach((doc) => {
                     let record = {
                         date: doc.data()["date"],
-                        count: Number((doc.data()["time"] / 3600000).toFixed(3)),
+                        count: Number((doc.data()["time"])),
                     };
                     timeStudiedRecords.push(record);
                     console.log(timeStudiedRecords);
@@ -46,9 +46,13 @@ const TotalStudyTime = () => {
         }
     }, [user.uid]);
 
+    let seconds = ("0" + (Math.floor((totalTimeStudied / 1000) % 60) % 60)).slice(-2);
+    let minutes = ("0" + Math.floor((totalTimeStudied / 60000) % 60)).slice(-2);
+    let hours = ("0" + Math.floor((totalTimeStudied / 3600000) % 60)).slice(-2);
+
     return (
         <div className="achievements">
-            <h3 className="total-study-time">Total time studied: {totalTimeStudied.toFixed(3)} hours</h3>
+            <p className="total-study-time">Total time studied: {hours} hours {minutes} minutes {seconds} seconds</p>
         </div>
     )
 
