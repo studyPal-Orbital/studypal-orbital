@@ -36,6 +36,7 @@ const Todolist = () => {
         setSortButtonsClicked(() => !sortButtonsClicked)
     }
 
+    /* Retreive current sort order of todo list */ 
     useEffect(() => {
         let active = true
         if (active == true && user.uid != null) {

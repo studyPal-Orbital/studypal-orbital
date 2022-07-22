@@ -10,9 +10,11 @@ const Bubble = (props) => {
 
     /* Play bubble popping sound when user clicks on a bubble */
     const popBubble = () => {
-        let audio = new Audio("https://audio.jukehost.co.uk/ukFt6j6ykVkjmsX92sqF4wfexFLT2bJ2")
-        audio.play()
-        setBubbleState(() => pop)
+        if (bubbleState === prepop) {
+            let audio = new Audio("https://audio.jukehost.co.uk/ukFt6j6ykVkjmsX92sqF4wfexFLT2bJ2")
+            audio.play()
+            setBubbleState(() => pop)
+        }
     }
 
     return (
@@ -25,7 +27,6 @@ const Bubble = (props) => {
             data-cy="bubble"
         />
     )
-
 }
 
 export default Bubble

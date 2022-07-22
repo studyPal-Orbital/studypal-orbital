@@ -3,14 +3,32 @@
     margin-top: 3%;
 }
 
-#bubble-wrap-nav-link {
+#bubble-wrap-caption {
     margin-left: 10%;
+    margin-bottom: 2em;
+}
+
+
+#bubble-wrap-nav-link,
+#reset-bubbles {
     text-decoration: none;
     font-size: 1rem;
     padding: 0.7rem;
     border-radius: 10px;
     color: white;
+    border-width: 0px;
+    font-family:'Josefin Sans', sans-serif;
+    font-variant: normal; 
+}
+
+#bubble-wrap-nav-link {
+    margin-left: 10%;
     background-color: salmon;
+}
+
+#reset-bubbles {
+    background-color: rgb(94, 169, 235);
+    margin-left: 2%;
 }
 
 #bubble-wrap-container {

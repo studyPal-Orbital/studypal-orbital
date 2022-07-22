@@ -32,7 +32,7 @@ const Createtodo = ({closeCreateTodoScreen}) => {
     /* Add user created todo to firebase */ 
     const addNewTask = async (e) => {
         e.preventDefault()
-        if (inputTaskTitle != "") {
+        if (inputTaskTitle !== "") {
             let newTask = {
                 title: inputTaskTitle,
                 body: inputTaskBody,
