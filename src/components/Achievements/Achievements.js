@@ -9,6 +9,17 @@ import FiftyHours from './Icons/FiftyHours.js';
 import OneHundredHours from "./Icons/OneHundredHours.js";
 import TwoHundredHours from "./Icons/TwoHundredHours.js";
 import ThreeHundredHours from "./Icons/ThreeHundredHours.js";
+import FourHundredHours from "./Icons/FourHundredHours.js";
+import FiveHundredHours from "./Icons/FiveHundredHours.js";
+import SixHundredHours from "./Icons/SixHundredHours.js";
+import SevenHundredHours from "./Icons/SevenHundredHours.js";
+import EightHundredHours from "./Icons/EightHundredHours.js";
+import NineHundredHours from "./Icons/NineHundredHours.js";
+import OneThousandHours from "./Icons/OneThousandHours.js";
+import TwoThousandHours from "./Icons/TwoThousandHours.js";
+import ThreeThousandHours from "./Icons/ThreeThousandHours.js";
+import FourThousandHours from "./Icons/FourThousandHours.js";
+import FiveThousandHours from "./Icons/FiveThousandHours.js";
 
 const Achievements = () => {
     return (
@@ -52,89 +63,67 @@ const Achievements = () => {
             
             <div className="card">
                 <div className="container">
-                    <h4>400 hours</h4>
-                    <i class="fa-solid fa-star fa-2x four-badge"></i>
-                    <p>Accomplished</p>
+                    <FourHundredHours />
                 </div>
             </div>
             
             <div className="card">
                 <div className="container">
-                    <h4>500 hours</h4>
-                    <i class="fa-solid fa-award fa-2x five-badge"></i>
-                    <p>Accomplished</p>
+                    <FiveHundredHours />
                 </div>
             </div>
             
             <div className="card">
                 <div className="container">
-                    <h4>600 hours</h4>
-                    <i class="fa-solid fa-award fa-2x six-badge"></i>
-                    <p>Accomplished</p>
+                    <SixHundredHours />
                 </div>
             </div>
 
             <div className="card">
                 <div className="container">
-                    <h4>700 hours</h4>
-                    <i class="fa-solid fa-award fa-2x seven-badge"></i>
-                    <p>Accomplished</p>
+                    <SevenHundredHours />
                 </div>
             </div>
             
             <div className="card">
                 <div className="container">
-                    <h4>800 hours</h4>
-                    <i class="fa-solid fa-medal fa-2x eight-medal"></i>
-                    <p>Accomplished</p>
+                    <EightHundredHours />
                 </div>
             </div>
             
             <div className="card">
                 <div className="container">
-                    <h4>900 hours</h4>
-                    <i class="fa-solid fa-medal fa-2x nine-medal"></i>
-                    <p>Accomplished</p>
+                    <NineHundredHours />
                 </div>
             </div>
             
             <div className="card">
                 <div className="container">
-                    <h4>1000 hours</h4>
-                    <i class="fa-solid fa-medal fa-2x ten-medal"></i>
-                    <p>Accomplished</p>
+                    <OneThousandHours />
                 </div>
             </div>
             
             <div className="card">
                 <div className="container">
-                    <h4>2000 hours</h4>
-                    <i class="fa-solid fa-trophy fa-2x twenty-trophy"></i>
-                    <p>Accomplished</p>
+                    <TwoThousandHours />
                 </div>
             </div>
             
             <div className="card">
                 <div className="container">
-                    <h4>3000 hours</h4>
-                    <i class="fa-solid fa-trophy fa-2x thirty-trophy"></i>
-                    <p><i class="fa-solid fa-lock"></i> Locked</p>
+                    <ThreeThousandHours />
                 </div>
             </div>
             
             <div className="card">
                 <div className="container">
-                    <h4>4000 hours</h4>
-                    <i class="fa-solid fa-trophy fa-2x forty-trophy"></i>
-                    <p><i class="fa-solid fa-lock"></i> Locked</p>
+                    <FourThousandHours />
                 </div>
             </div>
             
             <div className="card">
                 <div className="container">
-                    <h4>5000 hours</h4>
-                    <i class="fa-solid fa-crown fa-2x fifty-crown"></i>
-                    <p><i class="fa-solid fa-lock"></i> Locked</p>
+                    <FiveThousandHours />
                 </div>
             </div>
 
