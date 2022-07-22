@@ -78,6 +78,7 @@ const Analytics = () => {
         if (active === true & user.uid !== null) {
             const q = query(collection(db, "todos-record"), where("uid", "==", user.uid))
             console.log("Retrieving user task completion records")
+            console.log(user.uid)
             onSnapshot(q, (querySnapshot) => {
                 let taskRecords = []
                 querySnapshot.forEach((doc) => {
