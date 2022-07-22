@@ -6,10 +6,10 @@ import CloseIcon from '@mui/icons-material/Close';
 const ArchiveJournalSubmission = () => {
     return (
         <div id='archive-journal-submission'>
-            <NavLink className='journal-nav-link' to='/analytics'>
+            <NavLink className='journal-nav-link' to='/analytics' data-cy="close">
                 <CloseIcon className='journal-nav-icon'/>
             </NavLink>
-            <p className='journal-submission-text'>Congrats on letting go of your negative emotions!</p>
+            <p className='journal-submission-text' data-cy="thoughts-let-go-journal-text">Congrats on letting go of your negative emotions!</p>
         </div>
     )
 }

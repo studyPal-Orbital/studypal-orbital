@@ -11,7 +11,7 @@ const LandingPage = () => {
                 <p id="landing-page-caption">A productivity application to help you plan your busy days!</p>
                 <div id='landing-page-button-container'>
                     <Link className="landing-page-button" id="landing-page-login-button" to='/login' data-cy="log-in">Log in</Link>
-                    <Link className="landing-page-button" id="landing-page-signup-button" to='/signup'>Sign up</Link>
+                    <Link className="landing-page-button" id="landing-page-signup-button" to='/signup' data-cy="sign-up">Sign up</Link>
                 </div>
             </div>
             <div id="landing-page-img-container">

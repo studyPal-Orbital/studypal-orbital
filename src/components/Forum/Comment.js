@@ -19,7 +19,7 @@ const Comment = (props) => {
             <div id="comment-img-container">
                 <img id="user-comment-profile" src={cat}></img>
                 {user.uid == props.userID ? 
-                <button id="delete-comment" onClick={deleteComment}>
+                <button id="delete-comment" data-cy="delete-comment" onClick={deleteComment}>
                     <DeleteIcon/>
                 </button> 
                 : <></>

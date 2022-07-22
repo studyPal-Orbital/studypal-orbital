@@ -82,6 +82,7 @@ const JournalEntry = () => {
                         className={"journal-entry-input"}
                         onChange={createJournalTitle}
                         value={title}
+                        data-cy="title"
                     />
                 </div>
                 <div className="journal-entry-prompts">
@@ -91,6 +92,7 @@ const JournalEntry = () => {
                         className={"journal-entry-input"}
                         onChange={createJournalBody}
                         value={body}
+                        data-cy="body"
                     />
                 </div>
                 <div className="journal-entry-prompts">
@@ -100,13 +102,16 @@ const JournalEntry = () => {
                         className={"journal-entry-input"}
                         onChange={createJournalConclusion}
                         value={conclusion}
+                        data-cy="conclusion"
                     />
                 </div>
                 <div id="journal-entry-button-container">
-                    <button className="journal-entry-button" onClick={addNewArchiveJournal}>
+                    <button className="journal-entry-button" onClick={addNewArchiveJournal} data-cy="set-archive-journal">
                         I'm ready to let go of my negative thoughts!
                     </button>
-                    <button className="journal-entry-button" onClick={addNewActiveJournal}>
+                    <button className="journal-entry-button" 
+                            onClick={addNewActiveJournal}
+                            data-cy="set-active-journal">
                         I'm not ready to let these thoughts go
                     </button>
                 </div>

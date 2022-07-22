@@ -45,9 +45,9 @@ const Comments = () => {
       }, [user.uid])
 
     return (
-        <div id="comments-container">
+        <div id="comments-container" data-cy="comments">
           <div id="comments-desc-container">
-              <NavLink id="comments-nav-link" to='/forum'>
+              <NavLink id="comments-nav-link" data-cy="nav-back-to-forum" to='/forum'>
                 Back        
               </NavLink>
               <h2 id="comments-page-post-title">{postTitle}</h2>

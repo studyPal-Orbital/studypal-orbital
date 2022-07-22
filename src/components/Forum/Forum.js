@@ -61,18 +61,20 @@ const Achievements = () => {
     }
 
     return (
-        <div id="forum-content-container">
+        <div id="forum-content-container" data-cy="forum">
             <Header />
             <Title name={"Forum"} />
             <div id="forum-container">
                 <div id="forum-side-bar">
                     <NavLink 
                         className="nav-link-forum"
-                        to='/forum/canvas'>View canvas
+                        to='/forum/canvas'
+                        data-cy="nav-to-canvas">View canvas
                     </NavLink>
                     <NavLink 
                         className="nav-link-forum"
-                        to='/forum/createpost'>Create Post
+                        to='/forum/createpost'
+                        data-cy="nav-to-create-post">Create Post
                     </NavLink>
                 </div>
                 <div id="forum-post-feed">
@@ -82,6 +84,7 @@ const Achievements = () => {
                             placeholder={"Search for a post"}
                             value={currentTitleSearched}
                             onChange={logUserInput}
+                            data-cy="search-posts"
                         />
                         <button id="refresh-button" onClick={resetUserInputSelection}> 
                             <RefreshIcon /> 
@@ -90,7 +93,10 @@ const Achievements = () => {
                     <div id="forum-search-results-container">
                         {currentTitleSearched != "" && currentPostTitles.map((title) => {
                             if (title.toLocaleLowerCase().match(currentTitleSearched.toLocaleLowerCase())) {
-                                return <button id={"forum-search-results"} value={title} onClick={logUserInputSelection}>
+                                return <button  id={"forum-search-results"} 
+                                                value={title} 
+                                                onClick={logUserInputSelection}
+                                                data-cy="search-results">
                                             <SearchIcon id="forum-search-results-icon" />
                                             {title}
                                         </button>

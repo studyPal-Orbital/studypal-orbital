@@ -23,7 +23,7 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            if (password.length <= 6) {
+            if (password.length < 6) {
                 setError(() => "Password should be at least 6 characters")
             } else {
                 if (password != confirmPassword) {
@@ -53,7 +53,7 @@ const Signup = () => {
                         Already have an account? {' '}
                         <Link to='/login'>Log in</Link>
                     </p>
-                    {setError != '' && <p id="signup-error">{error}</p>}
+                    {setError != '' && <p id="signup-error" data-cy="error">{error}</p>}
                 </div>
                 <form id='signup-form' onSubmit={handleSubmit}>
                     <div className='signup-label-container'>
@@ -61,6 +61,7 @@ const Signup = () => {
                         <input className='login-input' 
                             onChange={(e) => setUsername(e.target.value)} 
                             type='username' 
+                            data-cy="username"
                     />
                     </div>
                     <div className='signup-label-container'>
@@ -69,6 +70,7 @@ const Signup = () => {
                             className='signup-input' 
                             onChange={(e) => setEmail(e.target.value)} 
                             type='email' 
+                            data-cy="email"
                         />
                     </div>
                     <div className='signup-label-container'>
@@ -77,6 +79,7 @@ const Signup = () => {
                             className='signup-input' 
                             onChange={(e) => setPassword(e.target.value)} 
                             type='password' 
+                            data-cy="password"
                         />
                     </div>
                     <div className='signup-label-container'>
@@ -85,10 +88,11 @@ const Signup = () => {
                             className='signup-input' 
                             onChange={(e) => setConfirmPassword(e.target.value)} 
                             type='password' 
+                            data-cy="confirm-password"
                         />
                     </div>
                     <div>
-                        <button className='signup-button'>Sign up</button>
+                        <button className='signup-button' data-cy="signup">Sign up</button>
                         <p><Link to='/'>Home</Link></p>
                     </div>
                 </form>
