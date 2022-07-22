@@ -48,6 +48,7 @@ const TotalStudyTime = () => {
 
     let seconds = ("0" + (Math.floor((totalTimeStudied / 1000) % 60) % 60)).slice(-2);
     let minutes = ("0" + Math.floor((totalTimeStudied / 60000) % 60)).slice(-2);
+    /* Need debug hours */
     let hours = ("0" + Math.floor((totalTimeStudied / 3600000) % 60)).slice(-2);
 
     return (
