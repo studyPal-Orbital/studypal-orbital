@@ -26,9 +26,16 @@ const Achievements = () => {
     <>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" crossorigin="anonymous"></link>
     <div className="achievements">
-        <Title name={"Achievements"} />
-        <NavLink to="/analytics">Back</NavLink>
+        <div className="achievements-title">
+            <Title name={"Achievements"} />
+        </div>
+
+        <div className="achievements-back-button">
+            <NavLink id="nav-link-achievements" to="/analytics">Back</NavLink>
+        </div>
+
         <TotalStudyTime />
+
         <div className="cards">
 
             <div className="card">
