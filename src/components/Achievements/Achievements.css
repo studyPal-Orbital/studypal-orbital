@@ -1,3 +1,7 @@
+.total-study-time {
+    padding-left: 7%;
+}
+
 .cards {
     display: flex;
     flex-wrap: wrap;
@@ -24,9 +28,15 @@
     padding: 2px 16px;
 }
 
-.half-star {
+/* Icon Styles */
+.first-study-session-done {
+    color: salmon;
+}
+
+.fifty-hours-done {
     color: #1c91d4;
 }
+
 .half-stroke-star {
     color: #a56ae6;
 }
@@ -81,6 +91,8 @@
     animation: fa-bounce 1s infinite linear;
 }
 
+.first-study-session-locked,
+.fifty-hours-locked,
 .thirty-trophy,
 .forty-trophy,
 .fifty-crown {
