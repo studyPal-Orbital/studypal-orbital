@@ -10,13 +10,17 @@ const Countdown = () => {
     // Pop-up page after countdown has stopped.
     const [countdownEnd, setCountdownEnd] = useState(false);
 
+    const start = Date.now();
+
     // Whenever timerRunning or totalTime changes, useEffect is called.
     useEffect(() => {
         let intervalId;
         if (timerRunning) {
             // If timer is running, start interval.
             intervalId = setInterval(() => {
-                const remainingTime = totalTime - 1000;
+                const current = Date.now();
+                const elapsed = current - start;
+                const remainingTime = totalTime - elapsed;
                 if (remainingTime >= 0) {
                     // Update total time accordingly.
                     setTotalTime(remainingTime);
