@@ -87,13 +87,23 @@ const Countdown = () => {
         }
     };
     
-    // Display time as 2 digits by concatenating a “0” in front (to correct 1 digit),
-    // then use slide() to take the last 2 digits (to correct results with more than 2 digits).
-    // e.g. totalTime = 5h 18min = 19 080 000 should be displayed as 05:18:00, 
-    // i.e. seconds = 00, minutes = 018 = 18, hours = "0" + Math.floor(5.3) = 05.
-    let seconds = ("0" + (Math.floor((totalTime / 1000) % 60) % 60)).slice(-2);
-    let minutes = ("0" + Math.floor((totalTime / 60000) % 60)).slice(-2);
-    let hours = ("0" + Math.floor((totalTime / 3600000) % 60)).slice(-2);
+    /* Add a leading zero for single digits (less than 10) for formatting purposes. */
+    // padStart(targetLength, padString) pads current string with another string 
+    // until resulting string reaches target length. 
+    // The padding is applied from the start of current string.
+    // If current string length > targetLength, no effect.
+    const toTwoDigits = num => {
+        return num.toString().padStart(2, '0');
+    }
+
+    let seconds = Math.floor(totalTime / 1000);
+    let minutes = Math.floor(seconds / 60);
+    let hours = Math.floor(minutes / 60);
+
+    seconds = seconds % 60;
+    minutes = minutes % 60;
+    // 24 will automatically be changed to 00.
+    hours = hours % 24;
 
     return (
         <>
@@ -107,7 +117,7 @@ const Countdown = () => {
                 </div>
 
                 <div className="countdown-timeDisplay" data-cy="time-left">
-                    {hours} : {minutes}  : {seconds}
+                    {toTwoDigits(hours)} : {toTwoDigits(minutes)}  : {toTwoDigits(seconds)}
                 </div>
             
                 {/* Downwards White Arrow &#8681 */}
@@ -118,9 +128,9 @@ const Countdown = () => {
                 </div>
             </div>
             <div class="button-wrapper">
-                {/* Start - Show button when timer is not running and 
-                (start time is 0, or equals total time, or total time is 0). */}
-                {timerRunning === false && (startTime === 0 || startTime === totalTime || totalTime === 0) && (
+                {/* Start - Show button when timer is not running and  total time >= 1 second and
+                (start time is 0, or equals total time). */}
+                {timerRunning === false && totalTime >= 1000 && (startTime === 0 || totalTime >= startTime) && (
                     <button className="countdown-start" data-cy="start-timer" onClick={startTimer}>
                         Start
                     </button>
@@ -135,7 +145,7 @@ const Countdown = () => {
             
                 {/* Resume - Show button when timer is not running and 
                 (start time > 0, and not equals total time, and total time not equals 0). */}
-                {timerRunning === false && (startTime > 0 && startTime !== totalTime && totalTime !== 0) && (
+                {timerRunning === false && (startTime > 0 && totalTime < startTime && totalTime !== 0) && (
                     <button className="countdown-start" data-cy="resume-timer" onClick={startTimer}>
                         Resume
                     </button>
