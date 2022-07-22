@@ -6,6 +6,9 @@ import "./Achievements.css";
 import TotalStudyTime from "./TotalStudyTime.js";
 import FirstStudySession from "./Icons/FirstStudySession.js";
 import FiftyHours from './Icons/FiftyHours.js';
+import OneHundredHours from "./Icons/OneHundredHours.js";
+import TwoHundredHours from "./Icons/TwoHundredHours.js";
+import ThreeHundredHours from "./Icons/ThreeHundredHours.js";
 
 const Achievements = () => {
     return (
@@ -31,32 +34,26 @@ const Achievements = () => {
             
             <div className="card">
                 <div className="container">
-                    <h4>100 hours</h4>
-                    <i class="fa-solid fa-star-half-stroke fa-2x half-stroke-star"></i>
-                    <p>Accomplished</p>
+                    <OneHundredHours />
                 </div>
             </div>
             
             <div className="card">
                 <div className="container">
-                    <h4>200 hours</h4>
-                    <i class="fa-solid fa-star fa-2x two-star"></i>
-                    <p>Accomplished</p>
+                    <TwoHundredHours />
                 </div>
             </div>
             
             <div className="card">
                 <div className="container">
-                    <h4>300 hours</h4>
-                    <i class="fa-solid fa-star fa-2x three-star"></i>
-                    <p>Accomplished</p>
+                    <ThreeHundredHours />
                 </div>
             </div>
             
             <div className="card">
                 <div className="container">
                     <h4>400 hours</h4>
-                    <i class="fa-solid fa-award fa-2x four-badge"></i>
+                    <i class="fa-solid fa-star fa-2x four-badge"></i>
                     <p>Accomplished</p>
                 </div>
             </div>

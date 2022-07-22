@@ -3,7 +3,7 @@ import { db } from "../../../firebase.js";
 import { UserAuth } from "../../../context/AuthContext";
 import { collection, query, onSnapshot, where } from "firebase/firestore";
 
-function FiftyHours() {
+function ThreeHundredHours() {
     const { user } = UserAuth();
     const [timeStudied, setTimeStudied] = useState([]);
     const [totalTimeStudied, setTotalTimeStudied] = useState(0);
@@ -45,33 +45,33 @@ function FiftyHours() {
         }
     }, [user.uid]);
 
-    const FiftyHoursAccomplished = () => {
+    const ThreeHundredHoursAccomplished = () => {
         return (
             <>
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" crossorigin="anonymous"></link>
-            <h4>50 hours</h4>
-            <i class="fa-solid fa-star-half fa-2x fifty-hours-done"></i>
+            <h4>300 hours</h4>
+            <i class="fa-solid fa-star fa-2x three-hundred-hours-done"></i>
             <p>Accomplished</p>
             </>
         )
     }
 
-    const FiftyHoursLocked = () => {
+    const ThreeHundredHoursLocked = () => {
         return (
             <>
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" crossorigin="anonymous"></link>
-            <h4>50 hours</h4>
-            <i class="fa-solid fa-star-half fa-2x fifty-hours-locked"></i>
+            <h4>300 hours</h4>
+            <i class="fa-solid fa-star fa-2x three-hundred-hours-locked"></i>
             <p><i class="fa-solid fa-lock"></i> Locked</p>
             </>
         )
     }
 
-    if (totalTimeStudied < 50) {
-        return <FiftyHoursLocked />
+    if (totalTimeStudied < 300) {
+        return <ThreeHundredHoursLocked />
     } else {
-        return <FiftyHoursAccomplished />
+        return <ThreeHundredHoursAccomplished />
     }
 }
 
-export default FiftyHours;
+export default ThreeHundredHours;

@@ -31,7 +31,8 @@ function FirstStudySession() {
                 querySnapshot.forEach((doc) => {
                     let record = {
                         date: doc.data()["date"],
-                        count: Number((doc.data()["time"] / 3600000).toFixed(3)),
+                        /* toFixed(4) since 1 second is 1/3600 = 0.0003 hours */
+                        count: Number((doc.data()["time"] / 3600000).toFixed(4)),
                     };
                     timeStudiedRecords.push(record);
                     console.log(timeStudiedRecords);
@@ -49,7 +50,7 @@ function FirstStudySession() {
         return (
             <>
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" crossorigin="anonymous"></link>
-            <h4>1st Study Session</h4>
+            <h4>1st use of timer</h4>
             <i class="fa-solid fa-circle-check fa-2x first-study-session-done"></i>
             <p>Accomplished</p>
             </>
@@ -60,18 +61,18 @@ function FirstStudySession() {
         return (
             <>
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" crossorigin="anonymous"></link>
-            <h4>50 hours</h4>
-            <i class="fa-solid fa-star-half fa-2x first-study-session-locked"></i>
+            <h4>1st use of timer</h4>
+            <i class="fa-solid fa-circle-check fa-2x first-study-session-locked"></i>
             <p><i class="fa-solid fa-lock"></i> Locked</p>
             </>
         )
     }
 
-    if (totalTimeStudied == 0) {
+    if (totalTimeStudied <= 0) {
         return <FirstStudySessionLocked />
     } else {
         return <FirstStudySessionAccomplished />
     }
 }
 
-export default FirstStudySession
+export default FirstStudySession;

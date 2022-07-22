@@ -37,14 +37,15 @@
     color: #1c91d4;
 }
 
-.half-stroke-star {
+.one-hundred-hours-done {
     color: #a56ae6;
 }
 
-.two-star {
+.two-hundred-hours-done {
     color: #f7a202;
     animation: fa-spin 10s infinite linear;
 }
+
 
 .three-star {
     color: #5dba76;
@@ -93,6 +94,8 @@
 
 .first-study-session-locked,
 .fifty-hours-locked,
+.one-hundred-hours-locked,
+.two-hundred-hours-locked,
 .thirty-trophy,
 .forty-trophy,
 .fifty-crown {
