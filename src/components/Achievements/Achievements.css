@@ -1,3 +1,27 @@
+.achievements-title {
+    padding-top: 2%;
+}
+
+.achievements-back-button {
+    padding-top: 1%;
+}
+
+#nav-link-achievements {
+    padding: 0.7rem;
+    margin-left: 7%;
+    text-decoration: none;
+    background-color: salmon;
+    border-radius: 10px;
+    color: white;
+}
+
+.total-study-time {
+    padding-top: 2%;
+    padding-left: 7%;
+    font-size: 1.3em;
+    font-weight: 400;
+}
+
 .cards {
     display: flex;
     flex-wrap: wrap;
@@ -24,65 +48,99 @@
     padding: 2px 16px;
 }
 
-.half-star {
+/* Icon Styles */
+.first-study-session-done {
+    color: salmon;
+}
+
+.fifty-hours-done {
     color: #1c91d4;
 }
-.half-stroke-star {
+
+.one-hundred-hours-done {
     color: #a56ae6;
 }
 
-.two-star {
+.two-hundred-hours-done {
     color: #f7a202;
     animation: fa-spin 10s infinite linear;
 }
 
-.three-star {
+.three-hundred-hours-done {
     color: #5dba76;
     animation: fa-spin 10s infinite linear;
 }
 
-.four-badge {
+.four-hundred-hours-done {
     color: #f55b53;
     animation: fa-beat 3s infinite linear;
 }
 
-.five-badge {
+.five-hundred-hours-done {
     color: #f7a202;
     animation: fa-beat 2.5s infinite linear;
 }
 
-.six-badge {
+.six-hundred-hours-done {
     color: #5dba76;
     animation: fa-beat 2.5s infinite linear;
 }
 
-.seven-badge {
+.seven-hundred-hours-done {
     color: #f55b53;
     animation: fa-beat 2.5s infinite linear;
 }
 
-.eight-medal {
+.eight-hundred-hours-done {
     color: #f7a202;
     animation: fa-flip 4s infinite linear;
 }
 
-.nine-medal {
+.nine-hundred-hours-done {
     color: #5dba76;
     animation: fa-flip 4s infinite linear;
 }
 
-.ten-medal {
+.one-thousand-hours-done {
     color: #f55b53;
     animation: fa-flip 4s infinite linear;
 }
 
-.twenty-trophy {
+.two-thousand-hours-done {
     color: #f7a202;
     animation: fa-bounce 1s infinite linear;
 }
 
-.thirty-trophy,
-.forty-trophy,
-.fifty-crown {
+.three-thousand-hours-done {
+    color: #5dba76;
+    animation: fa-bounce 1s infinite linear;
+}
+
+.four-thousand-hours-done {
+    color: #f55b53;
+    animation: fa-bounce 1s infinite linear;
+}
+
+.five-thousand-hours-done {
+    color: #f55b53;
+    animation: fa-shake 1s infinite linear;
+}
+
+.first-study-session-locked,
+.fifty-hours-locked,
+.one-hundred-hours-locked,
+.two-hundred-hours-locked,
+.three-hundred-hours-locked,
+.four-hundred-hours-locked,
+.five-hundred-hours-locked,
+.six-hundred-hours-locked,
+.seven-hundred-hours-locked,
+.eight-hundred-hours-locked,
+.nine-hundred-hours-locked,
+.one-thousand-hours-locked,
+.two-thousand-hours-locked,
+.three-thousand-hours-locked,
+.four-thousand-hours-locked,
+.five-thousand-hours-locked {
     color: #212121;
 }
