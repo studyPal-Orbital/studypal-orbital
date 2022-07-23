@@ -88,7 +88,7 @@ const Countdown = () => {
     };
     
     // Display time as 2 digits by concatenating a “0” in front (to correct 1 digit),
-    // then use slide() to take the last 2 digits (to correct results with more than 2 digits).
+    // then use slice() to take the last 2 digits (to correct results with more than 2 digits).
     // e.g. totalTime = 5h 18min = 19 080 000 should be displayed as 05:18:00, 
     // i.e. seconds = 00, minutes = 018 = 18, hours = "0" + Math.floor(5.3) = 05.
     let seconds = ("0" + (Math.floor((totalTime / 1000) % 60) % 60)).slice(-2);
