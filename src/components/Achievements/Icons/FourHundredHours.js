@@ -20,7 +20,7 @@ function FourHundredHours() {
     /* Retrieve user study time */
     useEffect(() => {
         let active = true;
-        if ((active === true) & (user.uid !== null)) {
+        if ((active === true) & (user.uid != null)) {
             const q = query(
                 collection(db, "time-studied-record"),
                 where("uid", "==", user.uid)
