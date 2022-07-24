@@ -75,7 +75,7 @@ const Analytics = () => {
     /* Retrieve all user task completion records by day for the activity heatmap */
     useEffect(() => {
         let active = true
-        if (active === true & user.uid !== null) {
+        if (active === true & user.uid != null) {
             const q = query(collection(db, "todos-record"), where("uid", "==", user.uid))
             console.log("Retrieving user task completion records")
             console.log(user.uid)
@@ -97,7 +97,7 @@ const Analytics = () => {
     /* Retrieve all user time studied records by day for the activity heatmap */
     useEffect(() => {
         let active = true
-        if (active === true & user.uid !== null) {
+        if (active === true & user.uid != null) {
             const q = query(collection(db, "time-studied-record"), where("uid", "==", user.uid))
             console.log("Retrieving user time studied records")
             onSnapshot(q, (querySnapshot) => {
