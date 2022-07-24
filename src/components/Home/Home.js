@@ -24,10 +24,21 @@ const Home = () => {
     const greeting = currentHour >= 8 && currentHour < 12 ? "Good Morning" : 
                         currentHour >= 12 && currentHour < 18 ? "Good Afternoon" : "Good Evening"
     
+    // Log out current user
+    const handleLogout = async () => {
+        try {
+            await logout()
+            navigate('/')
+            console.log('You are logged out')
+        } catch (e) {
+            console.log(e.message)
+        }
+    }
+    
     // Fetch calendar events to display notifications for upcoming events (if any) 
     useEffect(() => {
         let active = true
-        if (active === true & user.uid !== null) {
+        if (active === true && user.uid != null) {
             const q = query(collection(db, "calendar"), where ("uid", "==", user.uid), orderBy("start"))
             console.log("Retrieving calendar records")
             onSnapshot(q, (querySnapshot) => {
@@ -50,17 +61,6 @@ const Home = () => {
             })
             return () => {active = false}}
     }, [user.uid])
-
-    // Log out current user
-    const handleLogout = async () => {
-        try {
-            await logout()
-            navigate('/')
-            console.log('You are logged out')
-        } catch (e) {
-            console.log(e.message)
-        }
-    }
 
     return (
          <div id="home-page-container">
