@@ -49,7 +49,7 @@ const Countdown = () => {
         setTimerRunning(true);
         setStartTime(totalTime);
         setTotalTime(totalTime);
-        setStudyTime(totalTime)
+        setStudyTime(totalTime);
     };
 
     // Called when timer is stopped.
