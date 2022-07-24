@@ -88,6 +88,7 @@ const CalendarGrid = (props) => {
     if (confirmDeleteEvent) {
       console.log(e)
       await deleteDoc(doc(db, "calendar", e.docId))
+      
     }
   }
 
@@ -100,13 +101,12 @@ const CalendarGrid = (props) => {
           <Calendar
             defaultDate={moment().toDate()}
             defaultView="month"
-            views={['month','week','agenda']}
+            views={['month','week','day','agenda']}
             localizer={localizer}
             events={events}
             selectable
             onSelectSlot={createNewEvent}
             onSelectEvent={deleteCurrentEvent}
-            popup
           />   
         </div>
       </div>
