@@ -105,7 +105,8 @@ const Analytics = () => {
                 querySnapshot.forEach((doc) => {
                     let record = {
                         date: doc.data()['date'],
-                        count: Number((doc.data()['time'] / 3600000).toFixed(3))
+                        // 1 second = 1 / 3600 = 0.0002777...
+                        count: Number((doc.data()['time']))
                     }
                     timeStudiedRecords.push(record)
                     console.log(timeStudiedRecords)
@@ -167,13 +168,27 @@ const Analytics = () => {
                             values={timeStudied}
                             classForValue= {classForValue}
                             tooltipDataAttrs={value => {
-                                let count = 0
+                                let count = 0;
+                                let displaySec = 0;
+                                let displayMin = 0;
+                                let displayHours = 0;
+
+                                const toTwoDigits = num => {
+                                    return num.toString().padStart(2, '0');
+                                };
+
                                 if (value.count != null) {
-                                    count = value.count
-                                }
+                                    count = value.count.toFixed(6);
+                                    displaySec = Math.floor(count / 1000);
+                                    displayMin = Math.floor(displaySec / 60);
+                                    displayHours = Math.floor(displayMin / 60);
+                                    
+                                    displaySec = displaySec % 60;
+                                    displayMin = displayMin % 60;
+                                };
                                 return {
-                                  'data-tip': `${count} hours studied`
-                                }
+                                  'data-tip': `${toTwoDigits(displayHours)}h ${toTwoDigits(displayMin)}m ${toTwoDigits(displaySec)}s studied`
+                                };
                             }
                         }
                     />
@@ -203,5 +218,3 @@ const Analytics = () => {
 }
 
 export default Analytics
-
-
