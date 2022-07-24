@@ -12,6 +12,7 @@ import night from "../gif/night.gif";
 import sunset from "../gif/sunset.gif";
 import train from "../gif/train.gif";
 import cat from "../gif/cat.gif";
+import { faL } from '@fortawesome/free-solid-svg-icons'
 
 const songTitles = ['Celtic Battle', 
                     'Rain lo-fi', 
@@ -49,7 +50,7 @@ const Music = () => {
     const [ userSongSearchInput, setUserSongSearchInput ] = useState("")
     const [ userSelectedSongTitle, setUserSelectedSongTitle ] = useState("")
     const [ userSelectedSongTrack, setUserSelectedSongTrack ] = useState(songs[0])
-    const [ collapseSearchBar, setCollapseSearchBar ] = useState(false)
+    const [ collapseSearchBar, setCollapseSearchBar ] = useState(true)
 
     /* Retrieve all songs */
     useEffect((e) => {
@@ -118,6 +119,7 @@ const Music = () => {
                     value={userSongSearchInput}
                     onChange={recordUserSongSearchInput}
                     data-cy="search-music"
+                    onClick={() => setCollapseSearchBar(!collapseSearchBar)}
                 />
                 <button id="next-button" onClick={showNextGif}>
                         Next Gif
@@ -136,10 +138,22 @@ const Music = () => {
                                     {song}
                                 </button>
                     )}})}
+                    {collapseSearchBar == false && userSongSearchInput == "" && genreCategorySongTitles.map((song) => {
+                        return (
+                            <button 
+                                value={song} 
+                                onClick={recordUserSelectedSong}
+                                id={"music-search-option"}
+                                data-cy="option"
+                            >
+                                {song}
+                            </button>
+                    )})}
                 </div>
             <img
                 id="music-bg"
                 src={gif[gifState]}
+                onClick={() => setCollapseSearchBar(true)}
             />
             {userSelectedSongTitle != "" && <audio controls 
                 id="audio-bar"

@@ -23,6 +23,7 @@ const Achievements = () => {
     const [ currentPostTitles, setCurrentPostTitles ] = useState([])
     const [ currentTitleSearched, setCurrentTitleSearched ] = useState("")
     const [ currentTitleSelected, setCurrentTileSelected ] = useState("")
+    const [ collapseSearchBar, setCollapseSearchBar ] = useState(true)
 
     /* Retrieve all posts */
     useEffect(() => {
@@ -53,6 +54,7 @@ const Achievements = () => {
     const logUserInputSelection = (e) => {
         setCurrentTileSelected(() => e.target.value)
         setCurrentTitleSearched(() => "")
+        setCollapseSearchBar(() => true)
     }
 
     /* Display all posts on the page without search filters */
@@ -62,8 +64,8 @@ const Achievements = () => {
 
     return (
         <div id="forum-content-container" data-cy="forum">
-            <Header />
-            <Title name={"Forum"} />
+            <Header/>
+            <Title name={"Forum"}/>
             <div id="forum-container">
                 <div id="forum-side-bar">
                     <NavLink 
@@ -85,13 +87,14 @@ const Achievements = () => {
                             value={currentTitleSearched}
                             onChange={logUserInput}
                             data-cy="search-posts"
+                            onClick={() => setCollapseSearchBar(!collapseSearchBar)}
                         />
                         <button id="refresh-button" onClick={resetUserInputSelection}> 
                             <RefreshIcon /> 
                         </button>
                     </div>
                     <div id="forum-search-results-container">
-                        {currentTitleSearched != "" && currentPostTitles.map((title) => {
+                        {!collapseSearchBar && currentTitleSearched != "" && currentPostTitles.map((title) => {
                             if (title.toLocaleLowerCase().match(currentTitleSearched.toLocaleLowerCase())) {
                                 return <button  id={"forum-search-results"} 
                                                 value={title} 
@@ -101,6 +104,16 @@ const Achievements = () => {
                                             {title}
                                         </button>
                             }})
+                        }
+                        {!collapseSearchBar && currentTitleSearched == "" && currentPostTitles.map((title) => {
+                                return <button  id={"forum-search-results"} 
+                                                value={title} 
+                                                onClick={logUserInputSelection}
+                                                data-cy="search-results">
+                                            <SearchIcon id="forum-search-results-icon" />
+                                            {title}
+                                        </button>
+                            })
                         }
                     </div>
                     {currentPosts.map((post) => {

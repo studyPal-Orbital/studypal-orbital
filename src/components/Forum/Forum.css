@@ -77,6 +77,11 @@
     border-radius: 10px;
 }
 
+#forum-search-results:hover {
+    background-color: #98d4f8;
+    color: black;
+}
+
 #forum-search-results-icon {
     margin-right: 1%;
     margin-left: 1%;
