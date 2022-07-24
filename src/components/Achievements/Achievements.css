@@ -53,6 +53,11 @@
     color: salmon;
 }
 
+.one-hour-done {
+    color: #fab75f;
+    animation: fa-shake 3s infinite linear;
+}
+
 .fifty-hours-done {
     color: #1c91d4;
 }
@@ -127,6 +132,7 @@
 }
 
 .first-study-session-locked,
+.one-hour-locked,
 .fifty-hours-locked,
 .one-hundred-hours-locked,
 .two-hundred-hours-locked,
