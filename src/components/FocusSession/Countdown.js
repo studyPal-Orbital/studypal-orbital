@@ -10,7 +10,7 @@ const Countdown = () => {
     // Pop-up page after countdown has stopped.
     const [countdownEnd, setCountdownEnd] = useState(false);
 
-    const start = Date.now();
+    const start = Math.floor(Date.now() / 1000);
 
     // Whenever timerRunning or totalTime changes, useEffect is called.
     useEffect(() => {
@@ -18,8 +18,8 @@ const Countdown = () => {
         if (timerRunning) {
             // If timer is running, start interval.
             intervalId = setInterval(() => {
-                const current = Date.now();
-                const elapsed = current - start;
+                const current = Math.floor(Date.now() / 1000);
+                const elapsed = (current - start) * 1000;
                 const remainingTime = totalTime - elapsed;
                 if (remainingTime >= 0) {
                     // Update total time accordingly.
@@ -35,13 +35,13 @@ const Countdown = () => {
                     // alert("Congratulations! You have successfully completed your study session!");
                 }
             }, 1000);
-        }
+        };
 
         // Stop timer.
         return() => {
             clearInterval(intervalId);
         }
-    }, [timerRunning, totalTime])
+    }, [timerRunning, totalTime]);
 
     // Called when timer is started or resumed.
     // Start the timer by setting it to running state, and setting current time as startTime and totalTime.
