@@ -20,6 +20,7 @@ import TwoThousandHours from "./Icons/TwoThousandHours.js";
 import ThreeThousandHours from "./Icons/ThreeThousandHours.js";
 import FourThousandHours from "./Icons/FourThousandHours.js";
 import FiveThousandHours from "./Icons/FiveThousandHours.js";
+import OneHour from "./Icons/OneHour.js";
 
 const Achievements = () => {
     return (
@@ -37,10 +38,16 @@ const Achievements = () => {
         <TotalStudyTime />
 
         <div className="cards">
-
+            
             <div className="card">
                 <div className="container">
                     <FirstStudySession />
+                </div>
+            </div>
+
+            <div className="card">
+                <div className="container">
+                    <OneHour />
                 </div>
             </div>
 
