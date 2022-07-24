@@ -11,7 +11,7 @@ const Bubble = (props) => {
     /* Play bubble popping sound when user clicks on a bubble */
     const popBubble = () => {
         if (bubbleState === prepop) {
-            let audio = new Audio("https://audio.jukehost.co.uk/ukFt6j6ykVkjmsX92sqF4wfexFLT2bJ2")
+            let audio = new Audio("https://d2plt0bjayjk67.cloudfront.net/bubble-pop.mp3")
             audio.play()
             setBubbleState(() => pop)
         }
