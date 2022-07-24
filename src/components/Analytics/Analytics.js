@@ -16,27 +16,58 @@ import {
 } from "firebase/firestore"
 import ReactTooltip from 'react-tooltip';
 
-/* Determine colour scale for activity heatmap */ 
-let classForValue = (value) => {
+/* Determine colour scale for Task Completion activity heatmap */ 
+let colourTaskCompletion = (value) => {
     let colScale = 1
     if (!value) {
       return 'color-empty';
     } else {
         let count = value.count
         switch (true) {
-            case count <= 5:
+            case count <= 3:
                 colScale = 1
                 break
-            case count <= 10:
+            case count <= 5:
                 colScale = 2
                 break
-            case count <= 15:
+            case count <= 10:
                 colScale = 3
                 break
-            case count <= 20:
+            case count <= 15:
                 colScale = 4
                 break
-            case count > 20:
+            case count > 15:
+                colScale = 5
+                break
+            default:
+                colScale = "empty"
+        }
+    }
+    return `color-scale-${colScale}`
+}
+
+/* Determine colour scale for Focus Sessions activity heatmap */ 
+let colourFocusSessions = (value) => {
+    let colScale = 1
+    if (!value) {
+      return 'color-empty';
+    } else {
+        // Convert to hours for colour scale.
+        let count = (value.count) / 3600000
+        switch (true) {
+            case count <= 3:
+                colScale = 1
+                break
+            case count <= 5:
+                colScale = 2
+                break
+            case count <= 10:
+                colScale = 3
+                break
+            case count <= 15:
+                colScale = 4
+                break
+            case count > 15:
                 colScale = 5
                 break
             default:
@@ -105,7 +136,8 @@ const Analytics = () => {
                 querySnapshot.forEach((doc) => {
                     let record = {
                         date: doc.data()['date'],
-                        count: Number((doc.data()['time'] / 3600000).toFixed(3))
+                        // in milliseconds
+                        count: Number((doc.data()['time']))
                     }
                     timeStudiedRecords.push(record)
                     console.log(timeStudiedRecords)
@@ -116,7 +148,6 @@ const Analytics = () => {
             return () => {active = false}}
     }, [user.uid])
 
-    
     return (
         <div id="profile-container" data-cy="profile">
             <Header />
@@ -157,7 +188,8 @@ const Analytics = () => {
                     <h3 id="analytics-title">Your Activity at a glance</h3>
                     <div id='overall-analytics-container'>
                         <p className="overall-analytics-desc">{totalTasksCompleted} tasks completed</p>
-                        <p className="overall-analytics-desc">{totalTimeStudied < 1 ? `< 1` : totalTimeStudied.toFixed(2)} hours spent studying</p>
+                        { /* Convert milliseconds to hours */}
+                        <p className="overall-analytics-desc">{(totalTimeStudied / 3600000) < 1 ? `< 1` : (totalTimeStudied / 3600000).toFixed(2)} hours spent studying</p>
                     </div>
                     <h3 className="analytics-heatmap-title">Focus Sessions</h3>
                     <CalendarHeatmap
@@ -165,15 +197,29 @@ const Analytics = () => {
                             startDate={new Date(`${new Date().getFullYear()-1}-12-31`)}
                             endDate={new Date(`${new Date().getFullYear()}-12-31`)}
                             values={timeStudied}
-                            classForValue= {classForValue}
+                            classForValue= {colourFocusSessions}
                             tooltipDataAttrs={value => {
-                                let count = 0
+                                let count = 0;
+                                let displaySec = 0;
+                                let displayMin = 0;
+                                let displayHours = 0;
+
+                                const toTwoDigits = num => {
+                                    return num.toString().padStart(2, '0');
+                                };
+
                                 if (value.count != null) {
-                                    count = value.count
-                                }
+                                    count = value.count.toFixed(6);
+                                    displaySec = Math.floor(count / 1000);
+                                    displayMin = Math.floor(displaySec / 60);
+                                    displayHours = Math.floor(displayMin / 60);
+                                    
+                                    displaySec = displaySec % 60;
+                                    displayMin = displayMin % 60;
+                                };
                                 return {
-                                  'data-tip': `${count} hours studied`
-                                }
+                                  'data-tip': `${toTwoDigits(displayHours)}h ${toTwoDigits(displayMin)}m ${toTwoDigits(displaySec)}s studied`
+                                };
                             }
                         }
                     />
@@ -183,7 +229,7 @@ const Analytics = () => {
                         startDate={new Date(`${new Date().getFullYear()-1}-12-31`)}
                         endDate={new Date(`${new Date().getFullYear()}-12-31`)}
                         values={tasksCompleted}
-                        classForValue={classForValue}
+                        classForValue={colourTaskCompletion}
                         tooltipDataAttrs={value => {
                             let count = 0
                             if (value.count != null) {
@@ -203,5 +249,3 @@ const Analytics = () => {
 }
 
 export default Analytics
-
-

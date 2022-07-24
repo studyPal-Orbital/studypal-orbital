@@ -46,14 +46,27 @@ const TotalStudyTime = () => {
         }
     }, [user.uid]);
 
+    /*
     let seconds = ("0" + (Math.floor((totalTimeStudied / 1000) % 60) % 60)).slice(-2);
     let minutes = ("0" + Math.floor((totalTimeStudied / 60000) % 60)).slice(-2);
-    /* Need debug hours */
+    // Need debug hours. Incorrect after 60 hours
     let hours = ("0" + Math.floor((totalTimeStudied / 3600000) % 60)).slice(-2);
+    */
+
+    const toTwoDigits = num => {
+        return num.toString().padStart(2, '0');
+    }
+
+    let seconds = Math.floor(totalTimeStudied / 1000);
+    let minutes = Math.floor(seconds / 60);
+    let hours = Math.floor(minutes / 60);
+
+    seconds = seconds % 60;
+    minutes = minutes % 60;
 
     return (
         <div className="achievements">
-            <p className="total-study-time">Total time studied: {hours} hours {minutes} minutes {seconds} seconds</p>
+            <p className="total-study-time">Total time studied: {toTwoDigits(hours)} hours {toTwoDigits(minutes)} minutes {toTwoDigits(seconds)} seconds</p>
         </div>
     )
 
