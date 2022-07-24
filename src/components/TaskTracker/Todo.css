@@ -41,17 +41,6 @@
     text-decoration: underline;
 }
 
-#sticky-note-container {
-    width: 30vw;
-    height: 55vh;
-    margin-left: 2vw;
-    padding: 1rem;
-    border-radius: 5px;
-    background-color: antiquewhite;
-    border-width: 0px;
-    resize: none;
-}
-
 .create-task-button,
 #submit-task-button,
 #inquiry-button {
@@ -145,9 +134,20 @@
 }
 
 /* Sticky */
+#sticky-note-container {
+    width: 30vw;
+    height: 55vh;
+    margin-left: 2vw;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: antiquewhite;
+    border-width: 0px;
+    resize: none;
+}
+
 #sticky-textbox {
     width: 90%;
-    height: 45vh;
+    height: 40vh;
     margin-top: 3%;
     border-radius: 5px;
     border-width: 0px;
