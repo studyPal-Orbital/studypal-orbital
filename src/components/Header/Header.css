@@ -24,3 +24,9 @@
 .nav-link:hover {
     background-color: rgb(255, 200, 194);
 }
+
+.nav-link.active {
+    background-color: rgb(255, 200, 194);
+}
+
+

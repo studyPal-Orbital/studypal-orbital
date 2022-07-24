@@ -58,7 +58,7 @@ const Comments = () => {
                 post={id}
             />
           </div>
-            <div id="current-comments-container">
+            <section id="current-comments-container">
               {currentComments.map((item) => (
                 <Comment 
                   comment={item.comment}
@@ -68,7 +68,7 @@ const Comments = () => {
                   userID={item.uid}
                 />
               ))}
-            </div>
+            </section>
         </div>
     )
 }

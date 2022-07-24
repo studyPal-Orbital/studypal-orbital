@@ -1,4 +1,5 @@
-
+.DS_Store
+.env
 node_modules/.cache/.eslintcache
 node_modules/.cache/babel-loader/002bdcde8e22e6966ad96882730e22d3.json
 node_modules/.cache/babel-loader/005313cf84d57ef1d8b0e6c41b5e2f0e.json
