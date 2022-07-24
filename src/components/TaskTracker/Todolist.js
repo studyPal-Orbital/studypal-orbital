@@ -204,6 +204,7 @@ const Todolist = () => {
                     </div>
                 </>
                 }
+
                 <div id="todo-items-container">
                     {createTask && <Createtodo closeCreateTodoScreen={recordUserCreateTaskSelection}/>}
                     <div id={"todo-table"} data-cy="todos">
@@ -218,10 +219,16 @@ const Todolist = () => {
                             />
                         ))}
                     </div>
+
+                    
+                        
                     <div id="sticky-note-container">
+                        <label id="notes-label">Note-Taking</label>
                         {sticky.length != 0 && <Sticky text={sticky}/>}
                         {sticky.length == 0 && <Sticky text={""}/>}
-                    </div>                     
+                    </div>           
+                    
+
                 </div>                
             </div>
         </div>

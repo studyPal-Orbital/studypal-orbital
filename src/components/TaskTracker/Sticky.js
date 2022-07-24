@@ -65,7 +65,7 @@ const Sticky = ( {text} ) => {
                 </button> 
                 <textarea
                     id="sticky-textbox"
-                    placeholder="Type down your tasks here :)"
+                    placeholder="Take down your notes here :)"
                     value={sticky}
                     onChange={recordUserStickyText}
                     style={{"border": "0.5px solid gray"}}

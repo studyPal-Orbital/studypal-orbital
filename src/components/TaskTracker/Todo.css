@@ -35,6 +35,12 @@
     overflow: scroll;
 }
 
+#notes-label {
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+}
+
 #sticky-note-container {
     width: 30vw;
     height: 55vh;

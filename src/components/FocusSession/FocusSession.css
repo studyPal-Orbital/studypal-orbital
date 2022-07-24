@@ -38,6 +38,12 @@
     background-color: #e4c4f3;
 }
 
+#goal-label {
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+}
+
 #countdown-container {
     height: 70%;  
 }
