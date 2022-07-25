@@ -1,5 +1,5 @@
 import React from "react"
-import './Todo.css'
+import './FocusSession.css'
 import { useState } from "react"
 import { UserAuth } from '../../context/AuthContext'
 import {db} from "../../firebase.js"
@@ -8,10 +8,10 @@ import {
     doc,
 } from "firebase/firestore"
 
-const Sticky = ( {text} ) => {
-    const {user}  = UserAuth()
+const GoalSetting = ( {text} ) => {
+    const {user}  = UserAuth();
 
-    const [sticky, setSticky] = useState(text)
+    const [goal, setGoal] = useState(text)
     const [stickyEditMode, setStickyEditMode] = useState(false)
 
     const toggleStickyEditMode = () => {
@@ -20,17 +20,17 @@ const Sticky = ( {text} ) => {
 
     /* Record user input in Sticky */
     const recordUserStickyText = (e) => {
-        setSticky(() => e.target.value)
+        setGoal(() => e.target.value)
     }
 
     /* Add user saved sticky to firebase */
     const addSticky = async (e) => {
         e.preventDefault()
-        let newSticky = {
-            content: sticky,
+        let newGoal = {
+            content: goal,
             uid: user.uid
         }
-        await setDoc(doc(db, "sticky", user.uid), newSticky)
+        await setDoc(doc(db, "goal", user.uid), newGoal)
         toggleStickyEditMode()
     }
 
@@ -46,27 +46,27 @@ const Sticky = ( {text} ) => {
                 >Edit
                 </button> 
                 <textarea 
-                    id="sticky-textbox" 
+                    id="goal-textbox" 
                     disabled="disabled"
-                    placeholder="Take down your notes here."
+                    placeholder="Type your goal for this session."
                     data-cy="non-edit-state-sticky"
                 >
-                    {sticky}
+                    {goal}
                 </textarea>
             </>
             }
             {stickyEditMode &&
             <>
                 <button 
-                    id="sticky-button"
+                    id="goal-button"
                     onClick={addSticky}
                     data-cy="edit-sticky"
                 >Save
                 </button> 
                 <textarea
-                    id="sticky-textbox"
-                    placeholder="Take down your notes here."
-                    value={sticky}
+                    id="goal-textbox"
+                    placeholder="Type your goal for this session."
+                    value={goal}
                     onChange={recordUserStickyText}
                     style={{"border": "0.5px solid gray"}}
                     data-cy="edit-state-sticky"
@@ -78,4 +78,4 @@ const Sticky = ( {text} ) => {
     )
 }
 
-export default Sticky
+export default GoalSetting;

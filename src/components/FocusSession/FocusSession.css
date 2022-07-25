@@ -20,15 +20,18 @@
     margin-left: 2%;
 }
 
+/* Sticky */
+#goal-label {
+    font-size: 1.1em;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+}
+
 #text-area-container {
     display: flex;
     flex-direction: column;
-    height: 30%;
-}
-
-#goal-setting-text-area {
-    height: 95%;
-    margin-top: 5%;
+    height: 20vh;
     border:0px;
     padding: 1rem;
     border-radius: 10px;
@@ -38,11 +41,45 @@
     background-color: #e4c4f3;
 }
 
+#goal-textbox {
+    width: 90%;
+    height: 7vh;
+    margin-top: 3%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    border-width: 0px;
+    background-color: transparent;
+    text-align: start;
+    font-family:'Josefin Sans', sans-serif;
+    font-variant: normal; 
+    outline: none;
+    font-size: 1.1em;
+    padding: 0.5em;
+    color: black;
+    resize: none;
+}
+
+#goal-button {
+    border-width: 0px;
+    background-color: salmon;
+    font-family:'Josefin Sans', sans-serif;
+    font-variant: normal; 
+    font-size: 0.9rem;
+    padding: 0.5em;
+    border-radius: 5px;
+    margin-top: 5%;
+    margin-left: 3%;
+    color: white;
+    cursor: pointer;
+}
+
+/* Countdown */ 
 #countdown-container {
     height: 70%;  
 }
 
-/* Countdown */ 
 #countdown-card {
     display: flex;
     flex-wrap: wrap;
@@ -257,7 +294,7 @@
 
 #music-bg {
     width: 100%;
-    height: 52vh;
+    height: 55vh;
     border-radius: 10px;
     
 }
