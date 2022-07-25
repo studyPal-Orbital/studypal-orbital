@@ -28,7 +28,7 @@
 
 #todo-table {
     width: 68vw;
-    height: 55vh;
+    height: 430px;
     padding: 1rem;
     border-radius: 5px;
     background-color: rgb(181, 201, 218);
@@ -44,6 +44,21 @@
 .create-task-button,
 #submit-task-button,
 #inquiry-button {
+    border-radius: 5px;
+    border-width: 0px;
+    margin-right: 3%;
+    margin-bottom: 2%;
+    font-size: 1em;
+    padding: 0.7em;
+    background-color: rgb(110, 207, 246);
+    color: white;
+    font-family:'Josefin Sans', sans-serif;
+    font-variant: normal; 
+    text-decoration: none;
+    cursor:pointer;
+}
+
+#submit-task-button {
     border-radius: 5px;
     border-width: 0px;
     margin-right: 3%;
@@ -136,7 +151,7 @@
 /* Sticky */
 #sticky-note-container {
     width: 30vw;
-    height: 55vh;
+    height: 430px;
     margin-left: 2vw;
     padding: 1rem;
     border-radius: 5px;
@@ -191,7 +206,7 @@
     width: 57%;
     z-index: 99;
     border-radius: 5px;
-    height: 55vh;
+    height: 430px;
     padding: 1rem;
 }
 
@@ -199,6 +214,13 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 3%;
+}
+
+.input-description-label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3%;
+    height:20px;
 }
 
 .input-label {
@@ -222,7 +244,7 @@
 }
 
 #desc-input {
-    height: 13vh;
+    height: 90px;
 }
 
 
