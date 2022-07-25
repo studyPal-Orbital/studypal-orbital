@@ -48,6 +48,9 @@ This project is inspired by our struggles with time management and managing stre
 - Material UI
     - `npm install @mui/material @emotion/react @emotion/styled`  
 
+- Cypress
+    - `npm i cypress` 
+
 <hr>
 
 # Getting Started with Create React App
