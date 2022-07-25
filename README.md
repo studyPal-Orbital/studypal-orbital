@@ -10,14 +10,13 @@ _A solution to procrastination and burnouts to boost productivity and time manag
 
 This project is inspired by our struggles with time management and managing stress during the school term in the National University of Singapore. Through this application, we aim to help students like us manage their workload by promoting productivity while maintaining mental well-being with its gamified user experience.
 
-### __Find out more about our project [here](https://docs.google.com/document/d/1npbHxikCJia8irHHHUqbvsTYPtyt_LPkwTjC2dYi_54/edit?usp=sharing).__
+### __Find out more about our project [here](https://docs.google.com/document/d/1kTSR6poqK8NBuzXOOStptgFTYs7Wmg_RgzziLn_f5Rk/edit?usp=sharing).__
 
 <hr>
 
 # Instructions for Use
 
-- We have temporarily deployed our web application using Netlify [here](https://ephemeral-sprite-af4305.netlify.app).
-    - It will be deployed using Amazon Web Services (AWS Lambda) at a later stage as we progress on our project.
+- We have deployed our web application using Amazon Web Services (AWS Lambda) [here](https://main.d2hsmk9iuwya52.amplifyapp.com/).
 - Alternatively, run `npm start` in the terminal to run the project locally.
     - More information can be found under the section "Getting Started with Create React App" below.
 
