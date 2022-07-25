@@ -43,8 +43,11 @@
 
 #goal-textbox {
     width: 90%;
-    height: 8vh;
+    height: 7vh;
     margin-top: 3%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 10px;
     border-width: 0px;
     background-color: transparent;
@@ -55,7 +58,6 @@
     font-size: 1.1em;
     padding: 0.5em;
     color: black;
-    margin-left: 3%;
     resize: none;
 }
 
