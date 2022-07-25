@@ -31,7 +31,7 @@
 #text-area-container {
     display: flex;
     flex-direction: column;
-    height: 20vh;
+    height: 150px; /* original: 20vh */
     border:0px;
     padding: 1rem;
     border-radius: 10px;
@@ -43,7 +43,7 @@
 
 #goal-textbox {
     width: 90%;
-    height: 7vh;
+    height: 55px; /* original: 7vh */
     margin-top: 3%;
     display: block;
     margin-left: auto;

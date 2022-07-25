@@ -151,7 +151,7 @@
 /* Sticky */
 #sticky-note-container {
     width: 30vw;
-    height: 430px;
+    height: 430px; /* original: 55vh */
     margin-left: 2vw;
     padding: 1rem;
     border-radius: 5px;
@@ -162,7 +162,7 @@
 
 #sticky-textbox {
     width: 90%;
-    height: 40vh;
+    height: 310px; /* original: 40vh */
     margin-top: 3%;
     display: block;
     margin-left: auto;
@@ -202,11 +202,10 @@
 #create-task-container {
     position: absolute;
     background-color: rgb(181, 201, 218);
-    height:56.5%;
     width: 57%;
     z-index: 99;
     border-radius: 5px;
-    height: 430px;
+    height: 430px; /* original: 55vh */
     padding: 1rem;
 }
 
