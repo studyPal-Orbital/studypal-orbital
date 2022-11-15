@@ -16,7 +16,7 @@ This project is inspired by our struggles with time management and managing stre
 
 # Instructions for Use
 
-- We have deployed our web application using Amazon Web Services (AWS Lambda) [here](https://main.d2hsmk9iuwya52.amplifyapp.com).
+- We have deployed our web application using Amazon Web Services (AWS Lambda) [here](https://main.d3r58pu37lx7ze.amplifyapp.com).
 - Alternatively, run `npm start` in the terminal to run the project locally.
     - More information can be found under the section "Getting Started with Create React App" below.
 
