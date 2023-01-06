@@ -1,8 +1,8 @@
 # studyPal
 
-### studyPal web application for Orbital 2022
+### studyPal web application for NUS Orbital 2022
 
-### Level of Achievement: Apollo
+### Level of Achievement: Apollo (Difficult/Advanced)
 
 # Project Scope
 
