@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, HashRouter } from 'react-router-dom';
 import { AuthContextProvider } from './context/AuthContext';
 
 import './index.css';
@@ -17,7 +17,6 @@ import Comments from  './components/Forum/Comments.js';
 import CreateComment from './components/Forum/CreateComment.js';
 import NotFoundPage from './NotFoundPage.js'
 import React from 'react';
-import { BrowserRouter } from "react-router-dom";
 import JournalEntry from './components/Analytics/JournalEntry';
 import ActiveJournalSubmission from './components/Analytics/ActiveJournalSubmission';
 import ArchiveJournalSubmission from './components/Analytics/ArchiveJournalSubmission';
@@ -35,7 +34,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <AuthContextProvider>
-          <BrowserRouter>
+          <HashRouter>
             <Routes>
                 <Route path='/' element={<LandingPage/>}/>
                 <Route path='/login' element={<Login/>}/>
@@ -61,7 +60,7 @@ function App() {
                 <Route path='/about-todo' element={<Abouttodo/>}/>
                 <Route path='*' element={<NotFoundPage/>}/>
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
         </AuthContextProvider>
       </header>
     </div>
