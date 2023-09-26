@@ -1,6 +1,7 @@
 {
   "name": "studypal",
   "version": "0.1.0",
+  "homepage": "https://studyPal-Orbital.github.io/studypal-orbital",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.0",
@@ -53,6 +54,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "CI= react-scripts build",
     "test": "react-scripts test",
@@ -77,6 +80,7 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^10.3.0"
+    "cypress": "^10.3.0",
+    "gh-pages": "^6.0.0"
   }
 }
