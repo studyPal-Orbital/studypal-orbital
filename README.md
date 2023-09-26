@@ -1,7 +1,3 @@
-This is a backup for the actual studyPal Orbital project [here](https://github.com/studyPal-Orbital).
-
-<hr>
-
 # studyPal
 
 ### studyPal web application for NUS Orbital 2022
